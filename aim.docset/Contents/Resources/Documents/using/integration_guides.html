@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integration guides &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="../understanding/overview.html" />
+    <link rel="prev" title="Run Aim UI on SageMaker Notebook instance" href="sagemaker_notebook_ui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integration guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch-ignite">Pytorch Ignite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch-lightning">Pytorch Lightning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hugging-face">Hugging Face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tf-keras">TF/keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xgboost">XGBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#catboost">Catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lightgbm">LightGBM</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Integration guides</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/using/integration_guides.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="integration-guides">
+<h1>Integration guides<a class="headerlink" href="#integration-guides" title="Permalink to this heading"></a></h1>
+<p>Aim integrates seamlessly with your favorite ML frameworks - Pytorch Ignite, Pytorch Lightning, Hugging Face and others.
+Basic integration guides can be found at <a class="reference external" href="../quick_start/integrations.html">Quick Start</a> section.</p>
+<p>In this section we’re going to deep-dive into the ways we can extend the basic loggers, manipulate them to track a lot more. The basic loggers can track specific metrics and hyper-params only.</p>
+<p>There are two ways Aim callbacks/adapters/loggers can be extended:</p>
+<ul class="simple">
+<li><p>by deriving and overriding the main methods that are responsible for logging.</p></li>
+<li><p>by using public property called <code class="docutils literal notranslate"><span class="pre">experiment</span></code> which gives access to underlying <code class="docutils literal notranslate"><span class="pre">aim.Run</span></code> object to easily track new metrics, params and other metadata that would benefit your project.</p></li>
+</ul>
+<section id="pytorch-ignite">
+<h2>Pytorch Ignite<a class="headerlink" href="#pytorch-ignite" title="Permalink to this heading"></a></h2>
+<p>Both callback extension mechanisms are available with Pytorch Ignite.
+In the example below you’ll see how to use the experiment property to track confusion matrix as an image using <code class="docutils literal notranslate"><span class="pre">aim.Image</span></code> after the training is completed.</p>
+<p>Here is an <a class="reference external" href="https://colab.research.google.com/github/aimhubio/tutorials/blob/publication/notebooks/pytorch_ignite_track.ipynb">example colab notebook</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">aim.pytorch_ignite</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Create a logger</span>
+<span class="n">aim_logger</span> <span class="o">=</span> <span class="n">AimLogger</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="nd">@trainer</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">COMPLETED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">log_confusion_matrix</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">val_evaluator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">metrics</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T-shirt/top&#39;</span><span class="p">,</span><span class="s1">&#39;Trouser&#39;</span><span class="p">,</span><span class="s1">&#39;Pullover&#39;</span><span class="p">,</span><span class="s1">&#39;Dress&#39;</span><span class="p">,</span><span class="s1">&#39;Coat&#39;</span><span class="p">,</span><span class="s1">&#39;Sandal&#39;</span><span class="p">,</span><span class="s1">&#39;Shirt&#39;</span><span class="p">,</span><span class="s1">&#39;Sneaker&#39;</span><span class="p">,</span><span class="s1">&#39;Bag&#39;</span><span class="p">,</span><span class="s1">&#39;Ankle Boot&#39;</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+    <span class="c1"># labels, title and ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted labels&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True labels&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">aim_logger</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">fig</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cm_training_end&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With Pytorch Ignite there’s also a 3rd approach to extend the integration.
+For example Pytorch Ignite’s Tensorboard logger provides a possibility to track model’s gradients and weights as histograms.
+Same can be achieved with Aim</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">from</span> <span class="nn">ignite.contrib.handlers.base_logger</span> <span class="kn">import</span> <span class="n">BaseWeightsHistHandler</span>
+<span class="kn">from</span> <span class="nn">ignite.engine</span> <span class="kn">import</span> <span class="n">Engine</span><span class="p">,</span> <span class="n">Events</span>
+
+<span class="kn">from</span> <span class="nn">aim.pytorch_ignite</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+<span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Distribution</span>
+
+
+<span class="k">class</span> <span class="nc">AimGradsHistHandler</span><span class="p">(</span><span class="n">BaseWeightsHistHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GradsHistHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="n">Engine</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">AimLogger</span><span class="p">,</span> <span class="n">event_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Events</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">global_step</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get_event_attrib_value</span><span class="p">(</span><span class="n">event_name</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;subset&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span><span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span>
+                <span class="n">Distribution</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()),</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">step</span><span class="o">=</span><span class="n">global_step</span><span class="p">,</span>
+                <span class="n">context</span><span class="o">=</span><span class="n">context</span>
+            <span class="p">)</span>
+
+<span class="c1"># Create a logger</span>
+<span class="n">aim_logger</span> <span class="o">=</span> <span class="n">AimLogger</span><span class="p">()</span>
+
+<span class="c1"># Attach the logger to the trainer to log model&#39;s weights norm after each iteration</span>
+<span class="n">aim_logger</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span>
+    <span class="n">trainer</span><span class="p">,</span>
+    <span class="n">event_name</span><span class="o">=</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">,</span>
+    <span class="n">log_handler</span><span class="o">=</span><span class="n">AimGradsHistHandler</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pytorch-lightning">
+<h2>Pytorch Lightning<a class="headerlink" href="#pytorch-lightning" title="Permalink to this heading"></a></h2>
+<p>In the <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/pytorch_lightning_track.py">example</a> provided in the Aim GitHub repo using <code class="docutils literal notranslate"><span class="pre">PL</span></code> + Aim there’s already a reference how to customize an integration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># Track metrics manually</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;manually_tracked_metric&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So you can track lots of metadata at each iteration of test step: images, texts, whatever is needed by you and supported by Aim.</p>
+</section>
+<section id="hugging-face">
+<h2>Hugging Face<a class="headerlink" href="#hugging-face" title="Permalink to this heading"></a></h2>
+<p>Here is how to extend the basic Hugging Face logger.
+Below is an example of a <code class="docutils literal notranslate"><span class="pre">CustomCallback</span></code> that’s derived from the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code>. The main HF method here is the <code class="docutils literal notranslate"><span class="pre">on_log()</span></code> that’s overriden.</p>
+<p>This allows us to track any <code class="docutils literal notranslate"><span class="pre">str</span></code> object that is passed to <code class="docutils literal notranslate"><span class="pre">on_log()</span></code> method as <code class="docutils literal notranslate"><span class="pre">aim.Text</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.hugging_face</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+<span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Text</span>
+
+
+<span class="k">class</span> <span class="nc">CustomCallback</span><span class="p">(</span><span class="n">AimCallback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span>
+               <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">on_log</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">logs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;subset&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_shift</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">log_name</span><span class="p">,</span> <span class="n">log_value</span> <span class="ow">in</span> <span class="n">logs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">log_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">log_value</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">log_name</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tf-keras">
+<h2>TF/keras<a class="headerlink" href="#tf-keras" title="Permalink to this heading"></a></h2>
+<p>Here is how to track confusion matrices with Aim while extending the default callback provided for <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code>.
+We have taken and adapted this <a class="reference external" href="https://www.tensorflow.org/tensorboard/image_summaries">example.</a> to Aim. Here is how it looks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.tensorflow</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+
+<span class="k">class</span> <span class="nc">CustomImageTrackingCallback</span><span class="p">(</span><span class="n">AimCallback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">logs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">on_epoch_end</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">logs</span><span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Image</span>
+        <span class="c1"># Use the model to predict the values from the validation dataset.</span>
+        <span class="n">test_pred_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_images</span><span class="p">)</span>
+        <span class="n">test_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_pred_raw</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the confusion matrix.</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+        <span class="c1"># Log the confusion matrix as an image summary.</span>
+        <span class="n">figure</span> <span class="o">=</span> <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+        <span class="n">cm_image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">figure</span><span class="p">)</span>
+
+        <span class="c1"># Log the confusion matrix as an Aim image.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">cm_image</span><span class="p">,</span><span class="s2">&quot;Confusion Matrix&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">epoch</span><span class="p">)</span>
+
+<span class="n">aim_callback</span> <span class="o">=</span> <span class="n">CustomImageTrackingCallback</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_images</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Suppress chatty output</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">aim_callback</span><span class="p">],</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="xgboost">
+<h2>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading"></a></h2>
+<p>Here is how to override the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for XGBoost.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Text</span>
+<span class="kn">from</span> <span class="nn">aim.xgboost</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+
+
+<span class="k">class</span> <span class="nc">CustomCallback</span><span class="p">(</span><span class="n">AimCallback</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">after_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">evals_log</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">evals_log</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">metric</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">log</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">metric_name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">after_iteration</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">evals_log</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="catboost">
+<h2>Catboost<a class="headerlink" href="#catboost" title="Permalink to this heading"></a></h2>
+<p>Catboost’s <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> has <code class="docutils literal notranslate"><span class="pre">log_cout</span></code> parameter which can be used to redirect log output into a custom object
+which has <code class="docutils literal notranslate"><span class="pre">write</span></code> attribute. Our logger is an object which implements <code class="docutils literal notranslate"><span class="pre">write</span></code> method to parse log string according to
+its content. Thus, most of the log output will be ignored by our parser logic, but you still can code up your own logic
+on top of ours to fill the gap for your needs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.catboost</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+
+
+<span class="k">class</span> <span class="nc">CustomLogger</span><span class="p">(</span><span class="n">AimLogger</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+        <span class="c1"># Process the log string through our parser</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="c1"># Do your own parsing</span>
+        <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bin:&#39;</span><span class="p">:</span>
+            <span class="n">value_bin</span> <span class="o">=</span> <span class="n">log</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">:]</span>
+            <span class="n">value_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_number</span><span class="p">(</span><span class="n">log</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">value_score</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="lightgbm">
+<h2>LightGBM<a class="headerlink" href="#lightgbm" title="Permalink to this heading"></a></h2>
+<p>Here is how to override the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for LightGBM.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.lightgbm</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+
+
+<span class="k">class</span> <span class="nc">CustomCallback</span><span class="p">(</span><span class="n">AimCallback</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">before_tracking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">evaluation_result_list</span><span class="p">:</span>
+            <span class="c1"># manipulate item here</span>
+            <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">after_tracking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="c1"># do any other action if necessary after tracking value</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sagemaker_notebook_ui.html" class="btn btn-neutral float-left" title="Run Aim UI on SageMaker Notebook instance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../understanding/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

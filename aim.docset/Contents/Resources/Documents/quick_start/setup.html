@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get started with Aim &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Integrate Aim into an existing project" href="integrations.html" />
+    <link rel="prev" title="Overview" href="../overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get started with Aim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-aim">Installing Aim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nightly-releases">Nightly releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-aim-repository">Initializing Aim repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-data-with-aim-sdk">Tracking data with Aim SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#browsing-results-with-aim-ui">Browsing results with Aim UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-aim-ui-inside-notebooks">Running Aim UI inside notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-aim-ui-and-tracking-server-inside-docker-container">Running Aim UI and tracking server inside Docker container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Get started with Aim</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/quick_start/setup.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="get-started-with-aim">
+<h1>Get started with Aim<a class="headerlink" href="#get-started-with-aim" title="Permalink to this heading"></a></h1>
+<p>This section shows a simple end-to-end aim setup. It starts from the installation, shows how to run Aim UI and explore the
+results.
+Use this as a starting point to get familiar with the basics of Aim while getting up and running.</p>
+<section id="installing-aim">
+<h2>Installing Aim<a class="headerlink" href="#installing-aim" title="Permalink to this heading"></a></h2>
+<p>Aim is a python package available for Linux and MacOs for Python versions 3.6+. Install Aim using <code class="docutils literal notranslate"><span class="pre">pip3</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install aim
+</pre></div>
+</div>
+<p>Verify aim was properly installed</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim version
+</pre></div>
+</div>
+<p>You should see the line listing newly installed version of Aim. For instance:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Aim v3.5.1
+</pre></div>
+</div>
+<p>The installed package includes Python SDK needed for tracking training runs, UI for browsing the results and CLI
+for managing UI and results.</p>
+</section>
+<section id="nightly-releases">
+<h2>Nightly releases<a class="headerlink" href="#nightly-releases" title="Permalink to this heading"></a></h2>
+<p>Aim also provides daily dev packages with the features developed between main minor releases.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --pre aim
+</pre></div>
+</div>
+<p>Please note, that if the dependencies of <code class="docutils literal notranslate"><span class="pre">aim</span></code> are not already installed, this command will try to install the development versions of those packages as well.</p>
+<p>Previous daily dev packages can be installed using the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install <span class="nv">aim</span><span class="o">==</span><span class="m">3</span>.x.0.devyyyymmdd
+</pre></div>
+</div>
+<p><a class="reference external" href="https://pypi.org/project/aim/#history">Release history</a></p>
+</section>
+<section id="initializing-aim-repository">
+<h2>Initializing Aim repository<a class="headerlink" href="#initializing-aim-repository" title="Permalink to this heading"></a></h2>
+<p>Aim repository is the space where all your training runs are logged.</p>
+<p>To initialize <code class="docutils literal notranslate"><span class="pre">aim</span></code> repo in the current working directory, run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim init
+</pre></div>
+</div>
+<p>You should see something like this on your Command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Initialized</span> <span class="n">a</span> <span class="n">new</span> <span class="n">Aim</span> <span class="n">repository</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">aim</span>
+</pre></div>
+</div>
+<p>Your workspace is now ready for tracking training runs with Aim.</p>
+</section>
+<section id="tracking-data-with-aim-sdk">
+<h2>Tracking data with Aim SDK<a class="headerlink" href="#tracking-data-with-aim-sdk" title="Permalink to this heading"></a></h2>
+<p>To start tracking, first create <code class="docutils literal notranslate"><span class="pre">aim.Run</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run class provides a dictionary-like interface for storing training hyperparameters and other dictionary-like metadata:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hparams_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">run</span><span class="p">[</span><span class="s1">&#39;hparams&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hparams_dict</span>
+</pre></div>
+</div>
+<p>These params can be used later on the UI to query runs, metrics, images.
+To track metrics with aim use the <code class="docutils literal notranslate"><span class="pre">Run.track</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The complete list of supported inputs is available in section <a class="reference external" href="supported_types.html">“Track media and objects”</a></p>
+<p>Here’s a full example demonstrating the steps above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># aim_test.py</span>
+<span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+
+<span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+
+<span class="c1"># set training hyperparameters</span>
+<span class="n">run</span><span class="p">[</span><span class="s1">&#39;hparams&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># log metric</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;numbers&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run the script above</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 aim_test.py
+</pre></div>
+</div>
+<p>Congrats! Your first run with Aim is ready!
+Now it is time to explore results with Aim UI.</p>
+</section>
+<section id="browsing-results-with-aim-ui">
+<h2>Browsing results with Aim UI<a class="headerlink" href="#browsing-results-with-aim-ui" title="Permalink to this heading"></a></h2>
+<p>Once the script above finishes you can open Aim UI and see the results:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim up
+</pre></div>
+</div>
+<p>You should see the following output meaning Aim UI is up and running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Running Aim UI on repo <span class="sb">`</span>&lt;Repo#-5930451821203570655 <span class="nv">path</span><span class="o">=</span>/.aim <span class="nv">read_only</span><span class="o">=</span>None&gt;<span class="sb">`</span>
+Open http://127.0.0.1:43800
+Press Ctrl+C to <span class="nb">exit</span>
+</pre></div>
+</div>
+<p>Open your browser and navigate to <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:43800</span></code>
+You should be able to see the home page of Aim UI:</p>
+<p><span class="raw-html-m2r"><img style="border: 1px solid #1d2253" src="../_static/images/quick_start/ui-home.png" /></span></p>
+<p>Click on Metrics Explorer icon</p>
+<p><span class="raw-html-m2r"><img style="border: 1px solid #1d2253" src="../_static/images/quick_start/ui-metrics.png" /></span></p>
+<p>In the Search bar select a “numbers” metric and click “Search”.
+You should be able to see line chart with tracked metric:</p>
+<p><span class="raw-html-m2r"><img style="border: 1px solid #1d2253" src="../_static/images/quick_start/ui-metrics-search.png" /></span></p>
+</section>
+<section id="running-aim-ui-inside-notebooks">
+<h2>Running Aim UI inside notebooks<a class="headerlink" href="#running-aim-ui-inside-notebooks" title="Permalink to this heading"></a></h2>
+<p>Run the following commands in the notebook to run the Aim UI:</p>
+<ol class="arabic simple">
+<li><p>Load Aim extension for notebooks:</p></li>
+</ol>
+<div class="highlight-jupyter notranslate"><div class="highlight"><pre><span></span>%load_ext aim
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">%aim</span> <span class="pre">up</span></code> to open Aim UI in the notebook:</p></li>
+</ol>
+<div class="highlight-jupyter notranslate"><div class="highlight"><pre><span></span>%aim up
+</pre></div>
+</div>
+<p><span class="raw-html-m2r"><img style="border: 1px solid #1d2253" src="../_static/images/using/jupyter.png" /></span></p>
+<p>See <a class="reference external" href="../using/jupyter_notebook_ui.html">integration guide with Jupyter Notebook</a> for more details.</p>
+</section>
+<section id="running-aim-ui-and-tracking-server-inside-docker-container">
+<h2>Running Aim UI and tracking server inside Docker container<a class="headerlink" href="#running-aim-ui-and-tracking-server-inside-docker-container" title="Permalink to this heading"></a></h2>
+<p>Aim Docker <a class="reference external" href="https://hub.docker.com/r/aimstack/aim/tags">images</a> are available for running Aim UI and Aim Remote tracking server. Default command
+for Aim Docker image is <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code>. To spin Docker container with Aim UI with port mapping:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --publish <span class="m">43800</span>:43800 aimstack/aim
+</pre></div>
+</div>
+<p>To run container with Aim Remote tracking server:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --publish <span class="m">53800</span>:53800 aimstack/aim server
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="integrations.html" class="btn btn-neutral float-right" title="Integrate Aim into an existing project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

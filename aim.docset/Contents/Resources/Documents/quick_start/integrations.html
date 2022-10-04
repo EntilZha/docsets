@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrate Aim into an existing project &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Migrate from other tools" href="convert_data.html" />
+    <link rel="prev" title="Get started with Aim" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Get started with Aim</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integrate Aim into an existing project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#any-python-script">Any python script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-pytorch-ignite">Integration with Pytorch Ignite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-pytorch-lightning">Integration with Pytorch Lightning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-hugging-face">Integration with Hugging Face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-keras-tf-keras">Integration with Keras &amp; tf.Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-keras-tuner">Integration with Keras Tuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-xgboost">Integration with XGboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-catboost">Integration with CatBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-lightgbm">Integration with LightGBM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-fastai">Integration with fastai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Integrate Aim into an existing project</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/quick_start/integrations.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="integrate-aim-into-an-existing-project">
+<h1>Integrate Aim into an existing project<a class="headerlink" href="#integrate-aim-into-an-existing-project" title="Permalink to this heading"></a></h1>
+<section id="any-python-script">
+<h2>Any python script<a class="headerlink" href="#any-python-script" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+
+<span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+
+<span class="c1"># Save inputs, hparams or any other `key: value` pairs</span>
+<span class="n">run</span><span class="p">[</span><span class="s1">&#39;hparams&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># ...</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Log metrics to visualize performance</span>
+    <span class="n">run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;metric_name&#39;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>Aim easily integrates with your favourite ML frameworks.</p>
+<p>Aim loggers give access to the <code class="docutils literal notranslate"><span class="pre">aim.Run</span></code> object instance via the <code class="docutils literal notranslate"><span class="pre">experiment</span></code> property. The <code class="docutils literal notranslate"><span class="pre">aim.Run</span></code> instance will help you to easily track additional metrics or set any other <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs (params) relevant to your project.</p>
+<p>In this way you can easily extend the default integrations. More info about this is abailable on Integration guides <a class="reference external" href="../using/integration_guides.html">section.</a></p>
+</section>
+<section id="integration-with-pytorch-ignite">
+<h2>Integration with Pytorch Ignite<a class="headerlink" href="#integration-with-pytorch-ignite" title="Permalink to this heading"></a></h2>
+<a class="reference external image-reference" href="https://colab.research.google.com/github/aimhubio/tutorials/blob/publication/notebooks/pytorch_ignite_track.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
+<p>It only takes 2 steps to simply and easily inject Aim into pytorch ignite:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import aim sdk designed for pytorch ignite</span>
+<span class="kn">from</span> <span class="nn">aim.pytorch_ignite</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+</pre></div>
+</div>
+<p>Pytorch Ignite provides trainer objects to simplify the training process of pytorch model. We can attach the trainer object as AimLogger’s output handler to use the logger function defined by aim to simplify the process of tracking experiments. This process is divided into 2 steps:</p>
+<p>Step 1. Create <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> object</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aim_logger</span> <span class="o">=</span> <span class="n">AimLogger</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;aim_on_pt_ignite&#39;</span><span class="p">,</span>
+    <span class="n">train_metric_prefix</span><span class="o">=</span><span class="s1">&#39;train_&#39;</span><span class="p">,</span>
+    <span class="n">val_metric_prefix</span><span class="o">=</span><span class="s1">&#39;val_&#39;</span><span class="p">,</span>
+    <span class="n">test_metric_prefix</span><span class="o">=</span><span class="s1">&#39;test_&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Step 2. Attach output handler to the <code class="docutils literal notranslate"><span class="pre">aim_logger</span></code> object</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aim_logger</span><span class="o">.</span><span class="n">attach_output_handler</span><span class="p">(</span>
+    <span class="n">trainer</span><span class="p">,</span>
+    <span class="n">event_name</span><span class="o">=</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">,</span>
+    <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
+    <span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">loss</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/pytorch_ignite.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using Pytorch Ignite can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/pytorch_ignite_track.py">here</a>.</p>
+</section>
+<section id="integration-with-pytorch-lightning">
+<h2>Integration with Pytorch Lightning<a class="headerlink" href="#integration-with-pytorch-lightning" title="Permalink to this heading"></a></h2>
+<!--[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Kq3-6x0dd7gAVCsiaClJf1TfKnW-d64f?usp=sharing)--><!--The work is designed to build an image classifier to solve a famous real world problem ——handwritten digit recognition. In this work, we will introduce how to introduce aim logger to manage output information. --><p>We only require 2 steps to simply and easily inject Aim into pytorch lightining:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import aim sdk designed for pl</span>
+<span class="kn">from</span> <span class="nn">aim.pytorch_lightning</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+</pre></div>
+</div>
+<p>Pytorch lighting provides trainer objects to simplify the training process of pytorch model. One of the parameters is called logger. We can use the logger function defined by aim to simplify the process of tracking experiments. This process is divided into 2 steps:</p>
+<p>Step 1. Create <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> object</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># track experimental data by using Aim</span>
+<span class="n">aim_logger</span> <span class="o">=</span> <span class="n">AimLogger</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;aim_on_pt_lightning&#39;</span><span class="p">,</span>
+    <span class="n">train_metric_prefix</span><span class="o">=</span><span class="s1">&#39;train_&#39;</span><span class="p">,</span>
+    <span class="n">val_metric_prefix</span><span class="o">=</span><span class="s1">&#39;val_&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Step 2. Pass the <code class="docutils literal notranslate"><span class="pre">aim_logger</span></code> object as the <code class="docutils literal notranslate"><span class="pre">logger</span></code> argument</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># track experimental data by using Aim</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">gpus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">progress_bar_refresh_rate</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">aim_logger</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/pytorch_lightning.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using Pytorch Lightning can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/pytorch_lightning_track.py">here</a>.</p>
+</section>
+<section id="integration-with-hugging-face">
+<h2>Integration with Hugging Face<a class="headerlink" href="#integration-with-hugging-face" title="Permalink to this heading"></a></h2>
+<!--[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YJsWXmpmJ8s6K9smqIFT7CnM27yjoPq3?usp=sharing)--><!--In this guide, we will show you how to integrate Aim with Huggingface. The work we are going to do together is sentiment classification problem, which is the most common text classification task. We choose the IMDB movie review dataset as an experimental dataset, which classifies movie reviews as positive or negative. During the training process, we will show the use of aim to record effective information.--><p>You only need 2 simple steps to employ Aim to collect data ❤️</p>
+<p>Step 1: Import the sdk designed by Aim for Huggingface.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.hugging_face</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>Step 2: Hugging Face has a trainer api to help us simplify the training process. This api provides a callback function to return the information that the user needs. Therefore, aim has specially designed SDK to simplify the process of the user writing callback functions, we only need to initialize <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> object as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize aim_callback</span>
+<span class="n">aim_callback</span> <span class="o">=</span> <span class="n">AimCallback</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;huggingface_experiment&#39;</span><span class="p">)</span>
+<span class="c1"># Initialize trainer</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">training_args</span><span class="p">,</span>
+    <span class="n">train_dataset</span><span class="o">=</span><span class="n">small_train_dataset</span><span class="p">,</span>
+    <span class="n">eval_dataset</span><span class="o">=</span><span class="n">small_eval_dataset</span><span class="p">,</span>
+    <span class="n">compute_metrics</span><span class="o">=</span><span class="n">compute_metrics</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">aim_callback</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/hugging_face.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using Hugging Face can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/hugging_face_track.py">here</a>.</p>
+</section>
+<section id="integration-with-keras-tf-keras">
+<h2>Integration with Keras &amp; tf.Keras<a class="headerlink" href="#integration-with-keras-tf-keras" title="Permalink to this heading"></a></h2>
+<!--[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18V8OTQ9RtLEit_yjAZAtUY1jXQmfQ0RN?usp=sharing)--><!--This tutorial leverages the well-known handwritten digit recognition task to describe how to integrate Aim with Keras & tf.Keras to train a digital image classification model based on the mnist dataset.--><p>It only takes 2 steps to easily integrate aim in keras to record experimental information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call keras as the high api of tensorflow</span>
+<span class="kn">from</span> <span class="nn">aim.tensorflow</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+<span class="c1"># call keras library directly</span>
+<span class="kn">from</span> <span class="nn">aim.keras</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>In keras, we call the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method of the model object to train the data. The callbacks are provided here. <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> inherits the usage specification of callbacks. We just need to add it to the callbacks list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span>
+          <span class="c1"># in case of tf.keras, we use aim.tensorflow.AimCallback</span>
+          <span class="n">AimCallback</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;aim_on_keras&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/tensorflow.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using Keras can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/keras_track.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using tf.Keras can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/tensorflow_keras_track.py">here</a>.</p>
+</section>
+<section id="integration-with-keras-tuner">
+<h2>Integration with Keras Tuner<a class="headerlink" href="#integration-with-keras-tuner" title="Permalink to this heading"></a></h2>
+<p>It only takes 2 steps to easily integrate aim in keras to record experimental information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.keras_tuner</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>In kerastuner, we call the <code class="docutils literal notranslate"><span class="pre">search()</span></code> method of the tuner object to perform a search for best hyperparameter configuations. The callbacks are provided here. <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> inherits the usage specification of callbacks. We just need to add it to the callbacks list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">train_ds</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">test_ds</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">AimCallback</span><span class="p">(</span><span class="n">tuner</span><span class="o">=</span><span class="n">tuner</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="s1">&#39;./aim_logs&#39;</span><span class="p">,</span> <span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;keras_tuner_test&#39;</span><span class="p">)],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/keras_tuner.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using Keras Tuner can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/keras_tuner_track.py">here</a>.</p>
+</section>
+<section id="integration-with-xgboost">
+<h2>Integration with XGboost<a class="headerlink" href="#integration-with-xgboost" title="Permalink to this heading"></a></h2>
+<!--In the real world, there is a well-known handwritten digit recognition problem. In this article, we use the machine learning framework xgboost to help us train an image classification model. In this process, we will use Aim to track our experimental data.--><p>Enjoy using aim to track xgboost experimental data which requires two simple steps:</p>
+<p>Step 1: Explicitly import the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for tracking training data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call sdk aim.xgboost</span>
+<span class="kn">from</span> <span class="nn">aim.xgboost</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>Step 2: XGboost provides the <code class="docutils literal notranslate"><span class="pre">xgboost.train</span></code> method for model training, in which the callbacks parameter can call back data information from the outside. Here we pass in aimcallbacl designed for tracking data information</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">,</span> <span class="n">num_round</span><span class="p">,</span> <span class="n">watchlist</span><span class="p">,</span>
+                            <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">AimCallback</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;xgboost_test&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Adapter source can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/xgboost.py">here</a>.<span class="raw-html-m2r"><br></span>
+Example using XGboost can be found <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/xgboost_track.py">here</a>.</p>
+</section>
+<section id="integration-with-catboost">
+<h2>Integration with CatBoost<a class="headerlink" href="#integration-with-catboost" title="Permalink to this heading"></a></h2>
+<p>It only takes two steps to integrate Aim with <a class="reference external" href="https://catboost.ai/">CatBoost</a>.</p>
+<p>Step 1: Import <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> to track the training metadata.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call sdk aim.catboost</span>
+<span class="kn">from</span> <span class="nn">aim.catboost</span> <span class="kn">import</span> <span class="n">AimLogger</span>
+</pre></div>
+</div>
+<p>Step 2: Pass the logger to the trainer.</p>
+<p>Trainings in CatBoost are initiated with <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.
+The method can be supplied with <code class="docutils literal notranslate"><span class="pre">log_cout</span></code> parameter to redirect output logs into a custom handler.
+Pass <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> to automatically track metrics and hyper-parameters with Aim.
+Depending on the training log output, an additional argument <code class="docutils literal notranslate"><span class="pre">logging_level</span></code> could be passed to make Catboost yield more logs to track <code class="docutils literal notranslate"><span class="pre">test</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">best</span></code> values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">log_cout</span><span class="o">=</span><span class="n">AimLogger</span><span class="p">(</span><span class="n">loss_function</span><span class="o">=</span><span class="s1">&#39;Logloss&#39;</span><span class="p">),</span> <span class="n">logging_level</span><span class="o">=</span><span class="s1">&#39;Info&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> also accepts <code class="docutils literal notranslate"><span class="pre">log_cout</span></code> parameter to preserve the default functionality of Catboost’s log handling.
+You can pass your own handler, else it defaults to <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code>.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> source <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/catboost.py">here</a>.<span class="raw-html-m2r"><br></span>
+Check out a simple example with Aim and CatBoost <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/catboost_track.py">here</a>.</p>
+</section>
+<section id="integration-with-lightgbm">
+<h2>Integration with LightGBM<a class="headerlink" href="#integration-with-lightgbm" title="Permalink to this heading"></a></h2>
+<p>Aim comes with a builtin callback designed to automatically track <a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/index.html">LightGBM</a> trainings.
+It takes two steps to integrate Aim into your training script.</p>
+<p>Step 1: Explicitly import the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for tracking training metadata.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.lightgbm</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>Step 2: Pass the callback to <code class="docutils literal notranslate"><span class="pre">callbacks</span></code> list upon initiating your training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gbm</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">params</span><span class="p">,</span>
+                <span class="n">lgb_train</span><span class="p">,</span>
+                <span class="n">num_boost_round</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                <span class="n">valid_sets</span><span class="o">=</span><span class="n">lgb_eval</span><span class="p">,</span>
+                <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">AimCallback</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;lgb_test&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>While your training is running you can start <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> in another terminal session and observe the information in real
+time.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> source <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/lightgbm.py">here</a>.<span class="raw-html-m2r"><br></span>
+Check out a simple regression task example <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/lightgbm_track.py">here</a>.</p>
+</section>
+<section id="integration-with-fastai">
+<h2>Integration with fastai<a class="headerlink" href="#integration-with-fastai" title="Permalink to this heading"></a></h2>
+<p>Aim comes with a builtin callback designed to automatically track <a class="reference external" href="https://docs.fast.ai/">fastai</a> trainings.
+It takes two steps to integrate Aim into your training script.</p>
+<p>Step 1: Explicitly import the <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for tracking training metadata.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim.sdk.adapters.fastai</span> <span class="kn">import</span> <span class="n">AimCallback</span>
+</pre></div>
+</div>
+<p>Step 2: Pass the callback to <code class="docutils literal notranslate"><span class="pre">cbs</span></code> list upon initiating your training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">resnet18</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">loss_func</span><span class="o">=</span><span class="n">CrossEntropyLossFlat</span><span class="p">(),</span>
+                    <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;/tmp/model/&quot;</span><span class="p">,</span>
+                    <span class="n">cbs</span><span class="o">=</span><span class="n">AimCallback</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;fastai_example&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> source <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/aim/sdk/adapters/fastai.py">here</a>.<span class="raw-html-m2r"><br></span>
+Check out a simple regression task example <a class="reference external" href="https://github.com/aimhubio/aim/blob/main/examples/fastai_track.py">here</a>.</p>
+</section>
+<section id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this heading"></a></h2>
+<p>During the training process, you can start another terminal in the same directory, start <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> and you can observe
+the information in real time.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Get started with Aim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="convert_data.html" class="btn btn-neutral float-right" title="Migrate from other tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

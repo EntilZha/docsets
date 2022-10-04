@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aim CLI &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Aim SDK" href="sdk.html" />
+    <link rel="prev" title="Track and compare GANs with Aim" href="../examples/images_explorer_gan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aim CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version">version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#up">up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reindex">reindex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runs">runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convert">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage">storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#aim-status-watcher-cli">Aim status watcher CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notifiers">notifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Aim CLI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/refs/cli.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aim-cli">
+<h1>Aim CLI<a class="headerlink" href="#aim-cli" title="Permalink to this heading"></a></h1>
+<p>Aim CLI offers a simple interface to easily organize and record your experiments. Paired with the Python Library, Aim is
+a powerful utility to record, search and compare AI experiments. Here are the set of commands supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init</span></code></p></td>
+<td><p>Initialize the <code class="docutils literal notranslate"><span class="pre">aim</span></code> repository.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>Displays the version of aim cli currently installed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">up</span></code></p></td>
+<td><p>Runs Aim web UI for the given repo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reindex</span></code></p></td>
+<td><p>Process runs left in ‘in progress’ state and optimized finished runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">server</span></code></p></td>
+<td><p>Run <code class="docutils literal notranslate"><span class="pre">aim</span></code> remote tracking server accepting incoming RPC requests.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">runs</span></code></p></td>
+<td><p>Manage run data for the given repo.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">convert</span></code></p></td>
+<td><p>Tool-set for converting 3rd party data into Aim readable format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">storage</span></code></p></td>
+<td><p>Maintain/update Aim repository internal data formats.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="init">
+<h2>init<a class="headerlink" href="#init" title="Permalink to this heading"></a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a><em>This step is optional.</em>**
+Initialize the aim repo to record the experiments.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim init
+</pre></div>
+</div>
+<p>Creates <code class="docutils literal notranslate"><span class="pre">.aim</span></code> directory to save the recorded experiments to. Running <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">init</span></code> in an existing repository will prompt
+the user for re-initialization.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a><em>Beware:</em>** Re-initialization of the repo clears <code class="docutils literal notranslate"><span class="pre">.aim</span></code> folder from previously saved data and initializes new repo.
+<a href="#id5"><span class="problematic" id="id6">**</span></a><em>Note:</em>** This command is not necessary to be able to get started with Aim as aim is automatically initializes with
+the first aim function call.</p>
+</section>
+<section id="version">
+<h2>version<a class="headerlink" href="#version" title="Permalink to this heading"></a></h2>
+<p>Display the Aim version installed.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim version
+</pre></div>
+</div>
+</section>
+<section id="up">
+<h2>up<a class="headerlink" href="#up" title="Permalink to this heading"></a></h2>
+<p>Start the Aim web UI locally.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim up <span class="o">[</span>ARGS<span class="o">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">&lt;host&gt;</span></code></p></td>
+<td><p>Specify host address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">&lt;port&gt;</span></code></p></td>
+<td><p>Specify port to listen to.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--dev</span></code></p></td>
+<td><p>Run UI in development mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--profiler</span></code></p></td>
+<td><p>Enables API profiling which logs run trace inside <code class="docutils literal notranslate"><span class="pre">.aim/profiler</span></code> directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level</span></code></p></td>
+<td><p>Specifies log level for python logging package. <em>``WARNING`` by default, ``DEBUG`` when ``–dev`` option is provided</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reindex">
+<h2>reindex<a class="headerlink" href="#reindex" title="Permalink to this heading"></a></h2>
+<p>Update index to include all runs in Aim repo which are left in progress.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim reindex <span class="o">[</span>ARGS<span class="o">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--finalize-only</span></code></p></td>
+<td><p>Only finalize runs left in ‘in progress’ state. Do not attempt runs optimization.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="server">
+<h2>server<a class="headerlink" href="#server" title="Permalink to this heading"></a></h2>
+<p>Run a gRPC server to collect tracked data from remote clients.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim server <span class="o">[</span>ARGS<span class="o">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">&lt;host&gt;</span></code></p></td>
+<td><p>Specify host address.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">&lt;port&gt;</span></code></p></td>
+<td><p>Specify port to listen to. <em>Default is 53800</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-w</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--workers</span> <span class="pre">&lt;N&gt;</span></code></p></td>
+<td><p>Specify number of gPRC workers. <em>Default is 1 worker</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--ssl-keyfile</span></code></p></td>
+<td><p>Specify path to keyfile for secure connection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--ssl-certfile</span></code></p></td>
+<td><p>Specify path to cert. file for secure connection.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level</span></code></p></td>
+<td><p>Specifies log level for python logging package. <em>``WARNING`` by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="runs">
+<h2>runs<a class="headerlink" href="#runs" title="Permalink to this heading"></a></h2>
+<p>Upgrade Aim repository runs data.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs <span class="o">[</span>ARGS<span class="o">]</span> SUBCOMMAND
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>runs subcommands</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p></td>
+<td><p>List runs in <code class="docutils literal notranslate"><span class="pre">aim</span></code> repository.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span></code></p></td>
+<td><p>Remove run data for given run hashes. At least one run should be specified.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cp</span></code></p></td>
+<td><p>Copy run data for given run hashes. At least one run should be specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></td>
+<td><p>Move run data for given run hashes. At least one run should be specified.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">upload</span></code></p></td>
+<td><p>Create a snapshot of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> directory in cloud. Bucket name should be specified.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Global expression (<code class="docutils literal notranslate"><span class="pre">*</span></code>) support is available for run hashes. If hash contains <code class="docutils literal notranslate"><span class="pre">*</span></code>, it must be enclosed within
+quotes (<code class="docutils literal notranslate"><span class="pre">''</span></code>) as bash resolves the expression before passing it to <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">runs</span></code> command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs ls
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs rm <span class="o">[</span>HASH<span class="o">]</span> ...
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs cp <span class="o">[</span>ARGS<span class="o">]</span> <span class="o">[</span>HASH<span class="o">]</span> ...
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--destination</span> <span class="pre">&lt;dest_repo_path&gt;</span></code></p></td>
+<td><p>Path to destination repo. <strong>Required.</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs mv <span class="o">[</span>ARGS<span class="o">]</span> <span class="o">[</span>HASH<span class="o">]</span> ...
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--destination</span> <span class="pre">&lt;dest_repo_path&gt;</span></code></p></td>
+<td><p>Path to destination repo. <strong>Required.</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim runs upload <span class="o">[</span>ARGS<span class="o">]</span> ...
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--bucket</span> <span class="pre">&lt;bucket_name&gt;</span></code></p></td>
+<td><p>Name of the  cloud storage bucket. <strong>Required.</strong></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="convert">
+<h2>convert<a class="headerlink" href="#convert" title="Permalink to this heading"></a></h2>
+<p>Tool-set for converting 3rd party data into Aim readable format.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim convert <span class="o">[</span>ARGS<span class="o">]</span> SUBCOMMAND
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>convert subcommands</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tensorboard</span></code></p></td>
+<td><p>Convert from Tensorboard logs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mlflow</span></code></p></td>
+<td><p>Convert from MLFlow logs.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sub-command: tensorboard</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Options</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--flat</span></code></p></td>
+<td><p>Disregard context directory and treat them as distinct run directories. Inactive by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--no-cache</span></code></p></td>
+<td><p>Ignore previously cached results and process the logs entirely. Disabled by default.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sub-command: mlflow</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Options</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--tracking_uri</span></code> <span class="raw-html-m2r"><logs_uri></span></p></td>
+<td><p>MLFlow logs URI. Can be either an HTTP/HTTPS URI for a remote server, a database connection string, or a local path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-e</span></code> &amp;#124; <code class="docutils literal notranslate"><span class="pre">--experiment</span></code> <span class="raw-html-m2r"><exp_name></span></p></td>
+<td><p>MLFlow Experiment name. If specified, only runs for <code class="docutils literal notranslate"><span class="pre">exp_name</span></code> will be converted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="storage">
+<h2>storage<a class="headerlink" href="#storage" title="Permalink to this heading"></a></h2>
+<p>Perform various maintenance operations on Aim repository.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim storage <span class="o">[</span>ARGS<span class="o">]</span> SUBCOMMAND
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>storage subcommands</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">upgrade</span> <span class="pre">2to3</span></code></p></td>
+<td><p>Upgrades legacy Aim repository from <code class="docutils literal notranslate"><span class="pre">2.x</span></code> to <code class="docutils literal notranslate"><span class="pre">3.0</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upgrade</span> <span class="pre">3.11+</span></code></p></td>
+<td><p>Update metric sequence data format for given runs. At least one run should be specified.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">restore</span></code></p></td>
+<td><p>Rollback <code class="docutils literal notranslate"><span class="pre">Run</span></code> to old metric format if run backup is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">prune</span></code></p></td>
+<td><p>Remove dangling params/sequences with no referring runs</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sub-command: update 2to3</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim storage ugrade 2to3 <span class="o">[</span>ARGS<span class="o">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--skip-failed-runs</span></code></p></td>
+<td><p>Use this flag to skip runs which are failed/have missing or incomplete data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--skip-checks</span></code></p></td>
+<td><p>Use this flag to skip new repository consistency checks.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--drop-existing</span></code></p></td>
+<td><p>Use this flag to clear old <code class="docutils literal notranslate"><span class="pre">.aim</span></code> directory. By default old data is kept in <code class="docutils literal notranslate"><span class="pre">.aim_legacy</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sub-command: update 3.11+</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim storage upgrade <span class="m">3</span>.11+ <span class="o">[</span>HASH<span class="o">]</span> ...
+</pre></div>
+</div>
+<p><strong>Sub-command: restore</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim storage restore <span class="o">[</span>HASH<span class="o">]</span> ...
+</pre></div>
+</div>
+<p><strong>Sub-command: prune</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim storage prune
+</pre></div>
+</div>
+</section>
+</section>
+<section id="aim-status-watcher-cli">
+<h1>Aim status watcher CLI<a class="headerlink" href="#aim-status-watcher-cli" title="Permalink to this heading"></a></h1>
+<p>Aim status CLI offers an interface to start training runs status monitoring and configure
+how the notifications should be received. The entry point to this CLI is <code class="docutils literal notranslate"><span class="pre">aim-watcher</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher <span class="o">[</span>ARGS<span class="o">]</span> SUBCOMMAND
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Args</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--repo</span> <span class="pre">&lt;repo_path&gt;</span></code></p></td>
+<td><p>Path to parent directory of <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo. <em>Current working directory by default</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-Commands</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start</span></code></p></td>
+<td><p>Start watcher service to monitor and report stuck/failed Runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">notifiers</span></code></p></td>
+<td><p>Configure how notifications should be received.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="start">
+<h2>start<a class="headerlink" href="#start" title="Permalink to this heading"></a></h2>
+<p>Start watcher service for the given aim <code class="docutils literal notranslate"><span class="pre">Repo</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo . start
+</pre></div>
+</div>
+</section>
+<section id="notifiers">
+<h2>notifiers<a class="headerlink" href="#notifiers" title="Permalink to this heading"></a></h2>
+<p>Manipulate notifiers configuration.</p>
+<p><strong>notifiers subcommands</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher notifiers add
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher notifiers list
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher notifiers remove <span class="o">[</span>NOTIFIER_ID<span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher notifiers disable <span class="o">[</span>NOTIFIER_ID<span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim-watcher notifiers <span class="nb">enable</span> <span class="o">[</span>NOTIFIER_ID<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../examples/images_explorer_gan.html" class="btn btn-neutral float-left" title="Track and compare GANs with Aim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdk.html" class="btn btn-neutral float-right" title="Aim SDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track experiments with aim remote server &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monitoring and Notifications" href="run_status_notifications.html" />
+    <link rel="prev" title="Query language basics" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Query language basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Track experiments with aim remote server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server-side-setup">Server-side setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-side-setup">Client-side setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-support">SSL support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message-size-limitations">Message size limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Track experiments with aim remote server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/using/remote_tracking.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="track-experiments-with-aim-remote-server">
+<h1>Track experiments with aim remote server<a class="headerlink" href="#track-experiments-with-aim-remote-server" title="Permalink to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>Aim remote tracking server allows running experiments in a multi-host environment and collect tracked data in a centralized location.
+It provides SDK for client-server communications and utilized <a class="reference external" href="https://grpc.io/about/">gRPC</a> protocol as its core transport layer.</p>
+<p>In this guide we will show you how to setup Aim remote tracking server and how to integrate it in client-side code.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Remote tracking server assumes multi-host environments used to run multiple training experiments.
+The machine running the server have to accept incoming TCP traffic on a dedicated port (default is 53800).</p>
+</section>
+<section id="server-side-setup">
+<h2>Server-side setup<a class="headerlink" href="#server-side-setup" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Make sure aim <code class="docutils literal notranslate"><span class="pre">3.4.0</span></code> or upper installed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s2">&quot;aim&gt;=3.4.0&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Initialize <code class="docutils literal notranslate"><span class="pre">aim</span></code> repository (optional):</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim init
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Run aim server with dedicated <code class="docutils literal notranslate"><span class="pre">aim</span></code> repository:</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim server --repo &lt;REPO_PATH&gt;
+</pre></div>
+</div>
+<p>You will see the following output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; Server is mounted on <span class="m">0</span>.0.0.0:53800
+&gt; Press Ctrl+C to <span class="nb">exit</span>
+</pre></div>
+</div>
+<p>The server is up and ready to accept tracked data.</p>
+<ol class="arabic simple">
+<li><p>Run aim UI</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ aim up --repo &lt;REPO_PATH&gt;
+</pre></div>
+</div>
+</section>
+<section id="client-side-setup">
+<h2>Client-side setup<a class="headerlink" href="#client-side-setup" title="Permalink to this heading"></a></h2>
+<p>With the current architecture there is almost no change in aim SDK usage. The only difference from tracking locally is
+that you have to provide the remote tracking URL instead of local aim repo path. The following code shows how to create
+<code class="docutils literal notranslate"><span class="pre">Run</span></code> with remote tracking URL and how to use it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+
+<span class="n">aim_run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="s1">&#39;aim://172.3.66.145:53800&#39;</span><span class="p">)</span>  <span class="c1"># replace example IP with your tracking server IP/hostname</span>
+
+<span class="c1"># Log run parameters</span>
+<span class="n">aim_run</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>You are now ready to use <code class="docutils literal notranslate"><span class="pre">aim_run</span></code> object to track your experiment results. Below is the full example using
+pytorch + aim remote tracking on MNIST dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+
+
+<span class="c1"># Initialize a new Run with remote tracking URL</span>
+<span class="n">aim_run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="s1">&#39;aim://172.3.66.145:53800&#39;</span><span class="p">)</span>  <span class="c1"># replace example IP with your tracking server IP/hostname</span>
+
+<span class="c1"># Device configuration</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+<span class="c1"># Hyper parameters</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="c1"># aim - Track hyper parameters</span>
+<span class="n">aim_run</span><span class="p">[</span><span class="s1">&#39;hparams&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;num_epochs&#39;</span><span class="p">:</span> <span class="n">num_epochs</span><span class="p">,</span>
+    <span class="s1">&#39;num_classes&#39;</span><span class="p">:</span> <span class="n">num_classes</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="n">batch_size</span><span class="p">,</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># MNIST dataset</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data/&#39;</span><span class="p">,</span>
+                                           <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                           <span class="n">transform</span><span class="o">=</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+                                           <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data/&#39;</span><span class="p">,</span>
+                                          <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                          <span class="n">transform</span><span class="o">=</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">())</span>
+
+<span class="c1"># Data loader</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">,</span>
+                                           <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                           <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">test_dataset</span><span class="p">,</span>
+                                          <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                          <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="c1"># Convolutional neural network (two convolutional layers)</span>
+<span class="k">class</span> <span class="nc">ConvNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConvNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">32</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ConvNet</span><span class="p">(</span><span class="n">num_classes</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Loss and optimizer</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="c1"># Train the model</span>
+<span class="n">total_step</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Forward pass</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+        <span class="c1"># Backward and optimize</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">30</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch [</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">], Step [</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">], &#39;</span>
+                  <span class="s1">&#39;Loss: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                                        <span class="n">total_step</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+
+            <span class="c1"># aim - Track model loss function</span>
+            <span class="n">aim_run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
+                          <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;subset&#39;</span><span class="p">:</span><span class="s1">&#39;train&#39;</span><span class="p">})</span>
+
+            <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">correct</span> <span class="o">/</span> <span class="n">total</span>
+
+            <span class="c1"># aim - Track metrics</span>
+            <span class="n">aim_run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;subset&#39;</span><span class="p">:</span> <span class="s1">&#39;train&#39;</span><span class="p">})</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">300</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">aim_run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;subset&#39;</span><span class="p">:</span> <span class="s1">&#39;val&#39;</span><span class="p">})</span>
+                <span class="n">aim_run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;subset&#39;</span><span class="p">:</span> <span class="s1">&#39;val&#39;</span><span class="p">})</span>
+
+
+<span class="c1"># Test the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test Accuracy: </span><span class="si">{}</span><span class="s1"> %&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">correct</span> <span class="o">/</span> <span class="n">total</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="ssl-support">
+<h2>SSL support<a class="headerlink" href="#ssl-support" title="Permalink to this heading"></a></h2>
+<p>Aim Remote Tracking server can be set up to use SSL certificates to run on secure mode.
+To enable secure mode for server provide <code class="docutils literal notranslate"><span class="pre">--ssl-keyfile</span></code> and <code class="docutils literal notranslate"><span class="pre">--ssl-certfile</span></code> arguments to <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">server</span></code>command,
+where <code class="docutils literal notranslate"><span class="pre">--ssl-keyfile</span></code> is the path to the private key file for the certificate and <code class="docutils literal notranslate"><span class="pre">--ssl-certfile</span></code> is the path to the signed certificate
+(check out the <a class="reference external" href="../refs/cli.html#server">Aim CLI</a> here).</p>
+<p>In order to establish a secure connection with the server, the client has to be configured accordingly.
+Please set <code class="docutils literal notranslate"><span class="pre">__AIM_CLIENT_SSL_CERTIFICATES_FILE__</span></code> environment variable to the file, where PEM encoded root certificates are located, e.g.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">__AIM_CLIENT_SSL_CERTIFICATES_FILE__</span><span class="o">=</span>/path/of/the/certs/file
+</pre></div>
+</div>
+</section>
+<section id="message-size-limitations">
+<h2>Message size limitations<a class="headerlink" href="#message-size-limitations" title="Permalink to this heading"></a></h2>
+<p>Aim Remote Tracking server uses gRPC as a transport layer. gRPC imposes message size limits on
+sending/receiving messages from/to server. Aim is configured to use 16MB message size limit by default.
+If you want to specify a different limit, use <code class="docutils literal notranslate"><span class="pre">__AIM_RT_MAX_MESSAGE_SIZE__</span></code> environment variable.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># max message size 128MB</span>
+<span class="nb">export</span> <span class="nv">__AIM_RT_MAX_MESSAGE_SIZE__</span><span class="o">=</span><span class="m">134217728</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a><em>Note:</em>** The message max size should be the same for both Aim Remote Tracking server and client code.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
+<p>As you can see, aim remote tracking server allows running experiments on multiple hosts with simple setup and
+minimal changes to your training code.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="search.html" class="btn btn-neutral float-left" title="Query language basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="run_status_notifications.html" class="btn btn-neutral float-right" title="Monitoring and Notifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runs Management &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Explorers" href="explorers.html" />
+    <link rel="prev" title="Home Page" href="home_page.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home_page.html">Home Page</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Runs Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runs-explorer">Runs Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#search-runs">Search Runs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-runs-in-real-time">Follow runs in real time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Delete or archive runs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Export Runs report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#single-run-page">Single run page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Audios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Texts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Terminal Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#delete-run">Delete Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#archive-run">Archive Run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Runs Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ui/pages/run_management.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="runs-management">
+<h1>Runs Management<a class="headerlink" href="#runs-management" title="Permalink to this heading"></a></h1>
+<section id="runs-explorer">
+<h2>Runs Explorer<a class="headerlink" href="#runs-explorer" title="Permalink to this heading"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<p>To navigate into Runs Explorer, click on the <code class="docutils literal notranslate"><span class="pre">Runs</span></code> navigation item from the left sidebar.</p>
+<p>Runs explorer helps you to</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#search-runs">Search runs with pythonic query</a></p></li>
+<li><p><a class="reference external" href="#follow-runs-in-a-real-time">Observe runs in real time</a></p></li>
+<li><p><a class="reference external" href="#delete-and-archive-runs-by-batch">Delete or archive runs</a></p></li>
+<li><p><a class="reference external" href="#export-runs-report">Export Runs report</a></p></li>
+</ul>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/runs.png"></span></p>
+<section id="search-runs">
+<h4>Search Runs<a class="headerlink" href="#search-runs" title="Permalink to this heading"></a></h4>
+<p>Use Search bar to query runs with <a class="reference external" href="../../using/search.html">Aim QL</a>.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer Search Bar" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/search_runs.png"></span></p>
+</section>
+<section id="follow-runs-in-real-time">
+<h4>Follow runs in real time<a class="headerlink" href="#follow-runs-in-real-time" title="Permalink to this heading"></a></h4>
+<p>Switch <code class="docutils literal notranslate"><span class="pre">Live</span> <span class="pre">Update</span></code> to turn on the real time mode.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer Live Update" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/live_update.gif"></span></p>
+</section>
+<section id="id1">
+<h4>Delete or archive runs<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>Step 1: Select runs on the runs table:</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer Batch archive" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/select_runs.png"></span></p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">Archive</span></code> button. Fonfirmation popup appears. Click <code class="docutils literal notranslate"><span class="pre">Archive</span></code> again and the runs are archived!</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer Batch archive" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/archive_runs_model.png"></span></p>
+<p>In order to batch delete the selected runs, just use the <code class="docutils literal notranslate"><span class="pre">Delete</span></code> button.
+In this case ase well, press <code class="docutils literal notranslate"><span class="pre">Delete</span></code> again on the confirmation popup and the runs will be hard deleted.
+<strong>*Warning:</strong>_ this operation is irreversible and the runs are deleted from the disk.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer Batch delete" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/delete_runs_model.png"></span></p>
+</section>
+<section id="id2">
+<h4>Export Runs report<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>Generate Runs CSV report by clicking on the <code class="docutils literal notranslate"><span class="pre">Export</span></code> button on the Runs table.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Runs Explorer export runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/runs-explorer/export_runs.png"></span></p>
+</section>
+</section>
+</section>
+<section id="single-run-page">
+<h2>Single run page<a class="headerlink" href="#single-run-page" title="Permalink to this heading"></a></h2>
+<p>Each training run has a dedicated page on Aim. Use the single run page to observe all the tracked metadata associated with that run.</p>
+<p>Here are the tabs available on the single run page.
+Each tab visualizes respective tracked metadata or empty if not tracked.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id4">Overview</a></p></li>
+<li><p><a class="reference external" href="#id5">Params</a></p></li>
+<li><p><a class="reference external" href="#id6">Metrics</a></p></li>
+<li><p><a class="reference external" href="#id7">System</a></p></li>
+<li><p><a class="reference external" href="#id8">Distributions</a></p></li>
+<li><p><a class="reference external" href="#id9">Images</a></p></li>
+<li><p><a class="reference external" href="#id10">Audios</a></p></li>
+<li><p><a class="reference external" href="#id11">Texts</a></p></li>
+<li><p><a class="reference external" href="#id12">Figures</a></p></li>
+<li><p><a class="reference external" href="#id13">Terminal Logs</a></p></li>
+<li><p><a class="reference external" href="#id14">Settings</a></p></li>
+</ul>
+<section id="id4">
+<h3>Overview<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>Overview tab shows overall info about the run.</p>
+<ul class="simple">
+<li><p>These cards can contain information about <code class="docutils literal notranslate"><span class="pre">Parameters</span></code>, <code class="docutils literal notranslate"><span class="pre">Metrics</span></code>, <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Metrics</span></code>, <code class="docutils literal notranslate"><span class="pre">CLI</span> <span class="pre">Arguments</span></code>, <code class="docutils literal notranslate"><span class="pre">Environment</span> <span class="pre">Variables</span></code>, <code class="docutils literal notranslate"><span class="pre">Packages</span></code> and <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">information</span></code>. With this data, you can easily reproduce your run.</p></li>
+<li><p>Sidebar contains information about <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Date</span></code>, <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Duration</span></code>, <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Hash</span></code>, attached <code class="docutils literal notranslate"><span class="pre">Tags</span></code> and gives the ability to navigate through tabs.</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page overview tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/overview_tab.png"></span></p>
+<p>Also, you can apply advanced <code class="docutils literal notranslate"><span class="pre">searching/filtering</span></code> to those card tables.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page overview tab table" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/overview_tab_table.png"></span></p>
+</section>
+<section id="id5">
+<h3>Params<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p>Params tab contains a JSON-like visualization of all the tracked params data related to a single run of interest.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page params tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/params_tab.png"></span></p>
+</section>
+<section id="id6">
+<h3>Metrics<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<p>Metrics tab contains the visualizations of all the metrics tracked for the given run.</p>
+<p>When exploring run results, some metrics are looked at more often. Pin those metrics to the top of the page to find them easier and faster. Undo pinning by clicking on “unpin” button.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page metrics tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/metrics_tab_pin.png"></span></p>
+<p><strong>Note:</strong> you can track arbitrary number of runs with lots of steps with Aim!</p>
+</section>
+<section id="id7">
+<h3>System<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p>Aim automatically tracks system metrics, so you can use them in order to detect potential resource mismanagements or anomalies.</p>
+<p>System tab contains all the tracked system metrics for a single run.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page system tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/system_tab.png"></span></p>
+</section>
+<section id="id8">
+<h3>Distributions<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<p>You can track the gradient, the weights and the biases distributions of all the layers for lots of steps with Aim.</p>
+<p>The Distributions tab will allow you to observe them for a single run. You can also</p>
+<ul class="simple">
+<li><p>navigate between the layers</p></li>
+<li><p>search for distribution on specific steps</p></li>
+</ul>
+<p>The single run distributions tab is quite powerful!</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page distributions tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/distributions_tab.png"></span></p>
+</section>
+<section id="id9">
+<h3>Images<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p>The Images tab contains all the tracked images of a single run.
+You can track runs with different contexts and at different steps of training.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page images tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/images_tab.png"></span></p>
+<p>On the left-hand side are the names of different image-sets you have tracked along with their <a class="reference external" href="../../understanding/concepts.html#sequence-context">context</a> unpacked.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Select Context" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/select_context.png"></span></p>
+<p>Usually the images are tracked at diff steps and with batches. This control will allow you to quickly slice and dice the specific subset of images to view.
+Use these sliders to search</p>
+<ul class="simple">
+<li><p>which subset of steps you’d like to see (on the left-hand side)</p></li>
+<li><p>which indices you’d like to see (on the right-hand side)</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Slider" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore-range-panel.png"></span></p>
+<p>If there is only 1 step or only 1 index, you will see the info message instead of the control</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Slider" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/range_panel_with_info_massages.png"></span></p>
+</section>
+<section id="id10">
+<h3>Audios<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<p>You can track audios with Aim. Use the Audios tab to view and play the tracked audios of a single run.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run audios params tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/audios_tab.png"></span></p>
+</section>
+<section id="id11">
+<h3>Texts<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Texts</span></code> tab to view and search all the texts tracked for a single run.</p>
+<p>On the left-hand side you will see the name and context of the tracked texts.
+You can use the search-bar on top to search the text with regexp or just match word or case.</p>
+<p>Use the bottom controllers to control the steps and the indices of the tracked texts too.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page texts tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/texts_tab.png"></span></p>
+</section>
+<section id="id12">
+<h3>Figures<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<p>Aim allows tracking Plotly and matplotlib figures.
+On the <code class="docutils literal notranslate"><span class="pre">Figures</span></code> tab you can view all the track figures over different contexts and steps.</p>
+<p><strong>Note:</strong> Aim will render figures with passed or default dimensions. There will be scrolls if the size exceeds the plotly container space of the Figures tab.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page figures tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/figures_tab.png"></span></p>
+</section>
+<section id="id13">
+<h3>Terminal Logs<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<p>Aim streams the process output logs (terminal logs) to the Aim UI automatically near-real-time. The terminal logs are displayed under <code class="docutils literal notranslate"><span class="pre">Logs</span></code> tab on the single run page.The terminal logs can be disabled programmatically if needed. <a class="reference external" href="../../using/configure_runs.html#capturing-terminal-logs">More on terminal logs here</a>.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page logs tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/logs_tab.png"></span></p>
+</section>
+<section id="id14">
+<h3>Settings<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Settings</span></code> tab to delete or archive the single run</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Single Run page settings tab" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/settings_tab.png"></span></p>
+<section id="delete-run">
+<h4>Delete Run<a class="headerlink" href="#delete-run" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Delete Run card" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/delete_card.png"></span>
+<span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Delete confirm" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/delete_modal.png"></span></p>
+</section>
+<section id="archive-run">
+<h4>Archive Run<a class="headerlink" href="#archive-run" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Archive card" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/archive_card.png"></span>
+<span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Unarchive card" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/run-single-page/unarchive_card.png"></span></p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="home_page.html" class="btn btn-neutral float-left" title="Home Page" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="explorers.html" class="btn btn-neutral float-right" title="Explorers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

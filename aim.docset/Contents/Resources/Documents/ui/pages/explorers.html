@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorers &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Table" href="table.html" />
+    <link rel="prev" title="Runs Management" href="run_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_management.html">Runs Management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Explorers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#metrics-explorer">Metrics Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Select metrics and query runs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Advanced Search mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-by-any-parameter">Group by any parameter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-color">Group by Color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-stroke">Group by Stroke</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-chart">Group by Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregate-metrics">Aggregate metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#axes-properties">Axes properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alignment">Alignment:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-axes-range">Set axes range:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#axes-scale">Axes Scale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linear-scale">Linear Scale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x-axis-scale-linear-y-axis-scale-log">X-axis scale: Linear, Y-axis scale: Log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x-axis-scale-log-y-axis-scale-linear">X-axis scale: Log, Y-axis scale: Linear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-scale">Log Scale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#chart-smoothing">Chart Smoothing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Exponential moving average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centered-moving-average">Centered moving average</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Ignore outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlight-modes">Highlight Modes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Highlight Off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Highlight Metric on Hover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Highlight Run on Hover</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#set-tooltip-parameters">Set tooltip parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apply-zoom-on-charts">Apply zoom on charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zoom-in">Zoom In</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zoom-out">Zoom Out</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Export chart as image</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#images-explorer">Images Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#query-any-image">Query any image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-image-by-run-parameters">Group image by run parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-explorer-right-controls-panel">Image explorer right controls panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#images-size-manipulation-control">Images size manipulation control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Images sorting control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Set tooltip parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#params-explorer">Params Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#query-any-metrics-and-params">Query any metrics and params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grouping">Grouping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#curve-interpolation">Curve interpolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color-indicator">Color indicator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scatters-explorer">Scatters Explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Explorers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ui/pages/explorers.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="explorers">
+<h1>Explorers<a class="headerlink" href="#explorers" title="Permalink to this heading"></a></h1>
+<p>Explorers will help you to compare 1000s of AI experiments with a few clicks.
+Explorers are the main tools that Aim is built around.</p>
+<p>In this section we will go through the Aim explorers, introduce their features and how to use them.</p>
+<section id="metrics-explorer">
+<h2>Metrics Explorer<a class="headerlink" href="#metrics-explorer" title="Permalink to this heading"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<p>Use Metrics explorer to search and compare 1000s of ML training metrics.</p>
+<p>The Metrics Explorer allows you to search, group and compare your metrics.
+Due to this and number of other visual features on the Metrics Explorer, you will save considerable amounts of time when comparing experiments- compared to other open-source experiment tracking tools.</p>
+<p>The Metric Explorer has the following main sections:</p>
+<ul class="simple">
+<li><p><strong>Metrics Select:</strong> to select the metrics for exploration</p></li>
+<li><p><strong>Search bar:</strong> to query the runs for exploration</p></li>
+<li><p><strong>Charts explorer:</strong> the space where the metrics are rendered</p></li>
+<li><p><strong>Metrics modifiers:</strong> all the grouping, chart division and other metrics modifier tools</p></li>
+<li><p><strong>Context table:</strong> the full information about the selected metrics is available</p></li>
+</ul>
+<p>There is also an advanced mode of search is available too where you can use the full Aim QL (more on this further in this section).</p>
+<p>There are two ways you can query metrics and runs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id1">Select metrics and query runs</a></p></li>
+<li><p><a class="reference external" href="#advanced-search-mode">Advanced Search mode</a></p></li>
+</ul>
+<p>An overview of what you can do with queried metrics - the modifiers:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#group-by-any-parameter">Group by tracked parameters</a></p></li>
+<li><p><a class="reference external" href="#aggregate-metrics">Aggregate grouped metrics</a></p></li>
+<li><p><a class="reference external" href="#axes-properties">Configure axes properties (x-axis alignment, axes range)</a></p></li>
+<li><p><a class="reference external" href="#axes-scale">Change scale of the axes (linear or log)</a></p></li>
+<li><p><a class="reference external" href="#chart-smoothing">Apply smoothing</a></p></li>
+<li><p><a class="reference external" href="#ignore-outliers">Ignore outliers</a></p></li>
+<li><p><a class="reference external" href="#highlight-modes">Metric highlight modes (metric on hover, run on hover)</a></p></li>
+<li><p><a class="reference external" href="#set-tooltip-parameters">Set chart tooltip parameters</a></p></li>
+<li><p><a class="reference external" href="#apply-zoom-on-charts">Apply zoom in/out on charts</a></p></li>
+<li><p><a class="reference external" href="#export-chart-as-image">Export chart as image</a></p></li>
+</ul>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/metrics.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="metrics_explorer" /></span></p>
+</section>
+<section id="id1">
+<h3>Select metrics and query runs<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>On the Metrics Explorer, there is <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Metrics</span></code> button.
+Once pressed, a dropdown will appear with all your tracked metrics and their contexts flattened.
+The dropdown is searchable - so you can get to your metric of interest within a stroke!</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/select_form_dropdown.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="select_form_dropdown" /></span></p>
+<p>The Search bar is located below the <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Metric</span></code> button. It allows to do a pythonic query (that is eval-ed as python statement) over every param you have tracked.</p>
+<p>Search runs with <a class="reference external" href="../../using/search.html">Aim QL</a></p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/select_form_filter.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="select_form_filter" /></span></p>
+</section>
+<section id="id2">
+<h3>Advanced Search mode<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>Once you press the <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">advanced</span> <span class="pre">search</span> <span class="pre">mode</span></code> button underneath the main <code class="docutils literal notranslate"><span class="pre">Search</span></code> button, it will enable the full Aim QL search editor - to query the metrics, the runs via full Aim QL</p>
+<p>Here is an example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">((metric.name</span> <span class="pre">==</span> <span class="pre">'bleu'</span> <span class="pre">and</span> <span class="pre">metric.context.subset</span> <span class="pre">==</span> <span class="pre">'val')</span> <span class="pre">or</span> <span class="pre">(metric.name</span> <span class="pre">==</span> <span class="pre">'loss'</span> <span class="pre">and</span> <span class="pre">metric.context.subset</span> <span class="pre">==</span> <span class="pre">'train'))</span>
+<span class="pre">and</span> <span class="pre">1e-5</span> <span class="pre">&lt;</span> <span class="pre">run.hparams.learning_rate</span> <span class="pre">&lt;</span> <span class="pre">1e-2</span></code></p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/select_form_advanced_search.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="select_form_advanced_search" /></span></p>
+</section>
+<section id="group-by-any-parameter">
+<h3>Group by any parameter<a class="headerlink" href="#group-by-any-parameter" title="Permalink to this heading"></a></h3>
+<p>Grouping selected metrics by any tracked params will allow you to quickly distinguish the most impactful params, decisions you have made (the preprocessing steps, the hyperparams etc).</p>
+<p>The parameters include not only the ones you have tracked but also the native Aim objects too such as</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metric.name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric.context.[context_key]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run.hash</span></code></p></li>
+</ul>
+<p>There are several ways you can group the selected metrics and runs - by color, by stroke and by chart.</p>
+<section id="group-by-color">
+<h4>Group by Color<a class="headerlink" href="#group-by-color" title="Permalink to this heading"></a></h4>
+<p>Use this to divide the selected metrics into different clusters based on selected values of params.
+Each cluster gets colored differently.</p>
+<p>There are a number of options available when grouping</p>
+<ul class="simple">
+<li><p><strong>group by values</strong> - divides into clusters as per the values of selected params)</p></li>
+<li><p><strong>reverse grouping</strong> - divides into clusters by every param except for the chosen one.</p></li>
+</ul>
+<p>The grouping colors are picked randomly, however it is possible to fix with the advanced coloring features.</p>
+<p>Here are the features in the advanced mode:</p>
+<ul class="simple">
+<li><p>Fix the colors of the grouping</p></li>
+<li><p>Control the color palette to use during the grouping</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/groupby_color.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="groupby_color" /></span></p>
+</section>
+<section id="group-by-stroke">
+<h4>Group by Stroke<a class="headerlink" href="#group-by-stroke" title="Permalink to this heading"></a></h4>
+<p>Groups the metrics by a stroke style.
+Has all the rest of the other features available on the color grouping except the advanced mode.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/groupby_stroke.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="groupby_stroke" /></span></p>
+</section>
+<section id="group-by-chart">
+<h4>Group by Chart<a class="headerlink" href="#group-by-chart" title="Permalink to this heading"></a></h4>
+<p>The end result of using this feature: divides into subplots based on the value of the selected params.
+Why this is a grouping mechanism? It groups the metrics belonging to the same group into separate charts.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/groupby_chart.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="groupby_chart" /></span></p>
+</section>
+</section>
+<section id="aggregate-metrics">
+<h3>Aggregate metrics<a class="headerlink" href="#aggregate-metrics" title="Permalink to this heading"></a></h3>
+<p>The metrics aggregation helps to quickly see the trends of each individual group of metrics. See more about <a class="reference external" href="#group-by-any-parameter">metrics grouping</a>.</p>
+<p>There are two aspects of aggregation you can control:</p>
+<ul class="simple">
+<li><p>the trend-line</p></li>
+<li><p>the area that the group of metricsc take</p></li>
+</ul>
+<p>The trend-line calculation methods:</p>
+<ul class="simple">
+<li><p>Mean</p></li>
+<li><p>Median</p></li>
+<li><p>Min</p></li>
+<li><p>Max</p></li>
+</ul>
+<p>The area calcualtion methods:</p>
+<ul class="simple">
+<li><p>None <em>(when you’d like to remove the area)</em></p></li>
+<li><p>Min/Max</p></li>
+<li><p>Mean +/- Standard Deviation</p></li>
+<li><p>Mean +/- Standard Error</p></li>
+<li><p>Confidence Interval (95%)</p></li>
+</ul>
+<p>Pls see the screenshot:</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/aggr_line_mean.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="aggr_line_mean" /></span></p>
+</section>
+<section id="axes-properties">
+<h3>Axes properties<a class="headerlink" href="#axes-properties" title="Permalink to this heading"></a></h3>
+<p>Axes properties section is for aligning metrics by time, epoch or another metric and for setting axes range manually.</p>
+<section id="alignment">
+<h4>Alignment:<a class="headerlink" href="#alignment" title="Permalink to this heading"></a></h4>
+<p>Following types of metrics alignment are available: <a class="reference external" href="#step">Step</a>, <a class="reference external" href="#epoch">Epoch</a>, <a class="reference external" href="#relative-time">Relative Time</a>, <a class="reference external" href="#absolute-time">Absolute Time</a> and <a class="reference external" href="#custom-metric">Custom Metric</a>.
+By default, metrics aligned by <a class="reference external" href="#step">Step</a>.</p>
+<section id="id4">
+<h5>Step<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h5>
+<p>By setting metrics alignment to Step, x-axis values will represent the steps of tracked metrics.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/alignment-step.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="alignment_step" /></span></p>
+</section>
+<section id="id5">
+<h5>Epoch<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h5>
+<p>By setting metrics alignment to Epoch, x-axis values will represent the epochs of tracked metrics.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/alignment-epoch.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="alignment_epoch" /></span></p>
+</section>
+<section id="id6">
+<h5>Relative Time<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h5>
+<p>By setting metrics alignment to Relative Time, x-axis values will represent by <code class="docutils literal notranslate"><span class="pre">HH:mm:ss</span></code>, duration of tracking process.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/alignment-relative.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="alignment_relative" /></span></p>
+</section>
+<section id="id7">
+<h5>Absolute Time<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h5>
+<p>By setting metrics alignment to Absolute Time, x-axis values will represent by date <code class="docutils literal notranslate"><span class="pre">HH:mm:ss</span> <span class="pre">D</span> <span class="pre">MMM,</span> <span class="pre">YY</span></code>, since the start date of the first run until the last run.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/alignment-absolute.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="alignment_absolute" /></span></p>
+</section>
+<section id="id8">
+<h5>Custom Metric<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h5>
+<p>By setting metrics alignment to Custom Metric, x-axis values will represent selected metric values, you can detect correlations between queried metrics and selected metric.</p>
+</section>
+</section>
+<section id="set-axes-range">
+<h4>Set axes range:<a class="headerlink" href="#set-axes-range" title="Permalink to this heading"></a></h4>
+<p>To fix an axis range across all the charts, set the corresponding axis minimum and maximum bounds in the form.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/set-axes-range.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="set-axes-range" /></span></p>
+</section>
+</section>
+<section id="axes-scale">
+<h3>Axes Scale<a class="headerlink" href="#axes-scale" title="Permalink to this heading"></a></h3>
+<p>Axes Scale section gives ability to display axes scale’s <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_scale">linear</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithmic_scale">logarithmic</a>.</p>
+<p>By default, axes scale’s are <a class="reference external" href="#linear-scale">Linear</a>.</p>
+<section id="linear-scale">
+<h4>Linear Scale<a class="headerlink" href="#linear-scale" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/axes_scale_linear.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="axes_scale_linear" /></span></p>
+</section>
+<section id="x-axis-scale-linear-y-axis-scale-log">
+<h4>X-axis scale: Linear, Y-axis scale: Log<a class="headerlink" href="#x-axis-scale-linear-y-axis-scale-log" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/y_axis_scale_log.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="y-axis-scale-log" /></span></p>
+</section>
+<section id="x-axis-scale-log-y-axis-scale-linear">
+<h4>X-axis scale: Log, Y-axis scale: Linear<a class="headerlink" href="#x-axis-scale-log-y-axis-scale-linear" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/x_axis_scale_log.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="x-axis-scale-log" /></span></p>
+</section>
+<section id="log-scale">
+<h4>Log Scale<a class="headerlink" href="#log-scale" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/axes_scale_log.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="axes-scale-log" /></span></p>
+</section>
+</section>
+<section id="chart-smoothing">
+<h3>Chart Smoothing<a class="headerlink" href="#chart-smoothing" title="Permalink to this heading"></a></h3>
+<p>While smoothing the chart, the data points are modified so individual points higher than the adjacent points (presumably because of noise) are reduced, and points that are lower than the adjacent points are increased leading to a smoother signal.
+You can select curve interpolation methods: Linear or Cubic.
+By default, chart smoothing in <a class="reference external" href="#exponential-moving-average">Exponential moving average</a> mode and curve interpolation method is Linear.</p>
+<section id="id10">
+<h4>Exponential moving average<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Moving_average">exponential moving average</a>, also known as an exponentially weighted moving average (EWMA),
+is a first-order infinite impulse response filter that applies weighting factors which decrease exponentially.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/smoothing_ema.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="smoothing_ema" /></span></p>
+</section>
+<section id="centered-moving-average">
+<h4>Centered moving average<a class="headerlink" href="#centered-moving-average" title="Permalink to this heading"></a></h4>
+<p>When you center the moving averages, the data points are placed at the center of the range rather than the end of it.
+This is done to position the moving average values at their central positions in time.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/smoothing_cma.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="smoothing_cma" /></span></p>
+</section>
+</section>
+<section id="id12">
+<h3>Ignore outliers<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<p>An outlier is an observation that lies an abnormal distance from other values in a random sample from a population.
+Examination of the data for unusual observations that are far removed from the mass of data.
+These points are often referred to as outliers.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/ignore_outliers_off.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="ignore-outliers-off" /></span></p>
+<p>Excluding outliers can cause your results to become statistically significant.
+By default, outliers are ignored.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/ignore_outliers_on.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="ignore-outliers-on" /></span></p>
+</section>
+<section id="highlight-modes">
+<h3>Highlight Modes<a class="headerlink" href="#highlight-modes" title="Permalink to this heading"></a></h3>
+<p>Highlighting functionality is useful for filtering metrics and highlight only hovered metric.
+Following types of highlighting mode are available: <a class="reference external" href="#highlight-off">Highlight Off</a>, <a class="reference external" href="#highlight-metric-on-hover">Highlight Metric on Hover</a>, and <a class="reference external" href="#highlight-run-on-hover">Highlight Run on Hover</a>.
+By default, highlighting mode is the <a class="reference external" href="#highlight-run-on-hover">Highlight Run on Hover</a>.</p>
+<section id="id14">
+<h4>Highlight Off<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<p>By setting Highlight mode Off, there is no highlighting functionality on hover.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/highlight_off.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="highlight_off" /></span></p>
+</section>
+<section id="id15">
+<h4>Highlight Metric on Hover<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+<p>By setting Highlight mode Metric on Hover, mouse point closest metric highlights and other metrics displays with opacity.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/highlight_metric.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="highlight_metric" /></span></p>
+</section>
+<section id="id16">
+<h4>Highlight Run on Hover<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+<p>By setting Highlight mode Run on Hover, mouse point closest metric highlights and highlighted metric corresponding run also highlights other metrics displays with opacity.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/highlight_run.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="highlight_run" /></span></p>
+</section>
+</section>
+<section id="set-tooltip-parameters">
+<h3>Set tooltip parameters<a class="headerlink" href="#set-tooltip-parameters" title="Permalink to this heading"></a></h3>
+<p>You can select tooltip parameters to show params and values in tooltip Params section.
+You can select hide or show button to display or hide tooltip on hover.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/tooltip_parameters_popover.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="tooltip-parameters-popover" /></span></p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/tooltip_select_parameters.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="select-tooltip-parameters" /></span></p>
+</section>
+<section id="apply-zoom-on-charts">
+<h3>Apply zoom on charts<a class="headerlink" href="#apply-zoom-on-charts" title="Permalink to this heading"></a></h3>
+<section id="zoom-in">
+<h4>Zoom In<a class="headerlink" href="#zoom-in" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/zoom_in_popover.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="zoom-in-popover.png" /></span></p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/zoom_in_action.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="zoom-in-action.png" /></span></p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/zoom_out.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="zoom-out.png" /></span></p>
+</section>
+<section id="zoom-out">
+<h4>Zoom Out<a class="headerlink" href="#zoom-out" title="Permalink to this heading"></a></h4>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/zoom_out_popover.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="zoom_out_popover" /></span></p>
+</section>
+</section>
+<section id="id17">
+<h3>Export chart as image<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<p>Metric explorer also, gives ability to export your chart as image.
+By clicking <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">button</span></code> from control panel, will be opened chart preview modal.
+You can change exportable chart <code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">single</span> <span class="pre">chart</span> <span class="pre">height</span></code>, set <code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/export_preview.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="export_preview" /></span></p>
+<p>Following formats of chart export are available: <code class="docutils literal notranslate"><span class="pre">SVG</span></code>, <code class="docutils literal notranslate"><span class="pre">JPEG</span></code>, <code class="docutils literal notranslate"><span class="pre">PNG</span></code>.</p>
+<p><span class="raw-html-m2r"><img width="100" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/export_format.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="export-format" /></span></p>
+</section>
+</section>
+<section id="images-explorer">
+<h2>Images Explorer<a class="headerlink" href="#images-explorer" title="Permalink to this heading"></a></h2>
+<section id="id18">
+<h3>Overview<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<p>Track intermediate images search easily by using select form functional compare them on the Images Explorer by using reach controls panel.</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore.png"></span></p>
+<p>Features:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#query-any-image">Easily query any image</a></p></li>
+<li><p><a class="reference external" href="#group-image-by-run-parameters">Group images by run parameters, step and index</a></p></li>
+<li><p><a class="reference external" href="#image-explorer-right-controls-panel">Use controls from right control panel to configure workspace</a></p>
+<ul>
+<li><p><a class="reference external" href="#images-properties-control">Image properties control</a></p></li>
+<li><p><a class="reference external" href="#images-sorting-control">Images sorting control</a></p></li>
+<li><p><a class="reference external" href="#images-group-stacking-control">Images group stacking control</a></p></li>
+<li><p><a class="reference external" href="#set-tooltip-parameters">Images tooltip params control</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="query-any-image">
+<h3>Query any image<a class="headerlink" href="#query-any-image" title="Permalink to this heading"></a></h3>
+<p>Use select form to easily query any image. There are two option to query images using dropdown, by using <a class="reference external" href="../../using/search.html">Aim QL</a> language and advance mode for <a class="reference external" href="../../using/search.html">Aim QL</a>.</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore-select-form.png"></span></p>
+<ul class="simple">
+<li><p>Click on Images button</p></li>
+<li><p>Select options you are want to use in query</p></li>
+<li><p>Click on the Search button</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-select-dropdown.png"></span></p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore-select-form-reset.png"></span></p>
+<ul class="simple">
+<li><p>Click on pencel icon in the right side of select form to show input</p></li>
+<li><p>Type advance <a class="reference external" href="../../using/search.html">Aim QL</a> query</p></li>
+<li><p>Click on the Search button</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore-query-advanced-mode-on.png"></span></p>
+</section>
+<section id="group-image-by-run-parameters">
+<h3>Group image by run parameters<a class="headerlink" href="#group-image-by-run-parameters" title="Permalink to this heading"></a></h3>
+<p>Use select grouping dropdown which is located in the right top corner of the image explore page.</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/grouping-button.png"></span></p>
+<ul class="simple">
+<li><p>Click on grouping button</p></li>
+<li><p>Select fields by which you want to groupe images</p></li>
+</ul>
+<p>Grouping will be apply after each field selection also you can select grouping mode (Group or Reverse)</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/grouping-with-opened-dropdown.png"></span></p>
+</section>
+<section id="image-explorer-right-controls-panel">
+<h3>Image explorer right controls panel<a class="headerlink" href="#image-explorer-right-controls-panel" title="Permalink to this heading"></a></h3>
+<p>Any change in controls will help to explore images better on the workspace</p>
+</section>
+<section id="images-size-manipulation-control">
+<h3>Images size manipulation control<a class="headerlink" href="#images-size-manipulation-control" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Click on image property button</p></li>
+<li><p>Select value from dropdown to align image. (by default dropdown value is <code class="docutils literal notranslate"><span class="pre">Height</span></code>). Use slider to configure value for scale relative to window size by default scale value is <code class="docutils literal notranslate"><span class="pre">15%</span></code>.</p>
+<ul>
+<li><p>By height</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-size-by-height.png"></span></p>
+</li>
+<li><p>By width</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-size-by-width.png"></span></p>
+</li>
+<li><p>Original size</p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-size-by-original-size.png"></span></p>
+</li>
+</ul>
+</li>
+<li><p>Use image rendering variation by default value of this control is <code class="docutils literal notranslate"><span class="pre">Pixelated</span></code></p>
+<p><span class="raw-html-m2r"><img alt="Images explore overview" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-rendering.png"></span></p>
+</li>
+</ul>
+</section>
+<section id="id22">
+<h3>Images sorting control<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Click on image sorting button</p></li>
+<li><p>Select fields for sorting images. Selection ordering is meaningful and data will be sorting by selection order. Bellow is visible Ordered By list where contains all selected fields from dropdown. You can remove any already selected field by clicking on <code class="docutils literal notranslate"><span class="pre">x</span></code> icon or change sorting direction by clicking radio button Asc or Desc. Default selected direction is Asc.</p></li>
+<li><p>For reset all existing sorting fields you can simply click on Reset Sorting button</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="Images sorting popover" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/images-explore/images-explore-sorting-desc.png"></span></p>
+</section>
+<section id="id23">
+<h3>Set tooltip parameters<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<p>You can select tooltip parameters to show params and values in tooltip Params section.
+You can select hide or show button to display or hide tooltip on hover.</p>
+<p><span class="raw-html-m2r"><img src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/metrics-explorer/tooltip_parameters_popover.png" style="border-radius: 8px; border: 1px solid #E8F1FC" alt="tooltip-parameters-popover" /></span></p>
+</section>
+</section>
+<section id="params-explorer">
+<h2>Params Explorer<a class="headerlink" href="#params-explorer" title="Permalink to this heading"></a></h2>
+<section id="id24">
+<h3>Overview<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<p>Params explorer helps you to represent high dimensional data as a multi-dimensional visualization.
+Features:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#query-any-metrics-and-params">Easily query any metrics and params</a></p></li>
+<li><p><a class="reference external" href="#grouping">Group runs by color, stroke, or chart</a></p></li>
+<li><p><a class="reference external" href="#curve-interpolation">Make the crossings easier with curve interpolation</a></p></li>
+<li><p><a class="reference external" href="#color-indicator">Learn patterns and colorations easier colored by the last dimension with a color indicator</a></p></li>
+</ul>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Params explore" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/1.png"></span></p>
+<section id="query-any-metrics-and-params">
+<h4>Query any metrics and params<a class="headerlink" href="#query-any-metrics-and-params" title="Permalink to this heading"></a></h4>
+<p>Select params and metrics from dropdown</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Select params and metrics from dropdown" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/2.png"></span></p>
+<p>Search runs with <a class="reference external" href="../../using/search.html">Aim QL</a></p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Search runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/3.png"></span></p>
+</section>
+<section id="grouping">
+<h4>Grouping<a class="headerlink" href="#grouping" title="Permalink to this heading"></a></h4>
+<p>Group by color, stroke, or chart with selected parameters</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Grouping" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/4.png"></span></p>
+</section>
+<section id="curve-interpolation">
+<h4>Curve interpolation<a class="headerlink" href="#curve-interpolation" title="Permalink to this heading"></a></h4>
+<p>By clicking on the Curve interpolation button in the Controls panel, it’s possible to make lines from straight to curve to show
+correlations between non-adjacent axes.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Curve interpolation" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/5.png"></span></p>
+</section>
+<section id="color-indicator">
+<h4>Color indicator<a class="headerlink" href="#color-indicator" title="Permalink to this heading"></a></h4>
+<p>By clicking on the Color indicator button in the Controls panel, it’s possible to turn on lines gradient coloring by the last dimension.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="Color indicator" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/params-explore/6.png"></span></p>
+</section>
+</section>
+</section>
+<section id="scatters-explorer">
+<h2>Scatters Explorer<a class="headerlink" href="#scatters-explorer" title="Permalink to this heading"></a></h2>
+<p>Scatter explorer gives ability to visualize correlations between metric last value data with hyper-parameter.</p>
+<p>It represents graph where corresponding values from a set of data are placed as points on a coordinate plane. A relationship between the points is sometimes shown to be positive, negative, strong, or weak.</p>
+<p><span class="raw-html-m2r"><img alt="scatters-explore" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/scatters.png"></span></p>
+<p>Abilities provided by Scatter explorer</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#align-metric-last-value-data-with-hyper-parameter">Easily align metric last value data with hyper parameter</a></p></li>
+<li><p><a class="reference external" href="#grouping">Group runs by color and chart</a></p></li>
+<li><p><a class="reference external" href="#trend-line">Represent the points with trend line</a></p></li>
+<li><p><a class="reference external" href="#export-chart">Export chart</a></p></li>
+</ul>
+<p>Select params and metrics from <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> axes dropdowns to align metric last value data with hyper-parameter.</p>
+<ul class="simple">
+<li><p>X axis</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="x axis dropdown" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/select-x-axis.png"></span></p>
+<ul class="simple">
+<li><p>Y axis</p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="y axis dropdown" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/select-y-axis.png"></span></p>
+<p>Also, you can search runs with <a class="reference external" href="../../using/search.html">Aim QL</a></p>
+<p><span class="raw-html-m2r"><img alt="search runs" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/scatters-search.png"></span></p>
+<p>Easily group data by color and chart with selected parameters.</p>
+<ul class="simple">
+<li><p>By <code class="docutils literal notranslate"><span class="pre">Color</span></code></p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="Grouping color" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/scatters-color-group.png"></span></p>
+<ul class="simple">
+<li><p>By <code class="docutils literal notranslate"><span class="pre">Chart</span></code></p></li>
+</ul>
+<p><span class="raw-html-m2r"><img alt="Grouping chart line" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/scatters-color-group.png"></span></p>
+<p>A trend line is a straight line that best represents the points on a <code class="docutils literal notranslate"><span class="pre">scatter</span> <span class="pre">plot</span></code>. The trend line may go through some points but need not go through them all.</p>
+<p><span class="raw-html-m2r"><img alt="trend line" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/trendline.png"></span></p>
+<p>From trend line options popover you can change regression from <code class="docutils literal notranslate"><span class="pre">Linear</span></code> (by default) to <code class="docutils literal notranslate"><span class="pre">LOESS</span></code>(locally weighted smoothing), which creates a smooth line through a <code class="docutils literal notranslate"><span class="pre">scatter</span> <span class="pre">plot</span></code> to help you to see relationship between variables and foresee trends. Also, you can change the <code class="docutils literal notranslate"><span class="pre">bandwidth</span></code> with <code class="docutils literal notranslate"><span class="pre">slider</span></code></p>
+<p><span class="raw-html-m2r"><img alt="trend line loess" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/trendline-loess.png"></span></p>
+<p>Scatter explorer also, gives ability to <code class="docutils literal notranslate"><span class="pre">export</span></code> your chart as <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p>
+<p>By clicking <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">button</span></code> from control panel, will be opened chart preview modal.
+You can change exportable chart <code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">single</span> <span class="pre">chart</span> <span class="pre">height</span></code>, set <code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<p><span class="raw-html-m2r"><img alt="export chart" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/export-chart.png"></span></p>
+<p>Following image formats are available export: <code class="docutils literal notranslate"><span class="pre">SVG</span></code>, <code class="docutils literal notranslate"><span class="pre">JPEG</span></code>, <code class="docutils literal notranslate"><span class="pre">PNG</span></code>.</p>
+<p><span class="raw-html-m2r"><img width="100" alt="export format" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/scatters-explorer/export-format.png"></span></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run_management.html" class="btn btn-neutral float-left" title="Runs Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="table.html" class="btn btn-neutral float-right" title="Table" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

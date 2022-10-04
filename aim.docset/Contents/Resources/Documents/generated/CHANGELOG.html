@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Anonymized Telemetry" href="../community/telemetry.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unreleased">Unreleased</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unreleased-enhancements">Unreleased - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unreleased-fixes">Unreleased - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-25-2022">3.13.4 Sep 25, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-16-2022">3.13.3 Sep 16, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-10-2022">3.13.2 Sep 10, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-1-2022">3.13.1 Sep 1, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-21-2022">3.13.0 Aug 21, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aug-21-2022-enhancements">3.13.0 Aug 21, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aug-21-2022-fixes">3.13.0 Aug 21, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-5-2022">3.12.2 Aug 5, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-2-2022">3.12.1 Aug 2, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jul-22-2022">3.12.0 Jul 22, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jul-22-2022-enhancements">3.12.0 Jul 22, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jul-22-2022-fixes">3.12.0 Jul 22, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jul-8-2022">3.11.2 Jul 8, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jul-8-2022-enhancements">3.11.2 Jul 8, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jul-8-2022-fixes">3.11.2 Jul 8, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-27-2022">3.11.1 Jun 27, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-21-2022">3.11.0 Jun 21, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jun-21-2022-enhancements">3.11.0 Jun 21, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jun-21-2022-fixes">3.11.0 Jun 21, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#may-31-2022">3.10.3 May 31, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-26-2022">3.10.2 May 26, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-18-2022">3.10.1 May 18, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-17-2022">3.10.0 May 17, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#may-17-2022-enhancements">3.10.0 May 17, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-17-2022-fixes">3.10.0 May 17, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#may-12-2022">3.9.4 May 12, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-10-2022">3.9.3 May 10, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-29-2022">3.9.2 Apr 29, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3.9.1 Apr 29, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.9.0 Apr 29, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apr-29-2022-enhancements">3.9.0 Apr 29, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apr-29-2022-fixes">3.9.0 Apr 29, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-6-2022">3.8.1 Apr 6, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-26-2022">3.8.0 Mar 26, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mar-26-2022-enhancements">3.8.0 Mar 26, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mar-26-2022-fixes">3.8.0 Mar 26, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-18-2022">3.7.5 Mar 18, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-15-2022">3.7.4 Mar 15, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-14-2022">3.7.3 Mar 14, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-10-2022">3.7.2 Mar 10, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.7.1 Mar 10, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-9-2022">3.7.0 Mar 9, 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mar-9-2022-enhancements">3.7.0 Mar 9, 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mar-9-2022-fixes">3.7.0 Mar 9, 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-4-2022">3.6.3 Mar 4, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-2-2022">3.6.2 Mar 2, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-25-2022">3.6.1 Feb 25, 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-22-2022">3.6.0 Feb 22 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#feb-22-2022-enhancements">3.6.0 Feb 22 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feb-22-2022-fixes">3.6.0 Feb 22 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-15-2022">3.5.4 Feb 15 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-11-2022">3.5.3 Feb 11 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-10-2022">3.5.2 Feb 10 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-4-2022">3.5.1 Feb 4 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-3-2022">3.5.0 Feb 3 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#feb-3-2022-enhancements">3.5.0 Feb 3 2022 - Enhancements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feb-3-2022-fixes">3.5.0 Feb 3 2022 - Fixes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-23-2022">3.4.1 Jan 23 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-22-2022">3.4.0 Jan 22 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-14-2022">3.3.5 Jan 14 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-10-2022">3.3.4 Jan 10 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-24-2021">3.3.3 Dec 24 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-20-2021">3.3.2 Dec 20 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-18-2021">3.3.1 Dec 18 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-17-2021">3.3.0 Dec 17 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-10-2021">3.2.2 Dec 10 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-8-2021">3.2.1 Dec 8 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-3-2021">3.2.0 Dec 3 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-25-2021">3.1.1 Nov 25 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-20-2021">3.1.0 Nov 20 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-17-2021">3.0.7 Nov 17 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-9-2021">3.0.6 Nov 9 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.0.5 Nov 9 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-8-2021">3.0.4 Nov 8 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-4-2021">3.0.3 Nov 4 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-27-2021">3.0.2 Oct 27 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-22-2021">3.0.1 Oct 22 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-21-2021">3.0.0 Oct 21 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-30-2021">2.7.1 Jun 30 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-23-2021">2.7.0 Jun 23 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-12-2021">2.6.0 Jun 12 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-27-2021">2.5.0 May 27 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-13-2021">2.4.0 May 13 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-10-2021">2.3.0 Apr 10 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-31-2021">2.2.1 Mar 31 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-24-2021">2.2.0 Mar 24 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-26-2021">2.1.6 Feb 26 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-7-2021">2.1.5 Jan 7 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-2-2020">2.1.4 Dec 2 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-24-2020">2.1.3 Nov 24 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.1.2 Nov 24 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-22-2020">2.1.1 Nov 22 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-19-2020">2.1.0 Nov 19 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-13-2020">2.0.27 Nov 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-10-2020">2.0.26 Nov 10 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-9-2020">2.0.25 Nov 9 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-8-2020">2.0.24 Nov 8 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-5-2020">2.0.23 Nov 5 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">2.0.22 Nov 5 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-1-2020">2.0.21 Nov 1 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-26-2020">2.0.20 Oct 26 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-25-2020">2.0.19 Oct 25 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-7-2020">2.0.18 Oct 7 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-5-2020">2.0.17 Oct 5 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oct-2-2020">2.0.16 Oct 2 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-21-2020">2.0.15 Sep 21 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">2.0.14 Sep 21 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">2.0.13 Sep 21 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-12-2020">2.0.12 Sep 12 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-11-2020">2.0.11 Sep 11 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-10-2020">2.0.10 Sep 10 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">2.0.9 Sep 10 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-26-2020">2.0.8 Aug 26 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-21-2020">2.0.7 Aug 21 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-13-2020">2.0.6 Aug 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jul-18-2020">2.0.5 Jul 18 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">2.0.4 Jul 18 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jul-8-2020">2.0.3 Jul 8 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jul-7-2020">2.0.2 Jul 7 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-24-2020">2.0.1 Jun 24 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jun-18-2020">2.0.0 Jun 18 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-8-2020">1.2.17 May 8 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-29-2020">1.2.16 Apr 29 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">1.2.15 Apr 29 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-27-2020">1.2.14 Apr 27 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-25-2020">1.2.13 Apr 25 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-20-2020">1.2.12 Apr 20 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-16-2020">1.2.11 Apr 16 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">1.2.10 Apr 16 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-16-2020">1.2.9 Mar 16 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-15-2020">1.2.8 Mar 15 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-14-2020">1.2.7 Mar 14 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-28-2020">1.2.6 Feb 28 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-25-2020">1.2.5 Feb 25 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-20-2020">1.2.4 Feb 20 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-13-2020">1.2.3 Feb 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">1.2.2 Feb 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">1.2.1 Feb 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">1.2.0 Feb 13 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-14-2020">1.1.1 Jan 14 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-12-2020">1.1.0 Jan 12 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-7-2020">1.0.2 Jan 7 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-26-2019">1.0.1 Dec 26 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-25-2019">1.0.0 Dec 25 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-30-2019">0.2.9 Nov 30 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">0.2.8 Nov 30 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-14-2019">0.2.7 Nov 14 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-5-2019">0.2.6 Nov 5 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-4-2019">0.2.5 Nov 4 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-3-2019">0.2.4 Nov 3 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">0.2.3 Nov 3 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-1-2019">0.2.2 Nov 1 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">0.2.1 Nov 1 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">0.2.0 Nov 1 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-23-2019">0.1.0 - Sep 23 2019</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/CHANGELOG.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
+<section id="unreleased">
+<h2>Unreleased<a class="headerlink" href="#unreleased" title="Permalink to this heading"></a></h2>
+<section id="unreleased-enhancements">
+<h3>Unreleased - Enhancements:<a class="headerlink" href="#unreleased-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add the ability to attach/remove tags on the Run Page (roubkar)</p></li>
+<li><p>Support dictionary as an argument of <code class="docutils literal notranslate"><span class="pre">Run.track</span></code> (alberttorosyan)</p></li>
+<li><p>Display the tags of the run in the tables of the explorers (VkoHov)</p></li>
+<li><p>Revamp Figures explorer controls and grouping sections for better onboarding and usability (VkoHov, KaroMourad)</p></li>
+<li><p>Replace the spinner loader with a lighter one (VkoHov)</p></li>
+<li><p>Add fast.ai integration (tmynn)</p></li>
+<li><p>Add command for dangling params cleanup (mihran113)</p></li>
+<li><p>Add top and bottom appearance modes to the chart popover (VkoHov)</p></li>
+<li><p>Deprecate Python 3.6 (alberttorosyan)</p></li>
+<li><p>Add MXNet integration (tmynn)</p></li>
+</ul>
+</section>
+<section id="unreleased-fixes">
+<h3>Unreleased - Fixes:<a class="headerlink" href="#unreleased-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix chart hovering issue occurring when “nan” values are tracked (KaroMourad)</p></li>
+<li><p>Use empty dict as default when getting Run params (alberttorosyan)</p></li>
+<li><p>Change unit-tests data isolation mechanism (alberttorosyan)</p></li>
+<li><p>Adjust the visibility of the run color in tables (VkoHov)</p></li>
+<li><p>Fix response headers for remote tracking server (mihran113)</p></li>
+</ul>
+</section>
+</section>
+<section id="sep-25-2022">
+<h2>3.13.4 Sep 25, 2022<a class="headerlink" href="#sep-25-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add the ability to disable smoothing explicitly (KaroMourad)</p></li>
+<li><p>Virtualize the run params list in the Run page (roubkar)</p></li>
+</ul>
+</section>
+<section id="sep-16-2022">
+<h2>3.13.3 Sep 16, 2022<a class="headerlink" href="#sep-16-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix request cancellation on <code class="docutils literal notranslate"><span class="pre">Logs</span></code> tab (mihran113)</p></li>
+<li><p>Fix the data live update handling in the Logs tab (VkoHov)</p></li>
+</ul>
+</section>
+<section id="sep-10-2022">
+<h2>3.13.2 Sep 10, 2022<a class="headerlink" href="#sep-10-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix content overlapping issue of x-axis alignment dropdown (KaroMourad)</p></li>
+<li><p>Fix the regression line rendering issue on Scatter plot exported image (KaroMourad)</p></li>
+</ul>
+</section>
+<section id="sep-1-2022">
+<h2>3.13.1 Sep 1, 2022<a class="headerlink" href="#sep-1-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add support for querying metrics by last value (mihran113)</p></li>
+<li><p>Fix aim reindex command failure (alberttorosyan)</p></li>
+<li><p>Fix issue with remote runs re-open (mihran113)</p></li>
+<li><p>Deprecate custom set Run.hash values (alberttorosyan)</p></li>
+<li><p>Tune mlflow converter run properties (tmynn)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> deprecation issues related to release of PyTorch Lightning v1.7 (djwessel)</p></li>
+</ul>
+</section>
+<section id="aug-21-2022">
+<h2>3.13.0 Aug 21, 2022<a class="headerlink" href="#aug-21-2022" title="Permalink to this heading"></a></h2>
+<section id="aug-21-2022-enhancements">
+<h3>3.13.0 Aug 21, 2022 - Enhancements:<a class="headerlink" href="#aug-21-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add Figures Explorer to visualize and compare plotly figures (rubenaprikyan, KaroMourad, arsengit, VkoHov, roubkar)</p></li>
+<li><p>Add Base Explorer as core of all explorers (rubenaprikyan, KaroMourad, arsengit, VkoHov, roubkar)</p></li>
+<li><p>Add logging for remote resource cleanup and network stability (mihran113)</p></li>
+<li><p>Restrict Run.hash to auto-generated values only (alberttorosyan)</p></li>
+<li><p>Add ability to compare selected runs from the table (arsengit)</p></li>
+<li><p>Notify users about failed/stalled runs (mahnerak, alberttorosyan)</p></li>
+<li><p>Add ability to pin metrics in Run Page (mihran113, roubkar)</p></li>
+<li><p>Add step for unit tests for nightly releases workflow (mihran113)</p></li>
+<li><p>Add Keras-Tuner integration (tmynn)</p></li>
+<li><p>Add Weights &amp; Biases to Aim log converter (tmynn)</p></li>
+</ul>
+</section>
+<section id="aug-21-2022-fixes">
+<h3>3.13.0 Aug 21, 2022 - Fixes:<a class="headerlink" href="#aug-21-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix chart exporting issue (KaroMourad)</p></li>
+<li><p>Fix aim ui rendering issue on notebooks (rubenaprikyan)</p></li>
+<li><p>Fix live update retry to show live data after solving connection problems with the server (rubenaprikyan)</p></li>
+<li><p>Fix tensorboard convert while converting tensor (sharathmk99)</p></li>
+<li><p>Fix incorrect column keys of metrics in the table grid of the runs dashboard (VkoHov)</p></li>
+<li><p>Fix git info collection (mihran113)</p></li>
+<li><p>Fix code block content and query copying functionality (arsengit)</p></li>
+<li><p>Provide compatibility between plotly and matplotlib (tmynn)</p></li>
+<li><p>Warn to use aim.Image if aim.Figure fails (tmynn)</p></li>
+</ul>
+</section>
+</section>
+<section id="aug-5-2022">
+<h2>3.12.2 Aug 5, 2022<a class="headerlink" href="#aug-5-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix formatting of empty metric contexts (VkoHov)</p></li>
+<li><p>Apply lazy loading on metrics in Run Page (roubkar)</p></li>
+</ul>
+</section>
+<section id="aug-2-2022">
+<h2>3.12.1 Aug 2, 2022<a class="headerlink" href="#aug-2-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Loosen version requirements for grpcio (alberttorosyan)</p></li>
+<li><p>Fix remote heartbeat-watcher resource cleanup (mihran113)</p></li>
+<li><p>Break long metric names into multiple lines in Run Page (roubkar)</p></li>
+<li><p>Enable run filtering by metric values (mihran113)</p></li>
+<li><p>Fix Cython version to eliminate build errors (mihran113)</p></li>
+</ul>
+</section>
+<section id="jul-22-2022">
+<h2>3.12.0 Jul 22, 2022<a class="headerlink" href="#jul-22-2022" title="Permalink to this heading"></a></h2>
+<section id="jul-22-2022-enhancements">
+<h3>3.12.0 Jul 22, 2022 - Enhancements:<a class="headerlink" href="#jul-22-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add ability to set axes range manually for line charts on UI (KaroMourad)</p></li>
+<li><p>Add more user-friendly querying for dates (mihran113, arsengit)</p></li>
+<li><p>Filter redundant tooltip data from URL config state (KaroMourad)</p></li>
+<li><p>Improve rendering performance by enhancing table columns virtualization mechanism (roubkar)</p></li>
+<li><p>Increase visibility and usability of the Show table diff button (arsengit)</p></li>
+<li><p>Add support for tensorboard audios conversion (mihran113)</p></li>
+<li><p>Format params keys/paths properly (VkoHov)</p></li>
+<li><p>Mention explicitly run params everywhere params is mentioned (VkoHov)</p></li>
+<li><p>Add ability to hide a batch of items in explorers (VkoHov)</p></li>
+<li><p>Add ability to sort by the last value of the metric in table (VkoHov)</p></li>
+<li><p>Preserve active line even if it is dropped out of the filtered area (VkoHov)</p></li>
+<li><p>Add run duration property for SDK and queries (mihran113)</p></li>
+<li><p>Add client vs server version check for remote tracking server (mihran113)</p></li>
+<li><p>Add Remote tracking client heartbeat (mihran113)</p></li>
+</ul>
+</section>
+<section id="jul-22-2022-fixes">
+<h3>3.12.0 Jul 22, 2022 - Fixes:<a class="headerlink" href="#jul-22-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tune table sorting icon box overlapping with column box in compact mode (KaroMourad)</p></li>
+<li><p>Fix tensorboard log conversion for images (mihran113)</p></li>
+<li><p>Check if gradient is None when tracking gradient distributions (kage08)</p></li>
+<li><p>Fix displaying non-syntax errors across Aim UI (arsengit)</p></li>
+<li><p>Fix queries on remote repos (mihran113)</p></li>
+<li><p>Fix interval progress reports for query apis (mihran113)</p></li>
+<li><p>Fix query request cancellation errors (mihran113)</p></li>
+<li><p>Auto-detect and address inconsistencies in meta and series trees (mahnerak)</p></li>
+</ul>
+</section>
+</section>
+<section id="jul-8-2022">
+<h2>3.11.2 Jul 8, 2022<a class="headerlink" href="#jul-8-2022" title="Permalink to this heading"></a></h2>
+<section id="jul-8-2022-enhancements">
+<h3>3.11.2 Jul 8, 2022 - Enhancements:<a class="headerlink" href="#jul-8-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Display the error position when getting syntax errors after searching (arsengit)</p></li>
+</ul>
+</section>
+<section id="jul-8-2022-fixes">
+<h3>3.11.2 Jul 8, 2022 - Fixes:<a class="headerlink" href="#jul-8-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Avoid saving crashed or terminated search requests as the last state on explorers (arsengit)</p></li>
+<li><p>Remove the progress bar blinking when searching runs in Runs Explorer (KaroMourad)</p></li>
+<li><p>Fix the “matched runs” sentence color style in progress bars (KaroMourad)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> handling for python3.10+ (mihran113)</p></li>
+<li><p>Fix generic Exceptions handling and adjust HTTPException handling (alberttorosyan)</p></li>
+</ul>
+</section>
+</section>
+<section id="jun-27-2022">
+<h2>3.11.1 Jun 27, 2022<a class="headerlink" href="#jun-27-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Replace base58 encoder with base64 (KaroMourad, VkoHov)</p></li>
+<li><p>Fix Notes tab loading issue (arsengit)</p></li>
+<li><p>Fix the loading logic of the <code class="docutils literal notranslate"><span class="pre">monaco</span> <span class="pre">editor</span></code> across the Aim Ui (arsengit)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">Table</span></code> export functionality in Params and Scatters explorers (arsengit)</p></li>
+<li><p>Allow mixing numeric types on a single Sequence (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="jun-21-2022">
+<h2>3.11.0 Jun 21, 2022<a class="headerlink" href="#jun-21-2022" title="Permalink to this heading"></a></h2>
+<section id="jun-21-2022-enhancements">
+<h3>3.11.0 Jun 21, 2022 - Enhancements:<a class="headerlink" href="#jun-21-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--uds</span></code> option for <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> command (mihran113)</p></li>
+<li><p>Add progress reporting for search APIs and tqdm progress for SDK queries (mihran113)</p></li>
+<li><p>Add all the attributes of runs in the grouping popovers (KaroMourad)</p></li>
+<li><p>Display progress bar on Explorer pages when searching metadata (KaroMourad)</p></li>
+<li><p>Improve the processing speed for tb to aim converter (osoblanco)</p></li>
+<li><p>Adjust charts hover attributes position calculation and styles (KaroMourad)</p></li>
+<li><p>Improve formatting of numbers by setting maximum precision (KaroMourad)</p></li>
+<li><p>Add cloud storage backups to AWS S3 for aim repo runs (karan2801)</p></li>
+<li><p>Add LightGBM integration example (gorarakelyan)</p></li>
+<li><p>Add descriptive document titles for pages (KaroMourad)</p></li>
+<li><p>Implement unit-tests for aim SDK utils (yeghiakoronian)</p></li>
+<li><p>Display std.dev/err aggregated values in the table (VkoHov)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">active</span></code> state indicator property for <code class="docutils literal notranslate"><span class="pre">aim.Run</span></code> (mihran113)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">active</span></code> state indicators on the chart (VkoHov)</p></li>
+<li><p>Add ability to edit run name and description of run (VkoHov)</p></li>
+<li><p>Show the description in the sidebar of the run overview tab (VkoHov)</p></li>
+<li><p>Add all the attributes of run in the tooltip (VkoHov)</p></li>
+<li><p>Optimize the initial render time of Aim UI by using more lightweight font-family (arsengit)</p></li>
+<li><p>Use monaco editor as the syntax highlighter across the Aim UI (arsengit)</p></li>
+<li><p>Add loader to the top of the logs box in the run page (VkoHov)</p></li>
+<li><p>Add the date and the duration of run in the header of the single run page (VkoHov)</p></li>
+<li><p>Add the name, status and duration of run in the runs table of the tags page (VkoHov)</p></li>
+<li><p>Fit long name values in manage columns popover (arsengit)</p></li>
+<li><p>Add caching mechanism for sequence queries to optimize query performance (mihran113)</p></li>
+<li><p>Use step random hash as a key for metric sequences (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="jun-21-2022-fixes">
+<h3>3.11.0 Jun 21, 2022 - Fixes:<a class="headerlink" href="#jun-21-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix issue with tensorboard to aim conversion (osoblanco)</p></li>
+<li><p>Fix reset zoom history on alignment type change (KaroMourad)</p></li>
+<li><p>Fix issue with rendering incorrect data when x-axis aligned by <code class="docutils literal notranslate"><span class="pre">relative</span> <span class="pre">time/epoch</span></code> (KaroMourad)</p></li>
+<li><p>Fix LineCart axis ticks overlapping issue on log scale (KaroMourad)</p></li>
+<li><p>Change zooming default option to multiple (VkoHov)</p></li>
+<li><p>Change grouped rows’ min and max values names to <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">Min</span></code> and <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">Max</span></code> (VkoHov)</p></li>
+<li><p>Preserve the search input value of the grouping dropdown (VkoHov)</p></li>
+<li><p>Change the titles and placeholders in popovers (VkoHov)</p></li>
+<li><p>Resolve typing latency issue in the query search input (arsengit)</p></li>
+<li><p>Reorder and add non-hideable table columns (arsengit)</p></li>
+<li><p>Change the font of the runs navigation popover (VkoHov)</p></li>
+<li><p>Keep color persistence state after page reload (VkoHov)</p></li>
+<li><p>Resolve content blinking issue after search in the run page (arsengit)</p></li>
+<li><p>Fix scroll to bottom on live-update in logs tab (VkoHov)</p></li>
+<li><p>Fix timezone issues for activity map (mihran113)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> command output when <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">0</span></code> is passed (mihran113)</p></li>
+</ul>
+</section>
+</section>
+<section id="may-31-2022">
+<h2>3.10.3 May 31, 2022<a class="headerlink" href="#may-31-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Adjust the content overflowing of the Delete and the Archive modals (VkoHov)</p></li>
+<li><p>Resolve issue with redirect in run page (arsengit)</p></li>
+</ul>
+</section>
+<section id="may-26-2022">
+<h2>3.10.2 May 26, 2022<a class="headerlink" href="#may-26-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Adjust SRP Logs row height calculation (VkoHov)</p></li>
+<li><p>Fix issue with live update requests scheduler (rubenaprikyan)</p></li>
+<li><p>Fix log capturing crash during run garbage collection (mihran113)</p></li>
+<li><p>Fix Pytorch Lightning adapter <code class="docutils literal notranslate"><span class="pre">finalize</span></code> method (mihran113)</p></li>
+<li><p>Fix params duplication in dropdowns (VkoHov)</p></li>
+<li><p>Skip system params in Explorer pages (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="may-18-2022">
+<h2>3.10.1 May 18, 2022<a class="headerlink" href="#may-18-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Resolve issue with rendering run params in the overview tab of SRP (arsengit)</p></li>
+<li><p>Fix issue with search query state update (arsengit)</p></li>
+</ul>
+</section>
+<section id="may-17-2022">
+<h2>3.10.0 May 17, 2022<a class="headerlink" href="#may-17-2022" title="Permalink to this heading"></a></h2>
+<section id="may-17-2022-enhancements">
+<h3>3.10.0 May 17, 2022 - Enhancements:<a class="headerlink" href="#may-17-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add ability to adjust the density of the visible content in tables (roubkar)</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">metric.name</span></code> as default option for grouping (roubkar)</p></li>
+<li><p>Show user-selected params before group config in chart popover (roubkar)</p></li>
+<li><p>Optimize stream decoding performance on UI (mahnerak)</p></li>
+<li><p>Add support for animated image formats to Aim Image object (devfox-se)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> for Catboost (devfox-se)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">AimCallback</span></code> for LightGBM (devfox-se)</p></li>
+<li><p>Keep the extents of <code class="docutils literal notranslate"><span class="pre">HighPlot</span></code> axes brush in the state and the URL (VkoHov)</p></li>
+<li><p>Integrate <code class="docutils literal notranslate"><span class="pre">aim</span></code> with <code class="docutils literal notranslate"><span class="pre">cimport</span></code>-able <code class="docutils literal notranslate"><span class="pre">aimrocks</span></code> (mahnerak)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> to some classes to improve performance (mahnerak)</p></li>
+<li><p>Define base abstractions for <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> and <code class="docutils literal notranslate"><span class="pre">DB</span></code> by borrowing from <code class="docutils literal notranslate"><span class="pre">aimrocks</span></code> (mahnerak)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">KeysIterator</span></code> and <code class="docutils literal notranslate"><span class="pre">ValuesIterator</span></code> wrappers instead of reimplementing (mahnerak)</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">PrefixView.container</span></code> to <code class="docutils literal notranslate"><span class="pre">PrefixView.parent</span></code> (mahnerak)</p></li>
+<li><p>Reimplement <code class="docutils literal notranslate"><span class="pre">absolute_path</span></code> (mahnerak)</p></li>
+<li><p>Cython bindings for <code class="docutils literal notranslate"><span class="pre">PrefixView</span></code>, <code class="docutils literal notranslate"><span class="pre">TreeView</span></code>, <code class="docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">ArrayView</span></code> (mahnerak)</p></li>
+<li><p>Add ability to track and visualize stdout/stderr (mihran113, VkoHov)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">AimLogger</span></code> deprecation issues related to release of PyTorch Lightning v1.5 (arnauddhaene)</p></li>
+<li><p>Enable better autocomplete experience with monaco editor (arsengit)</p></li>
+<li><p>Pre-loading and caching necessary resources, add pre-loader animation to Aim UI (arsengit)</p></li>
+</ul>
+</section>
+<section id="may-17-2022-fixes">
+<h3>3.10.0 May 17, 2022 - Fixes:<a class="headerlink" href="#may-17-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Remove hard-coded installation of pre-requirements (mahnerak)</p></li>
+<li><p>Remove duplicate code from <code class="docutils literal notranslate"><span class="pre">TreeView</span></code> and <code class="docutils literal notranslate"><span class="pre">Container</span></code> methods (mahnerak)</p></li>
+<li><p>Fix issue with filtering metrics values in single run page (KaroMourad)</p></li>
+</ul>
+</section>
+</section>
+<section id="may-12-2022">
+<h2>3.9.4 May 12, 2022<a class="headerlink" href="#may-12-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix run remote tracking queue cleanup (mihran113)</p></li>
+<li><p>Fix HF callback before training access (mihran113)</p></li>
+<li><p>Fix compatibility with Jinja 3.1 (devfox-se)</p></li>
+</ul>
+</section>
+<section id="may-10-2022">
+<h2>3.9.3 May 10, 2022<a class="headerlink" href="#may-10-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix affecting stroke types after changing color persistence (KaroMourad)</p></li>
+</ul>
+</section>
+<section id="apr-29-2022">
+<h2>3.9.2 Apr 29, 2022<a class="headerlink" href="#apr-29-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Move aim_ui package data to separate directory (devfox-se)</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>3.9.1 Apr 29, 2022<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Move aim_ui package data to separate directory (devfox-se)</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>3.9.0 Apr 29, 2022<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<section id="apr-29-2022-enhancements">
+<h3>3.9.0 Apr 29, 2022 - Enhancements:<a class="headerlink" href="#apr-29-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Notes</span> <span class="pre">Tab</span></code> to single run page (arsengit)</p></li>
+<li><p>Add the run name to the batch delete and the batch archive modals (VkoHov)</p></li>
+<li><p>Increase the scalability of rendering lines in charts (KaroMourad)</p></li>
+<li><p>Increase live update requests delay to prevent performance issues (rubenaprikyan)</p></li>
+<li><p>Change font-family to monospace in the Table component (arsengit)</p></li>
+<li><p>Add info massage for single value sliders (VkoHov)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--log-level</span></code> argument for aim up/server commands (mihran113)</p></li>
+<li><p>Add notes backend api interface (devfox-se)</p></li>
+<li><p>Fix type hints in <code class="docutils literal notranslate"><span class="pre">Repo</span></code> class (uduse)</p></li>
+</ul>
+</section>
+<section id="apr-29-2022-fixes">
+<h3>3.9.0 Apr 29, 2022 - Fixes:<a class="headerlink" href="#apr-29-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix LineChart y-dimension margin calculation (KaroMourad)</p></li>
+<li><p>Fix HighPlot lines partially rendering issue (KaroMourad)</p></li>
+<li><p>Fix HighPlot axis ticks overlapping issue (KaroMourad)</p></li>
+<li><p>Fix sorting Params/Scatters explorer axis ticks (KaroMourad)</p></li>
+<li><p>Fix compatibility with pytorch-lightning v1.6.0 (mihran113)</p></li>
+<li><p>Fix the image’s original size cropping (VkoHov)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">PATH</span></code> related issues for <code class="docutils literal notranslate"><span class="pre">alembic</span></code> and <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> (mihran113)</p></li>
+<li><p>Fix queries for custom object APIs (mihran113)</p></li>
+<li><p>Fix chart height updating when resize mode changed (VkoHov)</p></li>
+<li><p>Fix HuggingFace callback context capturing (mihran113)</p></li>
+<li><p>Fix Params/Scatters explorers’ row hiding functionality (VkoHov)</p></li>
+<li><p>Fix Profiler logs are saved outside repo directory (devfox-se)</p></li>
+</ul>
+</section>
+</section>
+<section id="apr-6-2022">
+<h2>3.8.1 Apr 6, 2022<a class="headerlink" href="#apr-6-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Encode run hash before including in CSS selectors (Hamik25)</p></li>
+<li><p>Fix displaying incorrect metric values for large range scale in LineChart (KaroMourad)</p></li>
+<li><p>Fix issue with rendering lines for large range scale in LineChart (KaroMourad)</p></li>
+<li><p>Fix issue with URL state sync for bookmarks (roubkar)</p></li>
+<li><p>Fix issue with displaying negative param values on Aim UI (roubkar)</p></li>
+<li><p>Fix row hiding functionality (roubkar)</p></li>
+<li><p>Tune RunOverviewTab container styles (arsengit)</p></li>
+<li><p>Update documentations links on UI (rubenaprikyan)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">RepoIndexManager</span></code> run’s reference cleanup (mihran113)</p></li>
+<li><p>Fix remote run finalization (mihran113)</p></li>
+<li><p>Fix issue with fetch on load more (infinite scroll) functionality in Runs Explorer (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="mar-26-2022">
+<h2>3.8.0 Mar 26, 2022<a class="headerlink" href="#mar-26-2022" title="Permalink to this heading"></a></h2>
+<section id="mar-26-2022-enhancements">
+<h3>3.8.0 Mar 26, 2022 - Enhancements:<a class="headerlink" href="#mar-26-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Hugging Face adapter refactoring (mihran113)</p></li>
+<li><p>Add run description columns to all run specific tables (VkoHov, mihran113)</p></li>
+<li><p>Change images rendering optimization default value to smoother (VkoHov)</p></li>
+<li><p>Set default steps ordering to desc in single run tabs (VkoHov, devfox-se)</p></li>
+<li><p>Add run name to grouping, ordering and run navigation popovers (VkoHov)</p></li>
+<li><p>Add ability to apply color scale on columns with numeric values (VkoHov)</p></li>
+<li><p>Refactored XGBoost AimCallback (devfox-se)</p></li>
+<li><p>Reopenable callbacks for integrations (mihran113)</p></li>
+<li><p>Add DVC integration (devfox-se)</p></li>
+<li><p>Add API profiler and unified API error response (devfox-se)</p></li>
+<li><p>Add API to retrieve N’th step of sequence (devfox-se)</p></li>
+</ul>
+</section>
+<section id="mar-26-2022-fixes">
+<h3>3.8.0 Mar 26, 2022 - Fixes:<a class="headerlink" href="#mar-26-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix issue with calculation of active point on mouse hover in the LineChart (KaroMourad)</p></li>
+<li><p>Fix issue with wrong URL caching for Explorer pages (roubkar)</p></li>
+<li><p>Fix issue with focusing on the chart active point while moving the cursor (KaroMourad)</p></li>
+<li><p>Fix the image full view toggle icon visibility if the image has a white background (VkoHov)</p></li>
+<li><p>Fix scroll to the end of the audio tab (VkoHov)</p></li>
+<li><p>Add scrollbar to image full view mode content (VkoHov)</p></li>
+<li><p>Fix issues with run name/description not being set (mihran113)</p></li>
+<li><p>Fix issue with run single page tabs result caching (mihran113)</p></li>
+<li><p>Fix git system param tracking (devfox-se)</p></li>
+<li><p>Fix runs manual closing (mihran113)</p></li>
+<li><p>Fix Docker image creation step in packaging workflow (alberttorosyan)</p></li>
+<li><p>Fix Jinja2 template rendering with starlette==0.14.2 (alberttorosyan)</p></li>
+</ul>
+</section>
+</section>
+<section id="mar-18-2022">
+<h2>3.7.5 Mar 18, 2022<a class="headerlink" href="#mar-18-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add request aborting functionality in single run page tabs (arsengit)</p></li>
+<li><p>Render plotly figures properly in single run page (arsengit)</p></li>
+</ul>
+</section>
+<section id="mar-15-2022">
+<h2>3.7.4 Mar 15, 2022<a class="headerlink" href="#mar-15-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix density min and max validation calculation (VkoHov)</p></li>
+</ul>
+</section>
+<section id="mar-14-2022">
+<h2>3.7.3 Mar 14, 2022<a class="headerlink" href="#mar-14-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add missing names for dynamically imported files in single run page (arsengit)</p></li>
+</ul>
+</section>
+<section id="mar-10-2022">
+<h2>3.7.2 Mar 10, 2022<a class="headerlink" href="#mar-10-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with rendering UI re keeping long URL (KaroMourad)</p></li>
+<li><p>Split code in the single run page to optimize chunk size (arsengit)</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>3.7.1 Mar 10, 2022<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix metric queries with epoch=None (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="mar-9-2022">
+<h2>3.7.0 Mar 9, 2022<a class="headerlink" href="#mar-9-2022" title="Permalink to this heading"></a></h2>
+<section id="mar-9-2022-enhancements">
+<h3>3.7.0 Mar 9, 2022 - Enhancements:<a class="headerlink" href="#mar-9-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add Run overview tab in run single page (arsengit, VkoHov, KaroMourad, rubenaprikyan)</p></li>
+<li><p>Custom max message size for Aim Remote tracking (alberttorosyan)</p></li>
+<li><p>Docker images for aim up/server (alberttorosyan)</p></li>
+<li><p>TF/Keras adapters refactoring (mihran113)</p></li>
+<li><p>Remote tracking client-side retry logic (aramaim)</p></li>
+<li><p>Add record_density to initial get-batch request for figures (VkoHov)</p></li>
+</ul>
+</section>
+<section id="mar-9-2022-fixes">
+<h3>3.7.0 Mar 9, 2022 - Fixes:<a class="headerlink" href="#mar-9-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix rendering new lines in texts visualizer (arsengit)</p></li>
+</ul>
+</section>
+</section>
+<section id="mar-4-2022">
+<h2>3.6.3 Mar 4, 2022<a class="headerlink" href="#mar-4-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix UI rendering issue on colab (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="mar-2-2022">
+<h2>3.6.2 Mar 2, 2022<a class="headerlink" href="#mar-2-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix chart interactions issue in the Single Run Page Metrics tab (roubkar)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">resolve_objects</span></code> in remote tracking client subtree (alberttorosyan)</p></li>
+<li><p>Reject <code class="docutils literal notranslate"><span class="pre">0</span></code> as step/record count (alberttorosyan, VkoHov)</p></li>
+<li><p>Fix error on mlflow conversion by experiment id (devfox-se)</p></li>
+</ul>
+</section>
+<section id="feb-25-2022">
+<h2>3.6.1 Feb 25, 2022<a class="headerlink" href="#feb-25-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with aligning x-axis by custom metric (KaroMourad)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">__AIM_PROXY_URL__</span></code> env variable to see full proxy url when running <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> command(rubenaprikyan)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--proxy-url</span></code> argument to notebook extension’s <code class="docutils literal notranslate"><span class="pre">%aim</span> <span class="pre">up</span></code> to render UI correctly if there is a proxy server (rubenaprikyan)</p></li>
+<li><p>Add SageMaker integration, <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> s bug-fix script (rubenaprikyan, mahnerak)</p></li>
+<li><p>Fix animation support in Plotly visualization and figure loading performance (Hamik25, mihran113)</p></li>
+<li><p>Display <code class="docutils literal notranslate"><span class="pre">None</span></code> values in group config column (VkoHov, Hamik25)</p></li>
+<li><p>Fix rendering issue on <code class="docutils literal notranslate"><span class="pre">Select</span></code> form search suggestions list (arsengit)</p></li>
+<li><p>Fix PL.AimLogger save_dir AttributeError (GeeeekExplorer)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">__example_type__</span></code> substring from param name (VkoHov)</p></li>
+</ul>
+</section>
+<section id="feb-22-2022">
+<h2>3.6.0 Feb 22 2022<a class="headerlink" href="#feb-22-2022" title="Permalink to this heading"></a></h2>
+<section id="feb-22-2022-enhancements">
+<h3>3.6.0 Feb 22 2022 - Enhancements:<a class="headerlink" href="#feb-22-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sort params columns in alphabetical order (arsengit)</p></li>
+<li><p>Add illustrations for indicating explorer search states (arsengit)</p></li>
+<li><p>Ability to export chart as image (KaroMourad)</p></li>
+<li><p>Ability to group by metric.context (VkoHov)</p></li>
+<li><p>Tune manage columns items highlighting styles (VkoHov)</p></li>
+<li><p>Set active style on table actions popover buttons with applied changes (arsengit)</p></li>
+<li><p>Unification of Run Custom Object APIs (alberttorosyan, VkoHov)</p></li>
+<li><p>Aim repo runs data automatic indexing (alberttorosyan)</p></li>
+<li><p>Pytorch Lightning adapter refactoring (mihran113)</p></li>
+<li><p>Add Pytorch Ignite integration (mihran113)</p></li>
+<li><p>Add wildcard support for <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">runs</span></code> subcommands (mihran113)</p></li>
+<li><p>Add MLflow logs conversion command (devfox-se)</p></li>
+<li><p>Add CustomObject implementation for <code class="docutils literal notranslate"><span class="pre">hub.dataset</span></code> (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="feb-22-2022-fixes">
+<h3>3.6.0 Feb 22 2022 - Fixes:<a class="headerlink" href="#feb-22-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix live updated data loss after triggering endless scroll (VkoHov)</p></li>
+<li><p>Fix system metric columns pinning functionality and grouping column order (arsengit)</p></li>
+<li><p>Fix system metrics search in manage columns popover (VkoHov)</p></li>
+<li><p>Fix queries on remote repos (mihran113)</p></li>
+<li><p>Fix incorrect boolean value formatting (VkoHov)</p></li>
+</ul>
+</section>
+</section>
+<section id="feb-15-2022">
+<h2>3.5.4 Feb 15 2022<a class="headerlink" href="#feb-15-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix batch archive functionality (VkoHov)</p></li>
+<li><p>Add repo lock/release feature (devfox-se)</p></li>
+</ul>
+</section>
+<section id="feb-11-2022">
+<h2>3.5.3 Feb 11 2022<a class="headerlink" href="#feb-11-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix rendering issue in runs explorer page (arsengit)</p></li>
+</ul>
+</section>
+<section id="feb-10-2022">
+<h2>3.5.2 Feb 10 2022<a class="headerlink" href="#feb-10-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with displaying current day activity cell on week’s first day (rubenaprikyan)</p></li>
+<li><p>Fix issue with filtering options while typing in input of autocomplete in Tooltip and Grouping popovers (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="feb-4-2022">
+<h2>3.5.1 Feb 4 2022<a class="headerlink" href="#feb-4-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix folder creation when tracking with remote tracker (aramaim)</p></li>
+</ul>
+</section>
+<section id="feb-3-2022">
+<h2>3.5.0 Feb 3 2022<a class="headerlink" href="#feb-3-2022" title="Permalink to this heading"></a></h2>
+<section id="feb-3-2022-enhancements">
+<h3>3.5.0 Feb 3 2022 - Enhancements:<a class="headerlink" href="#feb-3-2022-enhancements" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ability to hide system metrics from table (arsengit)</p></li>
+<li><p>Add input validations to range selectors (Hamik25)</p></li>
+<li><p>Improve media panel rendering performance on hovering over images (KaroMourad)</p></li>
+<li><p>Add ability to parse and import TensorFlow events into aim (devfox-se)</p></li>
+<li><p>Add system parameter logging: CLI, Env, Executable, Git, Installed packages (devfox-se)</p></li>
+<li><p>Convert nested non-native objects (e.g. OmegaConf config instance) upon storing (devfox-se)</p></li>
+<li><p>Add cli subcommands cp and mv for aim runs command (mihran113)</p></li>
+<li><p>Add handler for matplotlib figures in Image and Figure custom objects (devfox-se)</p></li>
+<li><p>Improve highlighting of table focused/hovered/selected row (VkoHov)</p></li>
+</ul>
+</section>
+<section id="feb-3-2022-fixes">
+<h3>3.5.0 Feb 3 2022 - Fixes:<a class="headerlink" href="#feb-3-2022-fixes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix stalled runs deletion (mihran113)</p></li>
+<li><p>Fix background transparency in colab when using dark mode of system (rubenaprikyan)</p></li>
+<li><p>Fix Grouping and Tooltip popovers states’ resetting issue when live-update is on (rubenaprikyan)</p></li>
+<li><p>Fix table column’s sort functionality issue in Params and Scatters Explorers (rubenaprikyan)</p></li>
+</ul>
+</section>
+</section>
+<section id="jan-23-2022">
+<h2>3.4.1 Jan 23 2022<a class="headerlink" href="#jan-23-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with displaying experiment name in Images Explorer table (VkoHov)</p></li>
+</ul>
+</section>
+<section id="jan-22-2022">
+<h2>3.4.0 Jan 22 2022<a class="headerlink" href="#jan-22-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to apply group stacking on media elements list (KaroMourad)</p></li>
+<li><p>Add ability to apply sorting by run creation_time on table rows (roubkar)</p></li>
+<li><p>Add ability to filter texts table with keyword matching (roubkar, rubenaprikyan)</p></li>
+<li><p>Add ability to delete run from settings tab (Hamik25)</p></li>
+<li><p>Enhance controls states of explorer pages (arsengit)</p></li>
+<li><p>Add –repo, –host arguments support for notebook extension (VkoHov, rubenaprikyan)</p></li>
+<li><p>Add trendline options to ScatterPlot (roubkar)</p></li>
+<li><p>Add ability to display images in original size and align by width (arsengit)</p></li>
+<li><p>Add version, docs and slack links to sidebar (arsengit)</p></li>
+<li><p>Enhance AudioPlayer component (arsengit)</p></li>
+<li><p>Recover active tab in run details page after reload (roubkar)</p></li>
+<li><p>Add ability to archive or delete runs with batches (VkoHov)</p></li>
+<li><p>Remote tracking server [experimental] (alberttorosyan, mihran113, aramaim)</p></li>
+<li><p>Add ability to change media elements order (VkoHov)</p></li>
+<li><p>Add ability to hard delete runs (alberttorosyan)</p></li>
+<li><p>Lossy format support for aim.Image (devfox-se)</p></li>
+<li><p>Timezone issues fix for creation and end times (mihran113)</p></li>
+</ul>
+</section>
+<section id="jan-14-2022">
+<h2>3.3.5 Jan 14 2022<a class="headerlink" href="#jan-14-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add non-strict write mode to replace not-yet-supported types with their
+string representations. (mahnerak)</p></li>
+<li><p>Log pytorch_lightning hyperparameters in non-strict mode. (mahnerak)</p></li>
+</ul>
+</section>
+<section id="jan-10-2022">
+<h2>3.3.4 Jan 10 2022<a class="headerlink" href="#jan-10-2022" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with WAL files flushing (alberttorosyan)</p></li>
+<li><p>Support for omegaconf configs in pytorch_lightning adapter (devfox-se)</p></li>
+</ul>
+</section>
+<section id="dec-24-2021">
+<h2>3.3.3 Dec 24 2021<a class="headerlink" href="#dec-24-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with showing range panel in Images Explorer (roubkar)</p></li>
+</ul>
+</section>
+<section id="dec-20-2021">
+<h2>3.3.2 Dec 20 2021<a class="headerlink" href="#dec-20-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with not providing point density value to live-update query (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="dec-18-2021">
+<h2>3.3.1 Dec 18 2021<a class="headerlink" href="#dec-18-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix getValue function to show correct chart title data (KaroMourad)</p></li>
+</ul>
+</section>
+<section id="dec-17-2021">
+<h2>3.3.0 Dec 17 2021<a class="headerlink" href="#dec-17-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to track and explore audios in run detail page (arsengit, VkoHov, devfox-se)</p></li>
+<li><p>Add ability to track and visualize texts (mihran113, roubkar)</p></li>
+<li><p>Fix boolean values encoding (mahnerak)</p></li>
+<li><p>Add Scatter Explorer to visualize correlations between metric last value and hyperparameter (KaroMourad)</p></li>
+<li><p>Add ability to track and visualize plotly objects (devfox-se, Hamik25, rubenaprikyan)</p></li>
+<li><p>Add ability to query distributions by step range and density (VkoHov, rubenaprikyan)</p></li>
+<li><p>Add colab notebook support (mihran113, rubenaprikyan)</p></li>
+<li><p>Implement images visualization tab in run detail page (VkoHov, KaroMourad)</p></li>
+<li><p>Add custom URL prefix support (mihran113, Hamik25, roubkar)</p></li>
+<li><p>Enhance metric selection dropdowns to see lists in alphabetical order (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="dec-10-2021">
+<h2>3.2.2 Dec 10 2021<a class="headerlink" href="#dec-10-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix Run finalization index timeout issue (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="dec-8-2021">
+<h2>3.2.1 Dec 8 2021<a class="headerlink" href="#dec-8-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to provide custom base path for API (mihran113, roubkar)</p></li>
+<li><p>Fix table groups column default order (arsengit)</p></li>
+<li><p>Fix table panel height issue in runs explorer page (arsengit)</p></li>
+</ul>
+</section>
+<section id="dec-3-2021">
+<h2>3.2.0 Dec 3 2021<a class="headerlink" href="#dec-3-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to cancel pending request (roubkar, arsengit)</p></li>
+<li><p>Add support for secure protocol for API calls (mihran113, roubkar)</p></li>
+<li><p>Implement image full size view (VkoHov)</p></li>
+<li><p>Add ability to manipulate with image size and rendering type (arsengit)</p></li>
+<li><p>Enhance Table column for selected grouping config options (arsengit)</p></li>
+<li><p>Implement suggestions list for AimQL search (arsengit, rubenaprikyan)</p></li>
+<li><p>Add ability to track and visualize distributions (mihran113, rubenaprikyan)</p></li>
+<li><p>Add notebook extension, magic functions (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="nov-25-2021">
+<h2>3.1.1 Nov 25 2021<a class="headerlink" href="#nov-25-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Apply default ordering on images set (VkoHov)</p></li>
+<li><p>Ability to show image data in a tooltip on hover (KaroMourad)</p></li>
+<li><p>Support of Image input additional data sources (alberttorosyan)</p></li>
+<li><p>Ability to export run props as pandas dataframe (gorarakelyan)</p></li>
+<li><p>Slice image sequence by index for the given steps range (alberttorosyan)</p></li>
+<li><p>Improve Images Explorer rendering performance through better images list virtualization (roubkar)</p></li>
+</ul>
+</section>
+<section id="nov-20-2021">
+<h2>3.1.0 Nov 20 2021<a class="headerlink" href="#nov-20-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to explore tracked images (VkoHov)</p></li>
+<li><p>Improve rendering performance by virtualizing table columns (roubkar)</p></li>
+<li><p>Add ability to apply grouping by higher level param key (roubkar)</p></li>
+<li><p>Add ability to specify repository path during <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">init</span></code> via <code class="docutils literal notranslate"><span class="pre">--repo</span></code> argument (rubenaprikyan)</p></li>
+</ul>
+</section>
+<section id="nov-17-2021">
+<h2>3.0.7 Nov 17 2021<a class="headerlink" href="#nov-17-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix for missing metrics when numpy.float64 values tracked (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="nov-9-2021">
+<h2>3.0.6 Nov 9 2021<a class="headerlink" href="#nov-9-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix for blocking container optimization for in progress runs (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>3.0.5 Nov 9 2021<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add tqdm package in setup.py required section (mihran113)</p></li>
+</ul>
+</section>
+<section id="nov-8-2021">
+<h2>3.0.4 Nov 8 2021<a class="headerlink" href="#nov-8-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Switch to aimrocks 0.0.10 - exposes data flushing interface (mihran113)</p></li>
+<li><p>Optimize stored data when runs finalized (mihran113)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">reindex</span></code> command to run storage optimizations (alberttorosyan)</p></li>
+<li><p>Storage partial optimizations on metric/run queries (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="nov-4-2021">
+<h2>3.0.3 Nov 4 2021<a class="headerlink" href="#nov-4-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump sqlalchemy version to 1.4.1 (alberttorosyan)</p></li>
+</ul>
+</section>
+<section id="oct-27-2021">
+<h2>3.0.2 Oct 27 2021<a class="headerlink" href="#oct-27-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Switch to aimrocks 0.0.9 - built on rocksdb 6.25.3 (alberttorosyan)</p></li>
+<li><p>Remove grouping select options from Params app config (VkoHov)</p></li>
+<li><p>Sort metrics data in ascending order for X-axis (KaroMourad)</p></li>
+</ul>
+</section>
+<section id="oct-22-2021">
+<h2>3.0.1 Oct 22 2021<a class="headerlink" href="#oct-22-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Check telemetry_enabled option on segment initialization (VkoHov)</p></li>
+<li><p>Draw LineChart Y-axis (horizontal) tick lines on zooming (KaroMourad)</p></li>
+<li><p>Sort select options/params based on input value (roubkar)</p></li>
+<li><p>Fix query construction issue for multiple context items (roubkar)</p></li>
+<li><p>Fix issue with making API call from Web Worker (VkoHov)</p></li>
+</ul>
+</section>
+<section id="oct-21-2021">
+<h2>3.0.0 Oct 21 2021<a class="headerlink" href="#oct-21-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Completely revamped UI:</p>
+<ul>
+<li><p>Runs, metrics and params explorers</p></li>
+<li><p>Bookmarks, Tags, Homepage</p></li>
+<li><p>New UI works smooth with ~500 metrics displayed at the same time with full Aim table interactions</p></li>
+</ul>
+</li>
+<li><p>Completely revamped storage:</p>
+<ul>
+<li><p>10x faster embedded storage based on Rocksdb</p></li>
+<li><p>Average run query execution time on ~2000 runs: 0.784s</p></li>
+<li><p>Average metrics query execution time on ~2000 runs with 6000 metrics: 1.552s</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="jun-30-2021">
+<h2>2.7.1 Jun 30 2021<a class="headerlink" href="#jun-30-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix bookmark navigation issue (roubkar)</p></li>
+<li><p>Empty metric select on X-axis alignment property change (roubkar)</p></li>
+</ul>
+</section>
+<section id="jun-23-2021">
+<h2>2.7.0 Jun 23 2021<a class="headerlink" href="#jun-23-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to export table data as CSV (KaroMourad)</p></li>
+<li><p>Add ability to bookmark explore screen state (roubkar)</p></li>
+<li><p>Add dashboards and apps API (mihran113)</p></li>
+</ul>
+</section>
+<section id="jun-12-2021">
+<h2>2.6.0 Jun 12 2021<a class="headerlink" href="#jun-12-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Resolve namedtuple python 3.5 incompatibility (gorarakelyan)</p></li>
+<li><p>Add ability to align X-axis by a metric (mihran113, roubkar)</p></li>
+<li><p>Add tooltip popover for the chart hover state (roubkar)</p></li>
+</ul>
+</section>
+<section id="may-27-2021">
+<h2>2.5.0 May 27 2021<a class="headerlink" href="#may-27-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Set gunicorn timeouts (mihran113)</p></li>
+<li><p>Remove redundant deserialize method (gorarakelyan)</p></li>
+<li><p>Move the Flask server to main repo to support ‘docker’less UI (mihran113)</p></li>
+</ul>
+</section>
+<section id="may-13-2021">
+<h2>2.4.0 May 13 2021<a class="headerlink" href="#may-13-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump up Aim UI to v1.6.0 (gorarakelyan)</p></li>
+<li><p>Add xgboost integration (khazhak)</p></li>
+<li><p>Update keras adapter interface (khazhak)</p></li>
+<li><p>Convert tensors to python numbers (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="apr-10-2021">
+<h2>2.3.0 Apr 10 2021<a class="headerlink" href="#apr-10-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump up Aim UI to v1.5.0 (gorarakelyan)</p></li>
+<li><p>Set default interval of sys tracking to 10 seconds (gorarakelyan)</p></li>
+<li><p>Add ability to track system metrics (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="mar-31-2021">
+<h2>2.2.1 Mar 31 2021<a class="headerlink" href="#mar-31-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump up Aim UI to v1.4.1 (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="mar-24-2021">
+<h2>2.2.0 Mar 24 2021<a class="headerlink" href="#mar-24-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump up Aim UI to v1.4.0 (gorarakelyan)</p></li>
+<li><p>Add Hugging Face integration (Khazhak)</p></li>
+<li><p>Reorganize documentation (Tatevv)</p></li>
+</ul>
+</section>
+<section id="feb-26-2021">
+<h2>2.1.6 Feb 26 2021<a class="headerlink" href="#feb-26-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to opt out telemetry (gorarakelyan)</p></li>
+<li><p>Remove experiment name from config file when calling repo.remove_branch method (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jan-7-2021">
+<h2>2.1.5 Jan 7 2021<a class="headerlink" href="#jan-7-2021" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Handle NaN or infinite floats passed to artifacts (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="dec-2-2020">
+<h2>2.1.4 Dec 2 2020<a class="headerlink" href="#dec-2-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to specify session run hash (gorarakelyan)</p></li>
+<li><p>Initialize repo if it was empty when opening session (gorarakelyan)</p></li>
+<li><p>Add validation of map artifact parameters (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-24-2020">
+<h2>2.1.3 Nov 24 2020<a class="headerlink" href="#nov-24-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Support comparison of list type contexts (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>2.1.2 Nov 24 2020<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix empty contexts comparison issue (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-22-2020">
+<h2>2.1.1 Nov 22 2020<a class="headerlink" href="#nov-22-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Return only selected params in SelectResult (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-19-2020">
+<h2>2.1.0 Nov 19 2020<a class="headerlink" href="#nov-19-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add AimRepo select method (gorarakelyan)</p></li>
+<li><p>Implement SelectResult class (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-13-2020">
+<h2>2.0.27 Nov 13 2020<a class="headerlink" href="#nov-13-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with artifact step initializer (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-10-2020">
+<h2>2.0.26 Nov 10 2020<a class="headerlink" href="#nov-10-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">block_termination</span></code> argument to aim.Session (gorarakelyan)</p></li>
+<li><p>Convert infinity parameter to string in artifacts (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-9-2020">
+<h2>2.0.25 Nov 9 2020<a class="headerlink" href="#nov-9-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Reconstruct run metadata file when running close command (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-8-2020">
+<h2>2.0.24 Nov 8 2020<a class="headerlink" href="#nov-8-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add SIGTERM signal handler (gorarakelyan)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">track</span></code> function in a parallel thread (gorarakelyan)</p></li>
+<li><p>Add SDK session flush method (gorarakelyan)</p></li>
+<li><p>Flush aggregated metrics at a given frequency (gorarakelyan)</p></li>
+<li><p>Update run metadata file only on artifacts update (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-5-2020">
+<h2>2.0.23 Nov 5 2020<a class="headerlink" href="#nov-5-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Make experiment name argument required in SDK close command (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>2.0.22 Nov 5 2020<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add SDK <code class="docutils literal notranslate"><span class="pre">close</span></code> method to close dangling experiments (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-1-2020">
+<h2>2.0.21 Nov 1 2020<a class="headerlink" href="#nov-1-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Resolve compatibility issues with python 3.5.0 (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="oct-26-2020">
+<h2>2.0.20 Oct 26 2020<a class="headerlink" href="#oct-26-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Enable pypi aim package name (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="oct-25-2020">
+<h2>2.0.19 Oct 25 2020<a class="headerlink" href="#oct-25-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add PyTorch Lightning logger (gorarakelyan)</p></li>
+<li><p>Add TensorFlow v1 and v2 keras callbacks support (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="oct-7-2020">
+<h2>2.0.18 Oct 7 2020<a class="headerlink" href="#oct-7-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to run Aim UI in detached mode (gorarakelyan)</p></li>
+<li><p>Add ability to specify repo path when running Aim UI (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="oct-5-2020">
+<h2>2.0.17 Oct 5 2020<a class="headerlink" href="#oct-5-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">AimDE</span></code> to <code class="docutils literal notranslate"><span class="pre">Aim</span> <span class="pre">UI</span></code> (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="oct-2-2020">
+<h2>2.0.16 Oct 2 2020<a class="headerlink" href="#oct-2-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to specify host when running AimDE (gorarakelyan)</p></li>
+<li><p>Disable <code class="docutils literal notranslate"><span class="pre">AimContainerCommandManager</span></code> (gorarakelyan)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">aimde</span></code> command entry point (gorarakelyan)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">de</span></code> prefix from development environment management commands (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="sep-21-2020">
+<h2>2.0.15 Sep 21 2020<a class="headerlink" href="#sep-21-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Set Map artifact default namespace (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>2.0.14 Sep 21 2020<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Set Metric hashable context to None if no kwarg is passed (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>2.0.13 Sep 21 2020<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to query runs by metric value (gorarakelyan)</p></li>
+<li><p>Add ability to query runs via SDK (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="sep-12-2020">
+<h2>2.0.12 Sep 12 2020<a class="headerlink" href="#sep-12-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update Session to handle exceptions gracefully (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="sep-11-2020">
+<h2>2.0.11 Sep 11 2020<a class="headerlink" href="#sep-11-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add alias to keras adapter (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="sep-10-2020">
+<h2>2.0.10 Sep 10 2020<a class="headerlink" href="#sep-10-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Show progress bar when pulling AimDE image (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>2.0.9 Sep 10 2020<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to start multiple sessions (gorarakelyan)</p></li>
+<li><p>Add Aim adapter for keras (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="aug-26-2020">
+<h2>2.0.8 Aug 26 2020<a class="headerlink" href="#aug-26-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Set SDK to select only unarchived runs by default (gorarakelyan)</p></li>
+<li><p>Add ability to archive/unarchive runs (gorarakelyan)</p></li>
+<li><p>Enable search by run attributes (gorarakelyan)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> keyword to AimQL (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="aug-21-2020">
+<h2>2.0.7 Aug 21 2020<a class="headerlink" href="#aug-21-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Validate Artifact values before storing (gorarakelyan)</p></li>
+<li><p>Add sessions to SDK (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="aug-13-2020">
+<h2>2.0.6 Aug 13 2020<a class="headerlink" href="#aug-13-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to retrieve metrics and traces from repo (gorarakelyan)</p></li>
+<li><p>Add SDK <code class="docutils literal notranslate"><span class="pre">select</span></code> method to select runs and artifacts (gorarakelyan)</p></li>
+<li><p>Implement search query language (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jul-18-2020">
+<h2>2.0.5 Jul 18 2020<a class="headerlink" href="#jul-18-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix issue with PyPI reStructuredText format compatibility (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>2.0.4 Jul 18 2020<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to attach tf.summary logs to AimDE (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jul-8-2020">
+<h2>2.0.3 Jul 8 2020<a class="headerlink" href="#jul-8-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Pass project path to development environment container (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jul-7-2020">
+<h2>2.0.2 Jul 7 2020<a class="headerlink" href="#jul-7-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">epoch</span></code> argument optional for <code class="docutils literal notranslate"><span class="pre">Metric</span></code> artifact (gorarakelyan)</p></li>
+<li><p>Add ability to automatically commit runs after exit (gorarakelyan)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">up</span></code> shortcut for running development environment (gorarakelyan)</p></li>
+<li><p>Remove first required argument(artifact name) from sdk track function (gorarakelyan)</p></li>
+<li><p>Add general dictionary artifact for tracking <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> parameters (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jun-24-2020">
+<h2>2.0.1 Jun 24 2020<a class="headerlink" href="#jun-24-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix inconsistent DE naming (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jun-18-2020">
+<h2>2.0.0 Jun 18 2020<a class="headerlink" href="#jun-18-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tidy up aim and remove some artifacts (gorarakelyan)</p></li>
+<li><p>Update AimContainerCMD to open connection on custom port (gorarakelyan)</p></li>
+<li><p>Save passed process uuid to commit configs (gorarakelyan)</p></li>
+<li><p>Ability to query processes (gorarakelyan)</p></li>
+<li><p>Execute process and store logs into a commit of specific experiment (gorarakelyan)</p></li>
+<li><p>Kill running process and its children recursively (gorarakelyan)</p></li>
+<li><p>Keep executed processes for monitoring and management (gorarakelyan)</p></li>
+<li><p>Add container command handler to exec commands on the host (gorarakelyan)</p></li>
+<li><p>Refactor Text artifact to store sentences using protobuf and aimrecords (jamesj-jiao)</p></li>
+<li><p>Add ability to pass aim board port as an argument (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="may-8-2020">
+<h2>1.2.17 May 8 2020<a class="headerlink" href="#may-8-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add config command (gorarakelyan)</p></li>
+<li><p>Tune artifacts: images, metric_groups, params (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="apr-29-2020">
+<h2>1.2.16 Apr 29 2020<a class="headerlink" href="#apr-29-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add ability to pass numpy array as a segmentation mask (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>1.2.15 Apr 29 2020<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add basic image list tracking (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="apr-27-2020">
+<h2>1.2.14 Apr 27 2020<a class="headerlink" href="#apr-27-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Optimize segmentation tracking insight to load faster (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="apr-25-2020">
+<h2>1.2.13 Apr 25 2020<a class="headerlink" href="#apr-25-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Remove GitHub security alert (gorarakelyan)</p></li>
+<li><p>Add image semantic segmentation tracking (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="apr-20-2020">
+<h2>1.2.12 Apr 20 2020<a class="headerlink" href="#apr-20-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add missing init file for aim.artifacts.proto (&#64;mike1808)</p></li>
+</ul>
+</section>
+<section id="apr-16-2020">
+<h2>1.2.11 Apr 16 2020<a class="headerlink" href="#apr-16-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Make epoch property optional for Metric (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>1.2.10 Apr 16 2020<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Serialize and store <code class="docutils literal notranslate"><span class="pre">Metric</span></code> records using protobuf and aimrecords (gorarakelyan)</p></li>
+<li><p>Create RecordWriter factory which handles artifact records saving (gorarakelyan)</p></li>
+<li><p>Extract artifact serialization to ArtifactWriter (mike1808)</p></li>
+</ul>
+</section>
+<section id="mar-16-2020">
+<h2>1.2.9 Mar 16 2020<a class="headerlink" href="#mar-16-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Alert prerequisites installation message for running board (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="mar-15-2020">
+<h2>1.2.8 Mar 15 2020<a class="headerlink" href="#mar-15-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update profiler interface for keras (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="mar-14-2020">
+<h2>1.2.7 Mar 14 2020<a class="headerlink" href="#mar-14-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add board pull command (gorarakelyan)</p></li>
+<li><p>Change board ports to 43800,1,2 (gorarakelyan)</p></li>
+<li><p>Add ability to profile graph output nodes (gorarakelyan)</p></li>
+<li><p>Remove issue with autograd inside while loop (gorarakelyan)</p></li>
+<li><p>Add aim board development mode (gorarakelyan)</p></li>
+<li><p>Update board name hash algorithm to md5 (gorarakelyan)</p></li>
+<li><p>Add board CLI commands: up, down and upgrade (gorarakelyan)</p></li>
+<li><p>Add ability to tag version as a release candidate (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="feb-28-2020">
+<h2>1.2.6 Feb 28 2020<a class="headerlink" href="#feb-28-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add learning rate update tracking (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="feb-25-2020">
+<h2>1.2.5 Feb 25 2020<a class="headerlink" href="#feb-25-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add autocommit feature to push command: <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">push</span> <span class="pre">-c</span> <span class="pre">[-m</span> <span class="pre">&lt;msg&gt;]</span></code> (gorarakelyan)</p></li>
+<li><p>Add cli status command to list branch uncommitted artifacts (gorarakelyan)</p></li>
+<li><p>Add an ability to aggregate duplicated nodes within a loop (gorarakelyan)</p></li>
+<li><p>Remove gradient break issue when profiling output nodes (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="feb-20-2020">
+<h2>1.2.4 Feb 20 2020<a class="headerlink" href="#feb-20-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Enable profiler to track nodes inside loops (gorarakelyan)</p></li>
+<li><p>Ability to disable profiler for evaluation or inference (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="feb-13-2020">
+<h2>1.2.3 Feb 13 2020<a class="headerlink" href="#feb-13-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Set minimum required python version to 3.5.2 (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2>1.2.2 Feb 13 2020<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Downgrade required python version (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>1.2.1 Feb 13 2020<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Edit README.md to pass reStructuredText validation on pypi (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>1.2.0 Feb 13 2020<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Make aim CLI directly accessible from main.py (gorarakelyan)</p></li>
+<li><p>Add disk space usage tracking (gorarakelyan)</p></li>
+<li><p>Add profiler support for Keras (gorarakelyan)</p></li>
+<li><p>Add TensorFlow graph nodes profiler (gorarakelyan)</p></li>
+<li><p>Add command to run aim live container mounted on aim repo (gorarakelyan)</p></li>
+<li><p>Update profiler to track GPU usage (gorarakelyan)</p></li>
+<li><p>Add machine resource usage profiler (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jan-14-2020">
+<h2>1.1.1 Jan 14 2020<a class="headerlink" href="#jan-14-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Remove aim dependencies such as keras, pytorch and etc (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jan-12-2020">
+<h2>1.1.0 Jan 12 2020<a class="headerlink" href="#jan-12-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update code diff tracking to be optional (gorarakelyan)</p></li>
+<li><p>Add default False value to aim init function (gorarakelyan)</p></li>
+<li><p>Update aim repo to correctly identify cwd (gorarakelyan)</p></li>
+<li><p>Update push command to commit if msg argument is specified (gorarakelyan)</p></li>
+<li><p>Add ability to initialize repo from within the sdk (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="jan-7-2020">
+<h2>1.0.2 Jan 7 2020<a class="headerlink" href="#jan-7-2020" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Remove objects dir from empty .aim branch index (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="dec-26-2019">
+<h2>1.0.1 Dec 26 2019<a class="headerlink" href="#dec-26-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add cil command to print aim current version (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="dec-25-2019">
+<h2>1.0.0 Dec 25 2019<a class="headerlink" href="#dec-25-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add aim version number in commit config file (gorarakelyan)</p></li>
+<li><p>Update push command to send username and check storage availability (gorarakelyan)</p></li>
+<li><p>Add hyper parameters tracking (gorarakelyan)</p></li>
+<li><p>Update push command to print shorter file names when pushing to remote (gorarakelyan)</p></li>
+<li><p>Update tracking artifacts to be saved in log format (gorarakelyan)</p></li>
+<li><p>Add pytorch cuda support to existing sdk artefacts (gorarakelyan)</p></li>
+<li><p>Add cli reset command (gorarakelyan)</p></li>
+<li><p>Add nested module tracking support to aim sdk (gorarakelyan)</p></li>
+<li><p>Add code difference tracking to aim sdk (gorarakelyan)</p></li>
+<li><p>Update aim push command to send commits (gorarakelyan)</p></li>
+<li><p>Add commit structure implementation (gorarakelyan)</p></li>
+<li><p>Add aim commit command synchronized with git commits (gorarakelyan)</p></li>
+<li><p>Add version control system factory (gorarakelyan)</p></li>
+<li><p>Update all insights example (gorarakelyan)</p></li>
+<li><p>Add model gradients tracking (gorarakelyan)</p></li>
+<li><p>Add model weights distribution tracking (gorarakelyan)</p></li>
+<li><p>Add aim correlation tracking (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-30-2019">
+<h2>0.2.9 Nov 30 2019<a class="headerlink" href="#nov-30-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update push tolerance when remote origin is invalid (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id16">
+<h2>0.2.8 Nov 30 2019<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update aim auth public key search algorithm (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-14-2019">
+<h2>0.2.7 Nov 14 2019<a class="headerlink" href="#nov-14-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update dependencies torch and torchvision versions (sgevorg)</p></li>
+</ul>
+</section>
+<section id="nov-5-2019">
+<h2>0.2.6 Nov 5 2019<a class="headerlink" href="#nov-5-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update aim track logger (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-4-2019">
+<h2>0.2.5 Nov 4 2019<a class="headerlink" href="#nov-4-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add branch name validation (gorarakelyan)</p></li>
+<li><p>Add single branch push to aim push command (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-3-2019">
+<h2>0.2.4 Nov 3 2019<a class="headerlink" href="#nov-3-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update aim auth print format (gorarakelyan)</p></li>
+<li><p>Update setup.py requirements (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>0.2.3 Nov 3 2019<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update package requirements (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="nov-1-2019">
+<h2>0.2.2 Nov 1 2019<a class="headerlink" href="#nov-1-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update package requirements (sgevorg)</p></li>
+</ul>
+</section>
+<section id="id18">
+<h2>0.2.1 Nov 1 2019<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add paramiko to required in setup.py (sgevorg)</p></li>
+</ul>
+</section>
+<section id="id19">
+<h2>0.2.0 Nov 1 2019<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update the repo to prep for open source pypi push (sgevorg)</p></li>
+<li><p>Add error and activity logging (sgevorg)</p></li>
+<li><p>Add push command robustness (gorarakelyan)</p></li>
+<li><p>Add cli auth command (gorarakelyan)</p></li>
+<li><p>Add public key authentication (gorarakelyan)</p></li>
+<li><p>Update push to send only branches (gorarakelyan)</p></li>
+<li><p>Add branching command line interface (gorarakelyan)</p></li>
+<li><p>Update skd interface (gorarakelyan)</p></li>
+<li><p>Add pytorch examples inside examples directory (gorarakelyan)</p></li>
+<li><p>Add model load sdk method (gorarakelyan)</p></li>
+<li><p>Add model checkpoint save tests (gorarakelyan)</p></li>
+<li><p>Update file sending protocol (gorarakelyan)</p></li>
+<li><p>Add model tracking (gorarakelyan)</p></li>
+</ul>
+</section>
+<section id="sep-23-2019">
+<h2>0.1.0 - Sep 23 2019<a class="headerlink" href="#sep-23-2019" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update setup py to build cython extensions (gorarakelyan)</p></li>
+<li><p>Update tcp client to send multiple files through one connection (gorarakelyan)</p></li>
+<li><p>Update tcp client to send images (gorarakelyan)</p></li>
+<li><p>Update sdk track functionality to support multiple metrics (gorarakelyan)</p></li>
+<li><p>Update push command for sending repo to a given remote (gorarakelyan)</p></li>
+<li><p>Add cli remote commands (gorarakelyan)</p></li>
+<li><p>Update cli architecture from single group of commands to multiple groups (gorarakelyan)</p></li>
+<li><p>Add testing env first skeleton and versions (sgevorg)</p></li>
+<li><p>Add dummy exporting files from .aim-test (sgevorg)</p></li>
+<li><p>Add description for Testing Environment (sgevorg)</p></li>
+<li><p>Update metadata structure and handling (sgevorg)</p></li>
+<li><p>Add support for seq2seq models (sgevorg)</p></li>
+<li><p>Update the output of doker image build to be more informative and intuitive (sgevorg)</p></li>
+<li><p>Update README.MD with changed Aim messaging (sgevorg)</p></li>
+<li><p>Remove setup.cfg file (maybe temporarily) (sgevorg)</p></li>
+<li><p>Update the location for docker build template files, move to data/ (sgevorg)</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">docs/cli.md</span></code> for aim-deploy docs (sgevorg)</p></li>
+<li><p>Add docker deploy <code class="docutils literal notranslate"><span class="pre">.aim/deploy_temp/&lt;model&gt;</span></code> cleanup at the end of the build (sgevorg)</p></li>
+<li><p>Add Docker Deploy via <code class="docutils literal notranslate"><span class="pre">aim-deploy</span></code> command (sgevorg)</p></li>
+<li><p>Add Docker image generate skeleton (sgevorg)</p></li>
+<li><p>Add AimModel.load_mode static function to parse <code class="docutils literal notranslate"><span class="pre">.aim</span></code> files (sgevorg)</p></li>
+<li><p>Update exporter to decouple from specifics of exporting and framework (sgevorg)</p></li>
+<li><p>Add model export with <code class="docutils literal notranslate"><span class="pre">.aim</span></code> extension (sgevorg)</p></li>
+<li><p>Remove pack/unpack of the metadata (sgevorg)</p></li>
+<li><p>Add pack/unpack to add metadata to model for engine processing (sgevorg)</p></li>
+<li><p>Add aim-deploy command configuration in cli (sgevorg)</p></li>
+<li><p>Add basic cli (sgevorg)</p></li>
+<li><p>Update setup.py for cli first version (sgevorg)</p></li>
+<li><p>Add initial cli specs (sgevorg)</p></li>
+<li><p>Add directories: the initial skeleton of the repo (sgevorg)</p></li>
+<li><p>Add gitignore, license file and other basics for repo (sgevorg)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../community/telemetry.html" class="btn btn-neutral float-left" title="Anonymized Telemetry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

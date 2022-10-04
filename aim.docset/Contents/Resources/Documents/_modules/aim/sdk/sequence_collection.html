@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aim.sdk.sequence_collection &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>aim.sdk.sequence_collection</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for aim.sdk.sequence_collection</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">aim.sdk.sequence</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.types</span> <span class="kn">import</span> <span class="n">QueryReportMode</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.query_utils</span> <span class="kn">import</span> <span class="n">RunView</span><span class="p">,</span> <span class="n">SequenceView</span>
+<span class="kn">from</span> <span class="nn">aim.storage.query</span> <span class="kn">import</span> <span class="n">RestrictedPythonQuery</span>
+
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.run</span> <span class="kn">import</span> <span class="n">Run</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.repo</span> <span class="kn">import</span> <span class="n">Repo</span>
+    <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SequenceCollection"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.SequenceCollection">[docs]</a><span class="k">class</span> <span class="nc">SequenceCollection</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Abstract interface for collection of tracked series/sequences.</span>
+
+<span class="sd">    Typically represents sequences of a same run or sequences matching given query expression.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO [AT]: move to a separate mixin class</span>
+    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">only_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">include_run</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_name</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_context</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_props</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_params</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DataFrame&#39;</span><span class="p">:</span>
+        <span class="c1"># TODO [GA]: Separate runs and sequences dataframes collection</span>
+        <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item</span> <span class="o">==</span> <span class="s1">&#39;run&#39;</span><span class="p">:</span>
+            <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">run</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">dataframe</span><span class="p">(</span><span class="n">include_props</span><span class="o">=</span><span class="n">include_props</span><span class="p">,</span>
+                                  <span class="n">include_params</span><span class="o">=</span><span class="n">include_params</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">()</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item</span> <span class="o">==</span> <span class="s1">&#39;sequence&#39;</span><span class="p">:</span>
+            <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">metric</span><span class="o">.</span><span class="n">dataframe</span><span class="p">(</span><span class="n">include_run</span><span class="o">=</span><span class="n">include_run</span><span class="p">,</span>
+                                 <span class="n">include_name</span><span class="o">=</span><span class="n">include_name</span><span class="p">,</span>
+                                 <span class="n">include_context</span><span class="o">=</span><span class="n">include_context</span><span class="p">,</span>
+                                 <span class="n">only_last</span><span class="o">=</span><span class="n">only_last</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="bp">self</span>
+            <span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dfs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SequenceCollection.iter"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.SequenceCollection.iter">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get Sequence iterator for collection&#39;s sequences.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Next sequence object based on implementation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div>
+
+<div class="viewcode-block" id="SequenceCollection.iter_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.SequenceCollection.iter_runs">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">iter_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;SequenceCollection&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get SequenceCollection iterator for collection&#39;s runs.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Next run&#39;s SequenceCollection based on implementation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div></div>
+
+
+<div class="viewcode-block" id="SingleRunSequenceCollection"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.SingleRunSequenceCollection">[docs]</a><span class="k">class</span> <span class="nc">SingleRunSequenceCollection</span><span class="p">(</span><span class="n">SequenceCollection</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implementation of SequenceCollection interface for a single Run.</span>
+
+<span class="sd">    Method `iter()` returns Sequence iterator which yields Sequence matching query from run&#39;s sequences.</span>
+<span class="sd">    Method `iter_runs()` raises StopIteration, since the collection is bound to a single Run.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">         run (:obj:`Run`): Run object for which sequences are queried.</span>
+<span class="sd">         seq_cls (:obj:`type`): The collection&#39;s sequence class. Sequences not matching to seq_cls.allowed_dtypes</span>
+<span class="sd">            will be skipped. `Sequence` by default, meaning all sequences will match.</span>
+<span class="sd">         query (:obj:`str`, optional): Query expression. If specified, method `iter()` will return iterator for</span>
+<span class="sd">            sequences matching the query. If not, method `iter()` will return iterator for run&#39;s all sequences.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">run</span><span class="p">:</span> <span class="s1">&#39;Run&#39;</span><span class="p">,</span>
+        <span class="n">seq_cls</span><span class="o">=</span><span class="n">Sequence</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">runs_proxy_cache</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">timezone_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">:</span> <span class="s1">&#39;Run&#39;</span> <span class="o">=</span> <span class="n">run</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span> <span class="o">=</span> <span class="n">seq_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item</span> <span class="o">=</span> <span class="s1">&#39;sequence&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">RestrictedPythonQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runs_proxy_cache</span> <span class="o">=</span> <span class="n">runs_proxy_cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span> <span class="o">=</span> <span class="n">timezone_offset</span>
+
+    <span class="k">def</span> <span class="nf">iter_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;SequenceCollection&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Run is already bound to the Collection&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+    <span class="k">def</span> <span class="nf">iter</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="n">allowed_dtypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span><span class="o">.</span><span class="n">allowed_dtypes</span><span class="p">()</span>
+        <span class="n">seq_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span><span class="o">.</span><span class="n">sequence_name</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">seq_name</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">run</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">iter_sequence_info_by_type</span><span class="p">(</span><span class="n">allowed_dtypes</span><span class="p">):</span>
+            <span class="n">run_view</span> <span class="o">=</span> <span class="n">RunView</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">runs_proxy_cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span><span class="p">)</span>
+            <span class="n">seq_view</span> <span class="o">=</span> <span class="n">SequenceView</span><span class="p">(</span><span class="n">seq_name</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">run_view</span><span class="p">)</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;run&#39;</span><span class="p">:</span> <span class="n">run_view</span><span class="p">,</span> <span class="n">seq_var</span><span class="p">:</span> <span class="n">seq_view</span><span class="p">})</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span><span class="p">(</span><span class="n">seq_name</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">run</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySequenceCollection"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.QuerySequenceCollection">[docs]</a><span class="k">class</span> <span class="nc">QuerySequenceCollection</span><span class="p">(</span><span class="n">SequenceCollection</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implementation of SequenceCollection interface for repository&#39;s sequences matching given query.</span>
+
+<span class="sd">    Method `iter()` returns Sequence iterator, which yields Sequence matching query from currently</span>
+<span class="sd">    iterated run&#39;s sequences. Once there are no sequences left in current run, repository&#39;s next run is considered.</span>
+<span class="sd">    Method `iter_runs()` returns SequenceCollection iterator for repository&#39;s runs.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">         repo (:obj:`Repo`): Aim repository object.</span>
+<span class="sd">         seq_cls (:obj:`type`): The collection&#39;s sequence class. Sequences not matching to seq_cls.allowed_dtypes</span>
+<span class="sd">            will be skipped. `Sequence` by default, meaning all sequences will match.</span>
+<span class="sd">         query (:obj:`str`, optional): Query expression. If specified, method `iter()` will skip sequences not matching</span>
+<span class="sd">            the query. If not, method `iter()` will return iterator for all sequences in repository</span>
+<span class="sd">            (that&#39;s a lot of sequences!).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">,</span>
+        <span class="n">seq_cls</span><span class="o">=</span><span class="n">Sequence</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">,</span>
+        <span class="n">timezone_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span> <span class="o">=</span> <span class="n">repo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span> <span class="o">=</span> <span class="n">seq_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item</span> <span class="o">=</span> <span class="s1">&#39;sequence&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">query</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">=</span> <span class="n">report_mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runs_proxy_cache</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span> <span class="o">=</span> <span class="n">timezone_offset</span>
+
+    <span class="k">def</span> <span class="nf">iter_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;SequenceCollection&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">structured_db</span><span class="p">:</span>
+            <span class="n">runs_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">iter_runs_from_cache</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">runs_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">()</span>
+        <span class="n">runs_counter</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">total_runs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">total_runs_count</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">:</span>
+            <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_runs</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">runs_iterator</span><span class="p">:</span>
+            <span class="n">seq_collection</span> <span class="o">=</span> <span class="n">SingleRunSequenceCollection</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
+                                                         <span class="n">runs_proxy_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">runs_proxy_cache</span><span class="p">,</span>
+                                                         <span class="n">timezone_offset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_TUPLE</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">seq_collection</span><span class="p">,</span> <span class="p">(</span><span class="n">runs_counter</span><span class="p">,</span> <span class="n">total_runs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">:</span>
+                    <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">seq_collection</span>
+            <span class="n">runs_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_TUPLE</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">run_seq</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">():</span>
+                <span class="k">yield from</span> <span class="n">run_seq</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">run_seq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">():</span>
+                <span class="k">yield from</span> <span class="n">run_seq</span></div>
+
+
+<div class="viewcode-block" id="QueryRunSequenceCollection"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.sequence_collection.QueryRunSequenceCollection">[docs]</a><span class="k">class</span> <span class="nc">QueryRunSequenceCollection</span><span class="p">(</span><span class="n">SequenceCollection</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implementation of SequenceCollection interface for repository&#39;s runs matching given query.</span>
+
+<span class="sd">    Method `iter()` returns Sequence iterator which yields Sequence for current run&#39;s all sequences.</span>
+<span class="sd">    Method `iter_runs()` returns SequenceCollection iterator from repository&#39;s runs matching given query.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">         repo (:obj:`Repo`): Aim repository object.</span>
+<span class="sd">         seq_cls (:obj:`type`): The collection&#39;s sequence class. Sequences not matching to seq_cls.allowed_dtypes</span>
+<span class="sd">            will be skipped. `Sequence` by default, meaning all sequences will match.</span>
+<span class="sd">         query (:obj:`str`, optional): Query expression. If specified, method `iter_runs()` will skip runs not matching</span>
+<span class="sd">            the query. If not, method `iter_run()` will return SequenceCollection iterator for all runs in repository.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">,</span>
+        <span class="n">seq_cls</span><span class="o">=</span><span class="n">Sequence</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">paginated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">offset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">,</span>
+        <span class="n">timezone_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span> <span class="o">=</span> <span class="n">repo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span> <span class="o">=</span> <span class="n">seq_cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">query</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item</span> <span class="o">=</span> <span class="s1">&#39;run&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">paginated</span> <span class="o">=</span> <span class="n">paginated</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">RestrictedPythonQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">=</span> <span class="n">report_mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span> <span class="o">=</span> <span class="n">timezone_offset</span>
+
+    <span class="k">def</span> <span class="nf">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_TUPLE</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">run_seq</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">():</span>
+                <span class="k">yield from</span> <span class="n">run_seq</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">run_seq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">():</span>
+                <span class="k">yield from</span> <span class="n">run_seq</span>
+
+    <span class="k">def</span> <span class="nf">iter_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;SequenceCollection&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">structured_db</span><span class="p">:</span>
+            <span class="n">runs_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">iter_runs_from_cache</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">runs_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">iter_runs</span><span class="p">()</span>
+        <span class="n">runs_counter</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">total_runs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">total_runs_count</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">:</span>
+            <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_runs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">runs_iterator</span><span class="p">:</span>
+            <span class="n">run_view</span> <span class="o">=</span> <span class="n">RunView</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">timezone_offset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_timezone_offset</span><span class="p">)</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">run</span><span class="o">=</span><span class="n">run_view</span><span class="p">)</span>
+            <span class="n">seq_collection</span> <span class="o">=</span> <span class="n">SingleRunSequenceCollection</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_cls</span><span class="p">)</span> <span class="k">if</span> <span class="n">match</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_TUPLE</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">seq_collection</span><span class="p">,</span> <span class="p">(</span><span class="n">runs_counter</span><span class="p">,</span> <span class="n">total_runs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_mode</span> <span class="o">==</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">:</span>
+                    <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">seq_collection</span>
+            <span class="n">runs_counter</span> <span class="o">+=</span> <span class="mi">1</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

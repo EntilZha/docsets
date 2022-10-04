@@ -1,0 +1,3 @@
+[submodule "aim"]
+	path = aim
+	url = https://github.com/aimhubio/aim.git

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aim.sdk.repo &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>aim.sdk.repo</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for aim.sdk.repo</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">cachetools.func</span> <span class="kn">import</span> <span class="n">ttl_cache</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">from</span> <span class="nn">weakref</span> <span class="kn">import</span> <span class="n">WeakValueDictionary</span>
+
+<span class="kn">from</span> <span class="nn">aim.ext.sshfs.utils</span> <span class="kn">import</span> <span class="n">mount_remote_repo</span><span class="p">,</span> <span class="n">unmount_remote_repo</span>
+<span class="kn">from</span> <span class="nn">aim.ext.task_queue.queue</span> <span class="kn">import</span> <span class="n">TaskQueue</span>
+<span class="kn">from</span> <span class="nn">aim.ext.cleanup</span> <span class="kn">import</span> <span class="n">AutoClean</span>
+<span class="kn">from</span> <span class="nn">aim.ext.transport.client</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="kn">from</span> <span class="nn">aim.sdk.configs</span> <span class="kn">import</span> <span class="n">get_aim_repo_name</span><span class="p">,</span> <span class="n">AIM_ENABLE_TRACKING_THREAD</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.errors</span> <span class="kn">import</span> <span class="n">RepoIntegrityError</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.run</span> <span class="kn">import</span> <span class="n">Run</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.utils</span> <span class="kn">import</span> <span class="n">search_aim_repo</span><span class="p">,</span> <span class="n">clean_repo_path</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.sequence_collection</span> <span class="kn">import</span> <span class="n">QuerySequenceCollection</span><span class="p">,</span> <span class="n">QueryRunSequenceCollection</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.sequence</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.types</span> <span class="kn">import</span> <span class="n">QueryReportMode</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.data_version</span> <span class="kn">import</span> <span class="n">DATA_VERSION</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.remote_repo_proxy</span> <span class="kn">import</span> <span class="n">RemoteRepoProxy</span>
+
+<span class="kn">from</span> <span class="nn">aim.storage.locking</span> <span class="kn">import</span> <span class="n">AutoFileLock</span>
+<span class="kn">from</span> <span class="nn">aim.storage.container</span> <span class="kn">import</span> <span class="n">Container</span>
+<span class="kn">from</span> <span class="nn">aim.storage.rockscontainer</span> <span class="kn">import</span> <span class="n">RocksContainer</span>
+<span class="kn">from</span> <span class="nn">aim.storage.union</span> <span class="kn">import</span> <span class="n">RocksUnionContainer</span>
+<span class="kn">from</span> <span class="nn">aim.storage.treeviewproxy</span> <span class="kn">import</span> <span class="n">ProxyTree</span>
+
+<span class="kn">from</span> <span class="nn">aim.storage.structured.db</span> <span class="kn">import</span> <span class="n">DB</span>
+<span class="kn">from</span> <span class="nn">aim.storage.structured.proxy</span> <span class="kn">import</span> <span class="n">StructuredRunProxy</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ContainerConfig</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">sub</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span>
+
+
+<span class="k">class</span> <span class="nc">RepoStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">MISSING</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">UPDATE_REQUIRED</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">PATCH_REQUIRED</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">UPDATED</span> <span class="o">=</span> <span class="mi">4</span>
+
+
+<span class="k">def</span> <span class="nf">_get_tracking_queue</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">AIM_ENABLE_TRACKING_THREAD</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TaskQueue</span><span class="p">(</span><span class="s1">&#39;metric_tracking&#39;</span><span class="p">,</span> <span class="n">max_backlog</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">)</span>  <span class="c1"># single thread task queue for Run.track</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">RepoAutoClean</span><span class="p">(</span><span class="n">AutoClean</span><span class="p">):</span>
+    <span class="n">PRIORITY</span> <span class="o">=</span> <span class="mi">30</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prepare the `Repo` for automatic cleanup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            instance: The `Repo` instance to be cleaned up.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">root_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_mount_root</span>
+
+    <span class="k">def</span> <span class="nf">_close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Close the `Repo` and unmount the remote repository.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_heartbeat_sender</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unmounting remote repository at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">unmount_remote_repo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="p">)</span>
+
+
+<span class="c1"># TODO make this api thread-safe</span>
+<div class="viewcode-block" id="Repo"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo">[docs]</a><span class="k">class</span> <span class="nc">Repo</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Aim repository object.</span>
+
+<span class="sd">    Provides methods for  repositories creation/opening/cleanup.</span>
+<span class="sd">    Provides APIs for accessing Runs.</span>
+<span class="sd">    Provides API for querying Runs/Metrics based on a given expression.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to Aim repository.</span>
+<span class="sd">        read_only (:obj:`bool`, optional): Flag for opening Repo in readonly mode. False by default.</span>
+<span class="sd">        init (:obj:`bool`, optional): Flag used to initialize new Repo. False by default.</span>
+<span class="sd">            Recommended to use ``aim init`` command instead.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_pool</span> <span class="o">=</span> <span class="n">WeakValueDictionary</span><span class="p">()</span>  <span class="c1"># TODO: take read only into account</span>
+
+    <span class="n">tracking_queue</span> <span class="o">=</span> <span class="n">_get_tracking_queue</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">read_only</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">init</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">read_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span> <span class="o">=</span> <span class="n">read_only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">:</span> <span class="n">Client</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;ssh://&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">mount_remote_repo</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">remote_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;aim://&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">remote_path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">remote_path</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote_version_compatibility</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="n">get_aim_repo_name</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">init</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="p">:</span>
+                <span class="n">unmount_remote_repo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mount_root</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot find repository </span><span class="se">\&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">. Please init first.&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">container_pool</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">ContainerConfig</span><span class="p">,</span> <span class="n">Container</span><span class="p">]</span> <span class="o">=</span> <span class="n">WeakValueDictionary</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">persistent_pool</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">ContainerConfig</span><span class="p">,</span> <span class="n">Container</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">container_view_pool</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">ContainerConfig</span><span class="p">,</span> <span class="n">Container</span><span class="p">]</span> <span class="o">=</span> <span class="n">WeakValueDictionary</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_props_cache_hint</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_encryption_key</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_lock_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;.repo_lock&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span> <span class="o">=</span> <span class="n">AutoFileLock</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lock_path</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">():</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_repo_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_path</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span> <span class="o">=</span> <span class="n">DB</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">init</span> <span class="ow">or</span> <span class="n">status</span> <span class="o">==</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">PATCH_REQUIRED</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">run_upgrades</span><span class="p">()</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;VERSION&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">version_fh</span><span class="p">:</span>
+                        <span class="n">version_fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">DATA_VERSION</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="o">=</span> <span class="n">RepoAutoClean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">meta_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&lt;Repo#</span><span class="si">{</span><span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s1"> path=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1"> read_only=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="si">}</span><span class="s1">&gt;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">default_repo_path</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">repo_path</span><span class="p">,</span> <span class="n">found</span> <span class="o">=</span> <span class="n">search_aim_repo</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+            <span class="n">repo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">repo_path</span>
+
+<div class="viewcode-block" id="Repo.default_repo"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.default_repo">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">default_repo</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Named constructor for default repository.</span>
+
+<span class="sd">        Searches nearest `.aim` directory from current directory to roo directory.</span>
+<span class="sd">        If not found, return Repo for current directory.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            init (:obj:`bool`, optional): Flag used to initialize new Repo. False by default.</span>
+<span class="sd">                Recommended to use `aim init` command instead.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Repo` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">default_repo_path</span><span class="p">(),</span> <span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.from_path"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.from_path">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_path</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Named constructor for Repo for given path.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            path (str): Path to Aim repository.</span>
+<span class="sd">            read_only (:obj:`bool`, optional): Flag for opening Repo in readonly mode. False by default.</span>
+<span class="sd">            init (:obj:`bool`, optional): Flag used to initialize new Repo. False by default.</span>
+<span class="sd">                Recommended to use ``aim init`` command instead.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Repo` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;ssh://&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_remote_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">clean_repo_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">repo</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">repo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">repo</span> <span class="o">=</span> <span class="n">Repo</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="p">)</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_pool</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span>
+        <span class="k">return</span> <span class="n">repo</span></div>
+
+<div class="viewcode-block" id="Repo.exists"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.exists">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Check Aim repository existence.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str): Path to Aim repository.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if repository exists, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">clean_repo_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">aim_repo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">get_aim_repo_name</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">aim_repo_path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.rm"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.rm">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">rm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove Aim repository.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str): Path to Aim repository.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">clean_repo_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">repo</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">repo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_pool</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+        <span class="n">aim_repo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">get_aim_repo_name</span><span class="p">())</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">aim_repo_path</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">check_repo_status</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RepoStatus</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_remote_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">UPDATED</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">MISSING</span>
+        <span class="n">repo_version</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_version</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">current_version</span> <span class="o">=</span> <span class="n">DATA_VERSION</span>
+        <span class="k">if</span> <span class="n">repo_version</span> <span class="o">&lt;</span> <span class="n">current_version</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">repo_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">UPDATE_REQUIRED</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">PATCH_REQUIRED</span>
+        <span class="k">return</span> <span class="n">RepoStatus</span><span class="o">.</span><span class="n">UPDATED</span>
+
+    <span class="k">def</span> <span class="nf">_check_remote_version_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span>
+        <span class="kn">from</span> <span class="nn">aim.__version__</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">client_version</span>
+        <span class="kn">import</span> <span class="nn">grpc</span>
+
+        <span class="n">error_message_template</span> <span class="o">=</span> <span class="s1">&#39;The Aim Remote tracking server version (</span><span class="si">{}</span><span class="s1">) &#39;</span>\
+                                 <span class="s1">&#39;is not compatible with the Aim client version (</span><span class="si">{}</span><span class="s1">).&#39;</span>\
+                                 <span class="s1">&#39;Please upgrade either the Aim Client or the Aim Remote.&#39;</span>
+
+        <span class="n">warning_message_template</span> <span class="o">=</span> <span class="s1">&#39;The Aim Remote tracking server version (</span><span class="si">{}</span><span class="s1">) &#39;</span> \
+                                   <span class="s1">&#39;and the Aim client version (</span><span class="si">{}</span><span class="s1">) do not match.&#39;</span> \
+                                   <span class="s1">&#39;Consider upgrading either the client or remote tracking server.&#39;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">remote_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">==</span> <span class="n">grpc</span><span class="o">.</span><span class="n">StatusCode</span><span class="o">.</span><span class="n">UNIMPLEMENTED</span><span class="p">:</span>
+                <span class="n">remote_version</span> <span class="o">=</span> <span class="s1">&#39;&lt;3.12.0&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
+
+        <span class="c1"># server doesn&#39;t yet have the `get_version()` method implemented</span>
+        <span class="k">if</span> <span class="n">remote_version</span> <span class="o">==</span> <span class="s1">&#39;&lt;3.12.0&#39;</span><span class="p">:</span>
+            <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">error_message_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remote_version</span><span class="p">,</span> <span class="n">client_version</span><span class="p">))</span>
+
+        <span class="c1"># compare versions</span>
+        <span class="k">if</span> <span class="n">client_version</span> <span class="o">==</span> <span class="n">remote_version</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># if the server has a newer version always force to upgrade the client</span>
+        <span class="k">if</span> <span class="n">client_version</span> <span class="o">&lt;</span> <span class="n">remote_version</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">error_message_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remote_version</span><span class="p">,</span> <span class="n">client_version</span><span class="p">))</span>
+
+        <span class="c1"># for other mismatching versions throw a warning for now</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">warning_message_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remote_version</span><span class="p">,</span> <span class="n">client_version</span><span class="p">))</span>
+        <span class="c1"># further incompatibility list will be added manually</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_version</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">clean_repo_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">version_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">get_aim_repo_name</span><span class="p">(),</span> <span class="s1">&#39;VERSION&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">version_file_path</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">version_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">version_fh</span><span class="p">:</span>
+                <span class="n">version_tp</span> <span class="o">=</span> <span class="n">version_fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">version_tp</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>  <span class="c1"># old Aim repos</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_remote_path</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;aim://&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_container</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">from_union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Container</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">read_only</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Repo is read-only&#39;</span><span class="p">)</span>
+
+        <span class="n">container_config</span> <span class="o">=</span> <span class="n">ContainerConfig</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">)</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">container_config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">container</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">from_union</span><span class="p">:</span>
+                <span class="n">container</span> <span class="o">=</span> <span class="n">RocksUnionContainer</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">persistent_pool</span><span class="p">[</span><span class="n">container_config</span><span class="p">]</span> <span class="o">=</span> <span class="n">container</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">container</span> <span class="o">=</span> <span class="n">RocksContainer</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">container_pool</span><span class="p">[</span><span class="n">container_config</span><span class="p">]</span> <span class="o">=</span> <span class="n">container</span>
+
+        <span class="k">return</span> <span class="n">container</span>
+
+    <span class="k">def</span> <span class="nf">_get_index_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_index_container</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">tree</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ProxyTree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_index_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Container</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Repo is read-only&#39;</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/index&#39;</span>
+        <span class="n">container_config</span> <span class="o">=</span> <span class="n">ContainerConfig</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">container_config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">container</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">container</span> <span class="o">=</span> <span class="n">RocksContainer</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">container_pool</span><span class="p">[</span><span class="n">container_config</span><span class="p">]</span> <span class="o">=</span> <span class="n">container</span>
+
+        <span class="k">return</span> <span class="n">container</span>
+
+    <span class="k">def</span> <span class="nf">request_tree</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">sub</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">from_union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># TODO maybe = True by default</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="n">from_union</span><span class="p">)</span><span class="o">.</span><span class="n">tree</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ProxyTree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">read_only</span><span class="p">,</span> <span class="n">from_union</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">sub</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">*</span><span class="p">,</span>
+            <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">from_union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># TODO maybe = True by default</span>
+    <span class="p">):</span>
+
+        <span class="n">container_config</span> <span class="o">=</span> <span class="n">ContainerConfig</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">read_only</span><span class="p">)</span>
+        <span class="n">container_view</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_view_pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">container_config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">container_view</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">read_only</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">from_union</span><span class="p">:</span>
+                    <span class="n">path</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="n">sub</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;chunks&#39;</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+                <span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="n">from_union</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">sub</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;chunks&#39;</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+                <span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="n">container_view</span> <span class="o">=</span> <span class="n">container</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">container_view_pool</span><span class="p">[</span><span class="n">container_config</span><span class="p">]</span> <span class="o">=</span> <span class="n">container_view</span>
+
+        <span class="k">return</span> <span class="n">container_view</span>
+
+    <span class="k">def</span> <span class="nf">request_props</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">StructuredRunProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="n">hash_</span><span class="p">,</span> <span class="n">read_only</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span>
+        <span class="n">_props</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_props_cache_hint</span><span class="p">:</span>
+                <span class="n">_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">caches</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">run_props_cache_hint</span><span class="p">][</span><span class="n">hash_</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_props</span><span class="p">:</span>
+                <span class="n">_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">find_run</span><span class="p">(</span><span class="n">hash_</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">_props</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">read_only</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">RepoIntegrityError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing props for Run </span><span class="si">{</span><span class="n">hash_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">create_run</span><span class="p">(</span><span class="n">hash_</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_props_cache_hint</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">caches</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">run_props_cache_hint</span><span class="p">][</span><span class="n">hash_</span><span class="p">]</span> <span class="o">=</span> <span class="n">_props</span>
+
+        <span class="k">return</span> <span class="n">_props</span>
+
+<div class="viewcode-block" id="Repo.iter_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.iter_runs">[docs]</a>    <span class="k">def</span> <span class="nf">iter_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;Run&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Iterate over Repo runs.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            next :obj:`Run` in readonly mode .</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">preload</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">run_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">Run</span><span class="p">(</span><span class="n">run_name</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">iter_runs_from_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s1">&#39;Run&#39;</span><span class="p">]:</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">caches</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;runs_cache&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">run_names</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">offset_idx</span> <span class="o">=</span> <span class="n">run_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">offset_idx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">run_name</span> <span class="ow">in</span> <span class="n">run_names</span><span class="p">[</span><span class="n">offset_idx</span><span class="p">:]:</span>
+                <span class="k">yield</span> <span class="n">Run</span><span class="p">(</span><span class="n">run_name</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+    <span class="k">def</span> <span class="nf">run_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">run_hash</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_run_hashes</span><span class="p">()</span>
+
+    <span class="nd">@ttl_cache</span><span class="p">(</span><span class="n">ttl</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_all_run_hashes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="n">remote_repo</span> <span class="o">=</span> <span class="n">RemoteRepoProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">remote_repo</span><span class="o">.</span><span class="n">list_all_runs</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">chunks_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;chunks&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">chunks_dir</span><span class="p">):</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">chunks_dir</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">list_all_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_all_run_hashes</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">total_runs_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span>
+        <span class="k">if</span> <span class="n">db</span><span class="p">:</span>
+            <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">caches</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;runs_cache&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cache</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">cache</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">preload</span><span class="p">()</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<div class="viewcode-block" id="Repo.get_run"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.get_run">[docs]</a>    <span class="k">def</span> <span class="nf">get_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Run&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get run if exists.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_hash (str): Run hash.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Run` object if hash is found in repository. `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: [MV] optimize existence check for run</span>
+        <span class="k">if</span> <span class="n">run_hash</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">run_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_runs">[docs]</a>    <span class="k">def</span> <span class="nf">query_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                   <span class="n">paginated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                   <span class="n">offset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QueryRunSequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get runs satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (:obj:`str`, optional): query expression.</span>
+<span class="sd">                If not specified, query results will include all runs.</span>
+<span class="sd">             paginated (:obj:`bool`, optional): query results pagination flag. False if not specified.</span>
+<span class="sd">             offset (:obj:`str`, optional): `hash` of Run to skip to.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for runs/metrics matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">QueryRunSequenceCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">paginated</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.delete_run"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.delete_run">[docs]</a>    <span class="k">def</span> <span class="nf">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Delete Run data from aim repository</span>
+
+<span class="sd">        This action removes run data permanently and cannot be reverted.</span>
+<span class="sd">        If you want to archive run but keep it&#39;s data use `repo.get_run(run_hash).archived = True`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_hash (:obj:`str`): Run to be deleted.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if run deleted successfully, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_delete_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while trying to delete run </span><span class="se">\&#39;</span><span class="si">{</span><span class="n">run_hash</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">. </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Repo.delete_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.delete_runs">[docs]</a>    <span class="k">def</span> <span class="nf">delete_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hashes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Delete multiple Runs data from aim repository</span>
+
+<span class="sd">        This action removes runs data permanently and cannot be reverted.</span>
+<span class="sd">        If you want to archive run but keep it&#39;s data use `repo.get_run(run_hash).archived = True`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_hashes (:obj:`str`): list of Runs to be deleted.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (True, []) if all runs deleted successfully, (False, :obj:`list`) with list of remaining runs otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">remaining_runs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">run_hash</span> <span class="ow">in</span> <span class="n">run_hashes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_delete_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while trying to delete run </span><span class="se">\&#39;</span><span class="si">{</span><span class="n">run_hash</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">. </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="n">remaining_runs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">remaining_runs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">remaining_runs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Repo.copy_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.copy_runs">[docs]</a>    <span class="k">def</span> <span class="nf">copy_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hashes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">dest_repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Copy multiple Runs data from current aim repository to destination aim repository</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_hashes (:obj:`str`): list of Runs to be copied.</span>
+<span class="sd">            dest_repo (:obj:`Repo`): destination Repo instance to copy Runs</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (True, []) if all runs were copied successfully,</span>
+<span class="sd">            (False, :obj:`list`) with list of remaining runs otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">remaining_runs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">run_hash</span> <span class="ow">in</span> <span class="n">run_hashes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_copy_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">,</span> <span class="n">dest_repo</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while trying to copy run </span><span class="se">\&#39;</span><span class="si">{</span><span class="n">run_hash</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">. </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="n">remaining_runs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">remaining_runs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">remaining_runs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Repo.move_runs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.move_runs">[docs]</a>    <span class="k">def</span> <span class="nf">move_runs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hashes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">dest_repo</span><span class="p">:</span> <span class="s1">&#39;Repo&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Move multiple Runs data from current aim repository to destination aim repository</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_hashes (:obj:`str`): list of Runs to be moved.</span>
+<span class="sd">            dest_repo (:obj:`Repo`): destination Repo instance to move Runs</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (True, []) if all runs were moved successfully,</span>
+<span class="sd">            (False, :obj:`list`) with list of remaining runs otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">remaining_runs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">run_hash</span> <span class="ow">in</span> <span class="n">run_hashes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_copy_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">,</span> <span class="n">dest_repo</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_delete_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error while trying to move run </span><span class="se">\&#39;</span><span class="si">{</span><span class="n">run_hash</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1">. </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="n">remaining_runs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">remaining_runs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">remaining_runs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Repo.query_metrics"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">query_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                      <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                      <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get metrics satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for metrics matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.metric</span> <span class="kn">import</span> <span class="n">Metric</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Metric</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_images"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_images">[docs]</a>    <span class="k">def</span> <span class="nf">query_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                     <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                     <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get image collections satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for image sequences matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.image_sequence</span> <span class="kn">import</span> <span class="n">Images</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Images</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_audios"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_audios">[docs]</a>    <span class="k">def</span> <span class="nf">query_audios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                     <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                     <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get audio collections satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for audio sequences matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.audio_sequence</span> <span class="kn">import</span> <span class="n">Audios</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Audios</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_figure_objects"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_figure_objects">[docs]</a>    <span class="k">def</span> <span class="nf">query_figure_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                             <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                             <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get Figures collections satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for Figure sequences matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.figure_sequence</span> <span class="kn">import</span> <span class="n">Figures</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Figures</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_distributions"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_distributions">[docs]</a>    <span class="k">def</span> <span class="nf">query_distributions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                            <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get distribution collections satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for distribution sequences matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.distribution_sequence</span> <span class="kn">import</span> <span class="n">Distributions</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Distributions</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Repo.query_texts"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.query_texts">[docs]</a>    <span class="k">def</span> <span class="nf">query_texts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">report_mode</span><span class="p">:</span> <span class="n">QueryReportMode</span> <span class="o">=</span> <span class="n">QueryReportMode</span><span class="o">.</span><span class="n">PROGRESS_BAR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySequenceCollection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get text collections satisfying query expression.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             query (str): query expression.</span>
+<span class="sd">             report_mode(:obj:`QueryReportMode`, optional): indicates report mode</span>
+<span class="sd">                (0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`SequenceCollection`: Iterable for text sequences matching query expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_runs_cache</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">aim.sdk.sequences.text_sequence</span> <span class="kn">import</span> <span class="n">Texts</span>
+        <span class="k">return</span> <span class="n">QuerySequenceCollection</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_cls</span><span class="o">=</span><span class="n">Texts</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">report_mode</span><span class="o">=</span><span class="n">report_mode</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">run_props_cache_hint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_props_cache_hint</span>
+
+    <span class="nd">@run_props_cache_hint</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">run_props_cache_hint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_props_cache_hint</span> <span class="o">=</span> <span class="n">cache</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">encryption_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encryption_key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encryption_key</span>
+
+        <span class="n">encryption_key_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;ENCRYPTION_KEY&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">encryption_key_path</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">encryption_key_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">key_fp</span><span class="p">:</span>
+                <span class="n">encryption_key</span> <span class="o">=</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+                <span class="n">key_fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">encryption_key</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">encryption_key_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">key_fp</span><span class="p">:</span>
+                <span class="n">encryption_key</span> <span class="o">=</span> <span class="n">key_fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_encryption_key</span> <span class="o">=</span> <span class="n">encryption_key</span>
+
+        <span class="k">return</span> <span class="n">encryption_key</span>
+
+    <span class="k">def</span> <span class="nf">_get_meta_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span>
+            <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">available_sequence_types</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">Sequence</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">validate_sequence_types</span><span class="p">(</span><span class="n">sequence_types</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">seq_name</span> <span class="ow">in</span> <span class="n">sequence_types</span><span class="p">:</span>
+            <span class="n">seq_cls</span> <span class="o">=</span> <span class="n">Sequence</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seq_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">seq_cls</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">seq_cls</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">seq_name</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> is not a valid Sequence&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Repo.collect_sequence_info"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.collect_sequence_info">[docs]</a>    <span class="k">def</span> <span class="nf">collect_sequence_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence_types</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Utility function for getting sequence names and contexts for all runs by given sequence types.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sequence_types (:obj:`tuple[str]`, optional): Sequence types to get tracked sequence names/contexts for.</span>
+<span class="sd">            Defaults to &#39;metric&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`dict`: Tree of sequences and their contexts groupped by sequence type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">meta_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_tree</span><span class="p">()</span>
+        <span class="n">sequence_traces</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sequence_types</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">sequence_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">sequence_types</span><span class="p">,)</span>
+        <span class="k">for</span> <span class="n">seq_type</span> <span class="ow">in</span> <span class="n">sequence_types</span><span class="p">:</span>
+            <span class="n">seq_cls</span> <span class="o">=</span> <span class="n">Sequence</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seq_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">seq_cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">seq_type</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> is not a valid Sequence&#39;</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">seq_cls</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">)</span>
+            <span class="n">dtypes</span> <span class="o">=</span> <span class="n">seq_cls</span><span class="o">.</span><span class="n">allowed_dtypes</span><span class="p">()</span>
+            <span class="n">dtype_traces</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">dtype_trace_tree</span> <span class="o">=</span> <span class="n">meta_tree</span><span class="o">.</span><span class="n">collect</span><span class="p">((</span><span class="s1">&#39;traces_types&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="p">))</span>
+                    <span class="k">for</span> <span class="n">ctx_id</span><span class="p">,</span> <span class="n">seqs</span> <span class="ow">in</span> <span class="n">dtype_trace_tree</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">for</span> <span class="n">seq_name</span> <span class="ow">in</span> <span class="n">seqs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                            <span class="n">dtype_traces</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">ctx_id</span><span class="p">,</span> <span class="n">seq_name</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="k">if</span> <span class="s1">&#39;float&#39;</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="p">:</span>  <span class="c1"># old sequences without dtype set are considered float sequences</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">dtype_trace_tree</span> <span class="o">=</span> <span class="n">meta_tree</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s1">&#39;traces&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">ctx_id</span><span class="p">,</span> <span class="n">seqs</span> <span class="ow">in</span> <span class="n">dtype_trace_tree</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">for</span> <span class="n">seq_name</span> <span class="ow">in</span> <span class="n">seqs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                            <span class="n">dtype_traces</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">ctx_id</span><span class="p">,</span> <span class="n">seq_name</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="n">traces_info</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ctx_id</span><span class="p">,</span> <span class="n">seq_name</span> <span class="ow">in</span> <span class="n">dtype_traces</span><span class="p">:</span>
+                <span class="n">traces_info</span><span class="p">[</span><span class="n">seq_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta_tree</span><span class="p">[</span><span class="s1">&#39;contexts&#39;</span><span class="p">,</span> <span class="n">ctx_id</span><span class="p">])</span>
+            <span class="n">sequence_traces</span><span class="p">[</span><span class="n">seq_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">traces_info</span>
+        <span class="k">return</span> <span class="n">sequence_traces</span></div>
+
+<div class="viewcode-block" id="Repo.collect_params_info"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.repo.Repo.collect_params_info">[docs]</a>    <span class="k">def</span> <span class="nf">collect_params_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Utility function for getting run meta-parameters.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`dict`: All runs meta-parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">meta_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_tree</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">meta_tree</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s1">&#39;attrs&#39;</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+    <span class="k">def</span> <span class="nf">_prepare_runs_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span>
+        <span class="n">cache_name</span> <span class="o">=</span> <span class="s1">&#39;runs_cache&#39;</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">invalidate_cache</span><span class="p">(</span><span class="n">cache_name</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">init_cache</span><span class="p">(</span><span class="n">cache_name</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">runs</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">run</span><span class="p">:</span> <span class="n">run</span><span class="o">.</span><span class="n">hash</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_props_cache_hint</span> <span class="o">=</span> <span class="n">cache_name</span>
+
+    <span class="k">def</span> <span class="nf">_delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">):</span>
+        <span class="c1"># try to acquire a lock on a run container to check if it is still in progress or not</span>
+        <span class="c1"># in progress runs can&#39;t be deleted</span>
+        <span class="n">lock_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;locks&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">)</span>
+        <span class="n">lock</span> <span class="o">=</span> <span class="n">AutoFileLock</span><span class="p">(</span><span class="n">lock_path</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="p">:</span>  <span class="c1"># rollback db entity delete if subsequent actions fail.</span>
+            <span class="c1"># remove database entry</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">delete_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+
+            <span class="c1"># remove data from index container</span>
+            <span class="n">index_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_index_container</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tree</span><span class="p">()</span>
+            <span class="k">del</span> <span class="n">index_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">((</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;chunks&#39;</span><span class="p">))[</span><span class="n">run_hash</span><span class="p">]</span>
+
+            <span class="c1"># delete rocksdb containers data</span>
+            <span class="n">sub_dirs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">,</span> <span class="s1">&#39;progress&#39;</span><span class="p">,</span> <span class="s1">&#39;locks&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">sub_dir</span> <span class="ow">in</span> <span class="n">sub_dirs</span><span class="p">:</span>
+                <span class="n">meta_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">sub_dir</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">meta_path</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">meta_path</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">seqs_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;seqs&#39;</span><span class="p">,</span> <span class="n">sub_dir</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">seqs_path</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">seqs_path</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">seqs_path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_copy_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">,</span> <span class="n">dest_repo</span><span class="p">):</span>
+        <span class="c1"># try to acquire a lock on a run container to check if it is still in progress or not</span>
+        <span class="c1"># in progress runs can&#39;t be copied</span>
+        <span class="n">lock_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;locks&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">)</span>
+        <span class="n">lock</span> <span class="o">=</span> <span class="n">AutoFileLock</span><span class="p">(</span><span class="n">lock_path</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">structured_db</span><span class="p">:</span>  <span class="c1"># rollback destination db entity if subsequent actions fail.</span>
+            <span class="c1"># copy run structured data</span>
+            <span class="n">source_structured_run</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">find_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="c1"># create destination structured run db instance, set experiment and archived state</span>
+            <span class="n">dest_structured_run</span> <span class="o">=</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">create_run</span><span class="p">(</span><span class="n">run_hash</span><span class="p">,</span> <span class="n">source_structured_run</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span>
+            <span class="n">dest_structured_run</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">source_structured_run</span><span class="o">.</span><span class="n">experiment</span>
+            <span class="n">dest_structured_run</span><span class="o">.</span><span class="n">archived</span> <span class="o">=</span> <span class="n">source_structured_run</span><span class="o">.</span><span class="n">archived</span>
+            <span class="c1"># create and add to the destination run source tags</span>
+            <span class="k">for</span> <span class="n">source_tag</span> <span class="ow">in</span> <span class="n">source_structured_run</span><span class="o">.</span><span class="n">tags_obj</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">dest_tag</span> <span class="o">=</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">structured_db</span><span class="o">.</span><span class="n">create_tag</span><span class="p">(</span><span class="n">source_tag</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="n">dest_tag</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">source_tag</span><span class="o">.</span><span class="n">color</span>
+                    <span class="n">dest_tag</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">source_tag</span><span class="o">.</span><span class="n">description</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">pass</span>  <span class="c1"># if the tag already exists in destination db no need to do anything</span>
+                <span class="n">dest_structured_run</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="n">source_tag</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># copy run meta tree</span>
+            <span class="n">source_meta_run_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span>
+                <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="n">dest_meta_run_tree</span> <span class="o">=</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span>
+                <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">from_union</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="n">dest_meta_run_tree</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_meta_run_tree</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+            <span class="n">dest_index</span> <span class="o">=</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">_get_index_tree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(())</span>
+            <span class="n">dest_meta_run_tree</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">dest_index</span><span class="p">)</span>
+
+            <span class="c1"># copy run series tree</span>
+            <span class="n">source_series_run_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span>
+                <span class="s1">&#39;seqs&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;seqs&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="n">dest_series_run_tree</span> <span class="o">=</span> <span class="n">dest_repo</span><span class="o">.</span><span class="n">request_tree</span><span class="p">(</span>
+                <span class="s1">&#39;seqs&#39;</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;seqs&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;chunks&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="n">run_hash</span><span class="p">)</span>
+            <span class="n">dest_series_run_tree</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_series_run_tree</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_remote_repo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">atomic_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queue_id</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">start_instructions_batch</span><span class="p">()</span>
+        <span class="k">yield</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">flush_instructions_batch</span><span class="p">(</span><span class="n">queue_id</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

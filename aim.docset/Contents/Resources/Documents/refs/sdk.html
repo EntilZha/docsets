@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aim SDK — Aim 3.13.4 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/logo.svg" rel="shortcut icon"/>
+<!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/clipboard.min.js"></script>
+<script src="../_static/copybutton.js"></script>
+<script src="../_static/js/theme.js"></script>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="storage.html" rel="next" title="Aim Storage"/>
+<link href="cli.html" rel="prev" title="Aim CLI"/>
+</head>
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../index.html"> Aim
+          </a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" type="text"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+</div>
+</div><div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aim SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.repo">aim.sdk.repo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.repo.Repo"><code class="docutils literal notranslate"><span class="pre">Repo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.collect_params_info"><code class="docutils literal notranslate"><span class="pre">Repo.collect_params_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.collect_sequence_info"><code class="docutils literal notranslate"><span class="pre">Repo.collect_sequence_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.copy_runs"><code class="docutils literal notranslate"><span class="pre">Repo.copy_runs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.default_repo"><code class="docutils literal notranslate"><span class="pre">Repo.default_repo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.delete_run"><code class="docutils literal notranslate"><span class="pre">Repo.delete_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.delete_runs"><code class="docutils literal notranslate"><span class="pre">Repo.delete_runs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.exists"><code class="docutils literal notranslate"><span class="pre">Repo.exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.from_path"><code class="docutils literal notranslate"><span class="pre">Repo.from_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.get_run"><code class="docutils literal notranslate"><span class="pre">Repo.get_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.iter_runs"><code class="docutils literal notranslate"><span class="pre">Repo.iter_runs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.move_runs"><code class="docutils literal notranslate"><span class="pre">Repo.move_runs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_audios"><code class="docutils literal notranslate"><span class="pre">Repo.query_audios()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_distributions"><code class="docutils literal notranslate"><span class="pre">Repo.query_distributions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_figure_objects"><code class="docutils literal notranslate"><span class="pre">Repo.query_figure_objects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_images"><code class="docutils literal notranslate"><span class="pre">Repo.query_images()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_metrics"><code class="docutils literal notranslate"><span class="pre">Repo.query_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_runs"><code class="docutils literal notranslate"><span class="pre">Repo.query_runs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.query_texts"><code class="docutils literal notranslate"><span class="pre">Repo.query_texts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.repo.Repo.rm"><code class="docutils literal notranslate"><span class="pre">Repo.rm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.run">aim.sdk.run module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.run.Run"><code class="docutils literal notranslate"><span class="pre">Run</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.__delitem__"><code class="docutils literal notranslate"><span class="pre">Run.__delitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.__getitem__"><code class="docutils literal notranslate"><span class="pre">Run.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.__setitem__"><code class="docutils literal notranslate"><span class="pre">Run.__setitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.add_tag"><code class="docutils literal notranslate"><span class="pre">Run.add_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.collect_sequence_info"><code class="docutils literal notranslate"><span class="pre">Run.collect_sequence_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.dataframe"><code class="docutils literal notranslate"><span class="pre">Run.dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_audio_sequence"><code class="docutils literal notranslate"><span class="pre">Run.get_audio_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_distribution_sequence"><code class="docutils literal notranslate"><span class="pre">Run.get_distribution_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_figure_sequence"><code class="docutils literal notranslate"><span class="pre">Run.get_figure_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_image_sequence"><code class="docutils literal notranslate"><span class="pre">Run.get_image_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_metric"><code class="docutils literal notranslate"><span class="pre">Run.get_metric()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_terminal_logs"><code class="docutils literal notranslate"><span class="pre">Run.get_terminal_logs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.get_text_sequence"><code class="docutils literal notranslate"><span class="pre">Run.get_text_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.iter_metrics_info"><code class="docutils literal notranslate"><span class="pre">Run.iter_metrics_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.iter_sequence_info_by_type"><code class="docutils literal notranslate"><span class="pre">Run.iter_sequence_info_by_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.metrics"><code class="docutils literal notranslate"><span class="pre">Run.metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.remove_tag"><code class="docutils literal notranslate"><span class="pre">Run.remove_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.report_progress"><code class="docutils literal notranslate"><span class="pre">Run.report_progress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.report_successful_finish"><code class="docutils literal notranslate"><span class="pre">Run.report_successful_finish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.track"><code class="docutils literal notranslate"><span class="pre">Run.track()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.active"><code class="docutils literal notranslate"><span class="pre">Run.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.archived"><code class="docutils literal notranslate"><span class="pre">Run.archived</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.creation_time"><code class="docutils literal notranslate"><span class="pre">Run.creation_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.description"><code class="docutils literal notranslate"><span class="pre">Run.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.duration"><code class="docutils literal notranslate"><span class="pre">Run.duration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.end_time"><code class="docutils literal notranslate"><span class="pre">Run.end_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.experiment"><code class="docutils literal notranslate"><span class="pre">Run.experiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.name"><code class="docutils literal notranslate"><span class="pre">Run.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.run.Run.tags"><code class="docutils literal notranslate"><span class="pre">Run.tags</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.objects.image">aim.sdk.objects.image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.objects.image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.json"><code class="docutils literal notranslate"><span class="pre">Image.json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.to_pil_image"><code class="docutils literal notranslate"><span class="pre">Image.to_pil_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.caption"><code class="docutils literal notranslate"><span class="pre">Image.caption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.format"><code class="docutils literal notranslate"><span class="pre">Image.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.size"><code class="docutils literal notranslate"><span class="pre">Image.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-objects-distribution">aim.sdk.objects.distribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution"><code class="docutils literal notranslate"><span class="pre">Distribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.json"><code class="docutils literal notranslate"><span class="pre">Distribution.json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.to_np_histogram"><code class="docutils literal notranslate"><span class="pre">Distribution.to_np_histogram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.bin_count"><code class="docutils literal notranslate"><span class="pre">Distribution.bin_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.range"><code class="docutils literal notranslate"><span class="pre">Distribution.range</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.ranges"><code class="docutils literal notranslate"><span class="pre">Distribution.ranges</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.distribution.Distribution.weights"><code class="docutils literal notranslate"><span class="pre">Distribution.weights</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.objects.audio">aim.sdk.objects.audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.objects.audio.Audio"><code class="docutils literal notranslate"><span class="pre">Audio</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.audio.Audio.get"><code class="docutils literal notranslate"><span class="pre">Audio.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.audio.Audio.json"><code class="docutils literal notranslate"><span class="pre">Audio.json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.audio.Audio.to_numpy"><code class="docutils literal notranslate"><span class="pre">Audio.to_numpy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.objects.text">aim.sdk.objects.text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.objects.text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-objects-figure">aim.sdk.objects.figure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.objects.figure.Figure"><code class="docutils literal notranslate"><span class="pre">Figure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.objects.figure.Figure.json"><code class="docutils literal notranslate"><span class="pre">Figure.json()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.sequence">aim.sdk.sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequence.Sequence"><code class="docutils literal notranslate"><span class="pre">Sequence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence.Sequence.allowed_dtypes"><code class="docutils literal notranslate"><span class="pre">Sequence.allowed_dtypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence.Sequence.sequence_name"><code class="docutils literal notranslate"><span class="pre">Sequence.sequence_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence.Sequence.epochs"><code class="docutils literal notranslate"><span class="pre">Sequence.epochs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence.Sequence.timestamps"><code class="docutils literal notranslate"><span class="pre">Sequence.timestamps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence.Sequence.values"><code class="docutils literal notranslate"><span class="pre">Sequence.values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-metric-module">aim.sdk.sequences.metric module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-image-sequence-module">aim.sdk.sequences.image_sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequences.image_sequence.Images"><code class="docutils literal notranslate"><span class="pre">Images</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.image_sequence.Images.sequence_name"><code class="docutils literal notranslate"><span class="pre">Images.sequence_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-distribution-sequence-module">aim.sdk.sequences.distribution_sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequences.distribution_sequence.Distributions"><code class="docutils literal notranslate"><span class="pre">Distributions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.distribution_sequence.Distributions.first_step"><code class="docutils literal notranslate"><span class="pre">Distributions.first_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.distribution_sequence.Distributions.last_step"><code class="docutils literal notranslate"><span class="pre">Distributions.last_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.distribution_sequence.Distributions.sequence_name"><code class="docutils literal notranslate"><span class="pre">Distributions.sequence_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-audio-sequence-module">aim.sdk.sequences.audio_sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequences.audio_sequence.Audios"><code class="docutils literal notranslate"><span class="pre">Audios</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.audio_sequence.Audios.sequence_name"><code class="docutils literal notranslate"><span class="pre">Audios.sequence_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-text-sequence-module">aim.sdk.sequences.text_sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequences.text_sequence.Texts"><code class="docutils literal notranslate"><span class="pre">Texts</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.text_sequence.Texts.sequence_name"><code class="docutils literal notranslate"><span class="pre">Texts.sequence_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-sdk-sequences-figure-sequence-module">aim.sdk.sequences.figure_sequence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequences.figure_sequence.Figures"><code class="docutils literal notranslate"><span class="pre">Figures</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.figure_sequence.Figures.first_step"><code class="docutils literal notranslate"><span class="pre">Figures.first_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.figure_sequence.Figures.last_step"><code class="docutils literal notranslate"><span class="pre">Figures.last_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequences.figure_sequence.Figures.sequence_name"><code class="docutils literal notranslate"><span class="pre">Figures.sequence_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.sdk.sequence_collection">aim.sdk.sequence_collection module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection"><code class="docutils literal notranslate"><span class="pre">SequenceCollection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection.iter"><code class="docutils literal notranslate"><span class="pre">SequenceCollection.iter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection.iter_runs"><code class="docutils literal notranslate"><span class="pre">SequenceCollection.iter_runs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequence_collection.SingleRunSequenceCollection"><code class="docutils literal notranslate"><span class="pre">SingleRunSequenceCollection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequence_collection.QuerySequenceCollection"><code class="docutils literal notranslate"><span class="pre">QuerySequenceCollection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aim.sdk.sequence_collection.QueryRunSequenceCollection"><code class="docutils literal notranslate"><span class="pre">QueryRunSequenceCollection</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift"><nav aria-label="Mobile navigation menu" class="wy-nav-top">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../index.html">Aim</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="Page navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a class="icon icon-home" href="../index.html"></a> »</li>
+<li>Aim SDK</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/refs/sdk.rst.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div itemprop="articleBody">
+<section id="aim-sdk">
+<a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.objects.audio"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.objects.distribution"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.objects.figure"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.objects.image"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.objects.text"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.repo"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.run"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequence"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequence_collection"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequences.audio_sequence"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequences.distribution_sequence"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequences.figure_sequence"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequences.image_sequence"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/aim.sdk.sequences.text_sequence"></a><h1>Aim SDK<a class="headerlink" href="#aim-sdk" title="Permalink to this heading"></a></h1>
+<section id="module-aim.sdk.repo">
+<span id="aim-sdk-repo-module"></span><h2>aim.sdk.repo module<a class="headerlink" href="#module-aim.sdk.repo" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.repo.</span></span><span class="sig-name descname"><span class="pre">Repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.repo.Repo"></a><a class="headerlink" href="#aim.sdk.repo.Repo" title="Permalink to this definition"></a></dt>
+<dd><p>Aim repository object.</p>
+<p>Provides methods for  repositories creation/opening/cleanup.
+Provides APIs for accessing Runs.
+Provides API for querying Runs/Metrics based on a given expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Path to Aim repository.</p></li>
+<li><p><strong>read_only</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Flag for opening Repo in readonly mode. False by default.</p></li>
+<li><p><strong>init</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Flag used to initialize new Repo. False by default.
+Recommended to use <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">init</span></code> command instead.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.collect_params_info">
+<span class="sig-name descname"><span class="pre">collect_params_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.collect_params_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.collect_params_info"></a><a class="headerlink" href="#aim.sdk.repo.Repo.collect_params_info" title="Permalink to this definition"></a></dt>
+<dd><p>Utility function for getting run meta-parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>All runs meta-parameters.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.collect_sequence_info">
+<span class="sig-name descname"><span class="pre">collect_sequence_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence_types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.collect_sequence_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.collect_sequence_info"></a><a class="headerlink" href="#aim.sdk.repo.Repo.collect_sequence_info" title="Permalink to this definition"></a></dt>
+<dd><p>Utility function for getting sequence names and contexts for all runs by given sequence types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence_types</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple[str]</span></code>, optional) – Sequence types to get tracked sequence names/contexts for.</p></li>
+<li><p><strong>'metric'.</strong> (<em>Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tree of sequences and their contexts groupped by sequence type.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.copy_runs">
+<span class="sig-name descname"><span class="pre">copy_runs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_hashes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_repo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.copy_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.copy_runs"></a><a class="headerlink" href="#aim.sdk.repo.Repo.copy_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Copy multiple Runs data from current aim repository to destination aim repository</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_hashes</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – list of Runs to be copied.</p></li>
+<li><p><strong>dest_repo</strong> (<a class="reference internal" href="#aim.sdk.repo.Repo" title="aim.sdk.repo.Repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code></a>) – destination Repo instance to copy Runs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(True, []) if all runs were copied successfully,
+(False, <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>) with list of remaining runs otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.default_repo">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.default_repo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.default_repo"></a><a class="headerlink" href="#aim.sdk.repo.Repo.default_repo" title="Permalink to this definition"></a></dt>
+<dd><p>Named constructor for default repository.</p>
+<p>Searches nearest <cite>.aim</cite> directory from current directory to roo directory.
+If not found, return Repo for current directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>init</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Flag used to initialize new Repo. False by default.
+Recommended to use <cite>aim init</cite> command instead.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#aim.sdk.repo.Repo" title="aim.sdk.repo.Repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code></a> object.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.delete_run">
+<span class="sig-name descname"><span class="pre">delete_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_hash</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.delete_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.delete_run"></a><a class="headerlink" href="#aim.sdk.repo.Repo.delete_run" title="Permalink to this definition"></a></dt>
+<dd><p>Delete Run data from aim repository</p>
+<p>This action removes run data permanently and cannot be reverted.
+If you want to archive run but keep it’s data use <cite>repo.get_run(run_hash).archived = True</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>run_hash</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Run to be deleted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if run deleted successfully, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.delete_runs">
+<span class="sig-name descname"><span class="pre">delete_runs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_hashes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.delete_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.delete_runs"></a><a class="headerlink" href="#aim.sdk.repo.Repo.delete_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Delete multiple Runs data from aim repository</p>
+<p>This action removes runs data permanently and cannot be reverted.
+If you want to archive run but keep it’s data use <cite>repo.get_run(run_hash).archived = True</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>run_hashes</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – list of Runs to be deleted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(True, []) if all runs deleted successfully, (False, <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>) with list of remaining runs otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.exists">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.exists"></a><a class="headerlink" href="#aim.sdk.repo.Repo.exists" title="Permalink to this definition"></a></dt>
+<dd><p>Check Aim repository existence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to Aim repository.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if repository exists, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.from_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.from_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.from_path"></a><a class="headerlink" href="#aim.sdk.repo.Repo.from_path" title="Permalink to this definition"></a></dt>
+<dd><p>Named constructor for Repo for given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Path to Aim repository.</p></li>
+<li><p><strong>read_only</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Flag for opening Repo in readonly mode. False by default.</p></li>
+<li><p><strong>init</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Flag used to initialize new Repo. False by default.
+Recommended to use <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">init</span></code> command instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#aim.sdk.repo.Repo" title="aim.sdk.repo.Repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code></a> object.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.get_run">
+<span class="sig-name descname"><span class="pre">get_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_hash</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.get_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.get_run"></a><a class="headerlink" href="#aim.sdk.repo.Repo.get_run" title="Permalink to this definition"></a></dt>
+<dd><p>Get run if exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>run_hash</strong> (<em>str</em>) – Run hash.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Run</span></code> object if hash is found in repository. <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.iter_runs">
+<span class="sig-name descname"><span class="pre">iter_runs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.iter_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.iter_runs"></a><a class="headerlink" href="#aim.sdk.repo.Repo.iter_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over Repo runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>next <code class="xref py py-obj docutils literal notranslate"><span class="pre">Run</span></code> in readonly mode .</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.move_runs">
+<span class="sig-name descname"><span class="pre">move_runs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_hashes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_repo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.move_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.move_runs"></a><a class="headerlink" href="#aim.sdk.repo.Repo.move_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Move multiple Runs data from current aim repository to destination aim repository</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_hashes</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – list of Runs to be moved.</p></li>
+<li><p><strong>dest_repo</strong> (<a class="reference internal" href="#aim.sdk.repo.Repo" title="aim.sdk.repo.Repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code></a>) – destination Repo instance to move Runs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(True, []) if all runs were moved successfully,
+(False, <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>) with list of remaining runs otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_audios">
+<span class="sig-name descname"><span class="pre">query_audios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_audios"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_audios"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_audios" title="Permalink to this definition"></a></dt>
+<dd><p>Get audio collections satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for audio sequences matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_distributions">
+<span class="sig-name descname"><span class="pre">query_distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_distributions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_distributions"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_distributions" title="Permalink to this definition"></a></dt>
+<dd><p>Get distribution collections satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for distribution sequences matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_figure_objects">
+<span class="sig-name descname"><span class="pre">query_figure_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_figure_objects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_figure_objects"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_figure_objects" title="Permalink to this definition"></a></dt>
+<dd><p>Get Figures collections satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for Figure sequences matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_images">
+<span class="sig-name descname"><span class="pre">query_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_images"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_images" title="Permalink to this definition"></a></dt>
+<dd><p>Get image collections satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for image sequences matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_metrics">
+<span class="sig-name descname"><span class="pre">query_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_metrics"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_metrics" title="Permalink to this definition"></a></dt>
+<dd><p>Get metrics satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for metrics matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_runs">
+<span class="sig-name descname"><span class="pre">query_runs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paginated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_runs"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Get runs satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – query expression.
+If not specified, query results will include all runs.</p></li>
+<li><p><strong>paginated</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – query results pagination flag. False if not specified.</p></li>
+<li><p><strong>offset</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – <cite>hash</cite> of Run to skip to.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for runs/metrics matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.query_texts">
+<span class="sig-name descname"><span class="pre">query_texts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">QueryReportMode.PROGRESS_BAR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.query_texts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.query_texts"></a><a class="headerlink" href="#aim.sdk.repo.Repo.query_texts" title="Permalink to this definition"></a></dt>
+<dd><p>Get text collections satisfying query expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – query expression.</p></li>
+<li><p><strong>report_mode</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryReportMode</span></code>, optional) – indicates report mode
+(0: DISABLED, 1: PROGRESS BAR, 2: PROGRESS TUPLE). QueryReportMode.PROGRESS_BAR if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Iterable for text sequences matching query expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceCollection</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.repo.Repo.rm">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/repo.html#Repo.rm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.repo.Repo.rm"></a><a class="headerlink" href="#aim.sdk.repo.Repo.rm" title="Permalink to this definition"></a></dt>
+<dd><p>Remove Aim repository.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to Aim repository.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.run">
+<span id="aim-sdk-run-module"></span><h2>aim.sdk.run module<a class="headerlink" href="#module-aim.sdk.run" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.run.Run">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.run.</span></span><span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.run.Run"></a><a class="headerlink" href="#aim.sdk.run.Run" title="Permalink to this definition"></a></dt>
+<dd><p>Run object used for tracking metrics.</p>
+<p>Provides method <a class="reference internal" href="#aim.sdk.run.Run.track" title="aim.sdk.run.Run.track"><code class="xref py py-obj docutils literal notranslate"><span class="pre">track</span></code></a> to track value and object series for multiple names and contexts.
+Provides dictionary-like interface for Run object meta-parameters.
+Provides API for iterating through tracked sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_hash</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Run’s hash. If skipped, generated automatically.</p></li>
+<li><p><strong>(</strong> (<em>repo</em>) – obj:<a href="#id1"><span class="problematic" id="id2">`</span></a>Union[Repo,str], optional): Aim repository path or Repo object to which Run object is bound.
+If skipped, default Repo is used.</p></li>
+<li><p><strong>read_only</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Run creation mode.
+Default is False, meaning Run object can be used to track metrics.</p></li>
+<li><p><strong>experiment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Sets Run’s <cite>experiment</cite> property. ‘default’ if not specified.
+Can be used later to query runs/sequences.</p></li>
+<li><p><strong>system_tracking_interval</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional) – Sets the tracking interval in seconds for system usage
+metrics (CPU, Memory, etc.). Set to <cite>None</cite> to disable system metrics tracking.</p></li>
+<li><p><strong>log_system_params</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Enable/Disable logging of system params such as installed packages,
+git info, environment variables, etc.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.__delitem__">
+<span class="sig-name descname"><span class="pre">__delitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.__delitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.__delitem__"></a><a class="headerlink" href="#aim.sdk.run.Run.__delitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Remove key from run meta-params.
+:param key: meta-parameter path</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.__getitem__"></a><a class="headerlink" href="#aim.sdk.run.Run.__getitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Get run meta-parameter by key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – path to Run meta-parameter.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Collected sub-tree of Run meta-parameters.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="s1">'3df703c'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span><span class="p">[</span><span class="s1">'hparams'</span><span class="p">]</span>  <span class="c1"># -&gt; {'batch_size': 42}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span><span class="p">[</span><span class="s1">'hparams'</span><span class="p">,</span> <span class="s1">'batch_size'</span><span class="p">]</span>  <span class="c1"># -&gt; 42</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.__setitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.__setitem__"></a><a class="headerlink" href="#aim.sdk.run.Run.__setitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Set Run top-level meta-parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Top-level meta-parameter name. Use ellipsis to reset
+run’s all meta-parameters.</p></li>
+<li><p><strong>val</strong> – Meta-parameter value.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="s1">'3df703c'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span><span class="p">[</span><span class="s1">'hparams'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'batch_size'</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.add_tag">
+<span class="sig-name descname"><span class="pre">add_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.add_tag"></a><a class="headerlink" href="#aim.sdk.run.Run.add_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Add tag to run</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – Tag to add.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.collect_sequence_info">
+<span class="sig-name descname"><span class="pre">collect_sequence_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence_types</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_last_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.collect_sequence_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.collect_sequence_info"></a><a class="headerlink" href="#aim.sdk.run.Run.collect_sequence_info" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve Run’s all sequences general overview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence_types</strong> – Type names of sequences for which to collect name/context pairs.</p></li>
+<li><p><strong>skip_last_value</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Boolean flag to include tracked sequence last value in</p></li>
+<li><p><strong>default.</strong> (<em>sequence info. False by</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of sequence’s <cite>context</cite>, <cite>name</cite> and optionally last tracked value triplets.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.dataframe">
+<span class="sig-name descname"><span class="pre">dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.dataframe"></a><a class="headerlink" href="#aim.sdk.run.Run.dataframe" title="Permalink to this definition"></a></dt>
+<dd><p>Get run properties and params as pandas DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include_props</strong> – (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional): If true, include run structured props</p></li>
+<li><p><strong>include_params</strong> – (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional): If true, include run parameters</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_audio_sequence">
+<span class="sig-name descname"><span class="pre">get_audio_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_audio_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_audio_sequence"></a><a class="headerlink" href="#aim.sdk.run.Run.get_audio_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve audios sequence by its name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked audios sequence name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Audios</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_distribution_sequence">
+<span class="sig-name descname"><span class="pre">get_distribution_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_distribution_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_distribution_sequence"></a><a class="headerlink" href="#aim.sdk.run.Run.get_distribution_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve distributions sequence by it’s name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked distribution sequence name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Distributions</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_figure_sequence">
+<span class="sig-name descname"><span class="pre">get_figure_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_figure_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_figure_sequence"></a><a class="headerlink" href="#aim.sdk.run.Run.get_figure_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve figure sequence by its name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked figure sequence name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figures</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_image_sequence">
+<span class="sig-name descname"><span class="pre">get_image_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_image_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_image_sequence"></a><a class="headerlink" href="#aim.sdk.run.Run.get_image_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve images sequence by it’s name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked image sequence name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Images</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_metric">
+<span class="sig-name descname"><span class="pre">get_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_metric"></a><a class="headerlink" href="#aim.sdk.run.Run.get_metric" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve metric sequence by it’s name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked metric name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Metric</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_terminal_logs">
+<span class="sig-name descname"><span class="pre">get_terminal_logs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_terminal_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_terminal_logs"></a><a class="headerlink" href="#aim.sdk.run.Run.get_terminal_logs" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve duplicated terminal logs for a run</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Logs</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.get_text_sequence">
+<span class="sig-name descname"><span class="pre">get_text_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.get_text_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.get_text_sequence"></a><a class="headerlink" href="#aim.sdk.run.Run.get_text_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve texts sequence by it’s name and context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Tracked text sequence name.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Context</span></code>) – Tracking context.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texts</span></code> object if exists, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.iter_metrics_info">
+<span class="sig-name descname"><span class="pre">iter_metrics_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.iter_metrics_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.iter_metrics_info"></a><a class="headerlink" href="#aim.sdk.run.Run.iter_metrics_info" title="Permalink to this definition"></a></dt>
+<dd><p>Iterator for all run metrics info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>tuples of (name, context, run) where run is the Run object itself and
+name, context defines Metric type sequence (with values of <cite>float</cite> and <cite>int</cite>).</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.iter_sequence_info_by_type">
+<span class="sig-name descname"><span class="pre">iter_sequence_info_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtypes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.iter_sequence_info_by_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.iter_sequence_info_by_type"></a><a class="headerlink" href="#aim.sdk.run.Run.iter_sequence_info_by_type" title="Permalink to this definition"></a></dt>
+<dd><p>Iterator for run sequence infos for the given object data types</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dtypes</strong> – The objects data types list.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p>tuples of (name, context, run) where run is the Run object itself and name, context defines sequence for
+one of <cite>dtypes</cite> types.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.metrics"></a><a class="headerlink" href="#aim.sdk.run.Run.metrics" title="Permalink to this definition"></a></dt>
+<dd><p>Get iterable object for all run tracked metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Iterable for run metrics.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricCollection</span></code></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="s1">'3df703c'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">run</span><span class="o">.</span><span class="n">metrics</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">metric</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sparse_numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.remove_tag">
+<span class="sig-name descname"><span class="pre">remove_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_name</span></span></em><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.remove_tag"></a><a class="headerlink" href="#aim.sdk.run.Run.remove_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Remove run tag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tag_name</strong> (<em>str</em>) – <a class="reference internal" href="#aim.sdk.run.Run.name" title="aim.sdk.run.Run.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a> of tag to be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.report_progress">
+<span class="sig-name descname"><span class="pre">report_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_next_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.report_progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.report_progress"></a><a class="headerlink" href="#aim.sdk.run.Run.report_progress" title="Permalink to this definition"></a></dt>
+<dd><p>Report progress for the run. Report the expected time for the next progress report.</p>
+<p>If no progress reports are received by the expiry date (plus the grace period), the
+run is considered as failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expect_next_in</strong> – (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional): The number of seconds to wait before the next progress report.</p></li>
+<li><p><strong>block</strong> – (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional): If true, block the thread until the report is written to filesystem.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.report_successful_finish">
+<span class="sig-name descname"><span class="pre">report_successful_finish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.report_successful_finish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.report_successful_finish"></a><a class="headerlink" href="#aim.sdk.run.Run.report_successful_finish" title="Permalink to this definition"></a></dt>
+<dd><p>Report successful finish of the run. If the run is not marked as successfully finished,
+it can potentially be considered as failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>block</strong> – (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional): If true, block the thread until the report is written to filesystem.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.track">
+<span class="sig-name descname"><span class="pre">track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/run.html#Run.track"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.run.Run.track"></a><a class="headerlink" href="#aim.sdk.run.Run.track" title="Permalink to this definition"></a></dt>
+<dd><p>Main method for tracking numeric value series and object series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The tracked value.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Tracked sequence name.</p></li>
+<li><p><strong>step</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional) – Sequence tracking iteration. Auto-incremented if not specified.</p></li>
+<li><p><strong>epoch</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional) – The training epoch.</p></li>
+<li><p><strong>context</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>, optional) – Sequence tracking context.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Appends the tracked value to sequence specified by <cite>name</cite> and <cite>context</cite>.
+Appended values should be of the same type, in other words, sequence is a homogeneous collection.</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.active">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">active</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.active"></a><a class="headerlink" href="#aim.sdk.run.Run.active" title="Permalink to this definition"></a></dt>
+<dd><p>Check if run is active or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s active state.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.archived">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">archived</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.archived"></a><a class="headerlink" href="#aim.sdk.run.Run.archived" title="Permalink to this definition"></a></dt>
+<dd><p>Check is run archived or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s archived state.</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>Archive/un-archive run.</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.creation_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">creation_time</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.creation_time"></a><a class="headerlink" href="#aim.sdk.run.Run.creation_time" title="Permalink to this definition"></a></dt>
+<dd><p>Run object creation time [UTC] as timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run creation time.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.description"></a><a class="headerlink" href="#aim.sdk.run.Run.description" title="Permalink to this definition"></a></dt>
+<dd><p>Run description, set by user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s description.</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>Sets run’s description.</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.duration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">duration</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.duration"></a><a class="headerlink" href="#aim.sdk.run.Run.duration" title="Permalink to this definition"></a></dt>
+<dd><p>Run duration in seconds (end_time - creation_time)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run duration.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.end_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_time</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.end_time"></a><a class="headerlink" href="#aim.sdk.run.Run.end_time" title="Permalink to this definition"></a></dt>
+<dd><p>Run finalization time [UTC] as timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run finalization time.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.experiment">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">experiment</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.experiment"></a><a class="headerlink" href="#aim.sdk.run.Run.experiment" title="Permalink to this definition"></a></dt>
+<dd><p>Run experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s experiment name.</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>Sets run’s experiment.</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.name"></a><a class="headerlink" href="#aim.sdk.run.Run.name" title="Permalink to this definition"></a></dt>
+<dd><p>Run name, set by user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s name.</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>Sets run’s name.</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.run.Run.tags">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tags</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.run.Run.tags"></a><a class="headerlink" href="#aim.sdk.run.Run.tags" title="Permalink to this definition"></a></dt>
+<dd><p>List of run tags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns run’s tag list.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.objects.image">
+<span id="aim-sdk-objects-image"></span><h2>aim.sdk.objects.image<a class="headerlink" href="#module-aim.sdk.objects.image" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.objects.image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.objects.image.Image"></a><a class="headerlink" href="#aim.sdk.objects.image.Image" title="Permalink to this definition"></a></dt>
+<dd><p>Image object used to store image objects in Aim repository…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong> (<em>optimize</em>) – obj:): pillow <cite>Image</cite> object or <cite>torch.Tensor</cite> or <cite>numpy.array</cite> used to construct <cite>aim.Image</cite>.</p></li>
+<li><p><strong>caption</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Optional image caption. ‘’ by default.</p></li>
+<li><p><strong>(</strong> – obj: <cite>str</cite>, optional): Parameter for PIL’s .save() method. ‘png’ by default.</p></li>
+<li><p><strong>(</strong> – obj: <cite>int</cite>, optional): Parameter for PIL’s .save() method. 85 by default.</p></li>
+<li><p><strong>(</strong> – obj: <cite>bool</cite>, optional): Parameter for PIL’s .save() method. False by default.</p></li>
+<li><p><strong>format</strong> (<em>For more information on the</em>) – </p></li>
+<li><p><strong>parameters</strong> (<em>quality and optimize</em>) – </p></li>
+<li><p><strong>documentation.</strong> (<em>refer to PIL</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example of params to reduce quality of the image:</dt><dd><p>format=’jpeg’,
+optimize=True,
+quality=85</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.json">
+<span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/image.html#Image.json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.image.Image.json"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.json" title="Permalink to this definition"></a></dt>
+<dd><p>Dump image metadata to a dict</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.to_pil_image">
+<span class="sig-name descname"><span class="pre">to_pil_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/image.html#Image.to_pil_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.image.Image.to_pil_image"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.to_pil_image" title="Permalink to this definition"></a></dt>
+<dd><p>Method to convert aim.Image to pillow Image</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.caption">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">caption</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.image.Image.caption"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.caption" title="Permalink to this definition"></a></dt>
+<dd><p>Image caption, set by user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns image caption.</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>Sets image caption.</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.format">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.image.Image.format"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.format" title="Permalink to this definition"></a></dt>
+<dd><p>Stored image format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns image format.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.image.Image.height"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.height" title="Permalink to this definition"></a></dt>
+<dd><p>Stored image height.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns image height.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.image.Image.size"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.size" title="Permalink to this definition"></a></dt>
+<dd><p>Stored image size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns image (width, height) pair.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.image.Image.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.image.Image.width"></a><a class="headerlink" href="#aim.sdk.objects.image.Image.width" title="Permalink to this definition"></a></dt>
+<dd><p>Stored image width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns image width.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-objects-distribution">
+<h2>aim.sdk.objects.distribution<a class="headerlink" href="#aim-sdk-objects-distribution" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.objects.distribution"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.objects.distribution.</span></span><span class="sig-name descname"><span class="pre">Distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/distribution.html#Distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.objects.distribution.Distribution"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution" title="Permalink to this definition"></a></dt>
+<dd><p>Distribution object used to store distribution objects in Aim repository.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong> (<em>distribution</em>) – obj:): array-like object used to construct <cite>aim.Distribution</cite>.</p></li>
+<li><p><strong>bin_count</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional) – Optional distribution bin count. 64 by default, max 512.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.json">
+<span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/distribution.html#Distribution.json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.distribution.Distribution.json"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.json" title="Permalink to this definition"></a></dt>
+<dd><p>Dump distribution metadata to a dict</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.to_np_histogram">
+<span class="sig-name descname"><span class="pre">to_np_histogram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/distribution.html#Distribution.to_np_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.distribution.Distribution.to_np_histogram"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.to_np_histogram" title="Permalink to this definition"></a></dt>
+<dd><p>Return <cite>np.histogram</cite> compatible format of the distribution</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.bin_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bin_count</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.distribution.Distribution.bin_count"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.bin_count" title="Permalink to this definition"></a></dt>
+<dd><p>Stored distribution bin count</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns distribution bin_count.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">range</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.distribution.Distribution.range"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.range" title="Permalink to this definition"></a></dt>
+<dd><p>Stored distribution range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns distribution range.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.ranges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ranges</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.distribution.Distribution.ranges"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.ranges" title="Permalink to this definition"></a></dt>
+<dd><p>Stored distribution ranges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns distribution ranges as <cite>np.array</cite>.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.objects.distribution.Distribution.weights">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weights</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.objects.distribution.Distribution.weights"></a><a class="headerlink" href="#aim.sdk.objects.distribution.Distribution.weights" title="Permalink to this definition"></a></dt>
+<dd><p>Stored distribution weights</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns distribution weights as <cite>np.array</cite>.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.objects.audio">
+<span id="aim-sdk-objects-audio"></span><h2>aim.sdk.objects.audio<a class="headerlink" href="#module-aim.sdk.objects.audio" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.objects.audio.Audio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.objects.audio.</span></span><span class="sig-name descname"><span class="pre">Audio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/audio.html#Audio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.objects.audio.Audio"></a><a class="headerlink" href="#aim.sdk.objects.audio.Audio" title="Permalink to this definition"></a></dt>
+<dd><p>Audio object used to store audio objects in Aim repository..</p>
+<p>Currently, audio formats are limited to mp3, wav, flac</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – file path, bytes, io.BaseIO or numpy.array (only for WAV)</p></li>
+<li><p><strong>format</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Format of the audio source</p></li>
+<li><p><strong>rate</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – Rate of the audio file, for WAV defaults to 22500</p></li>
+<li><p><strong>caption</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Optional audio caption. ‘’ by default.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.audio.Audio.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/audio.html#Audio.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.audio.Audio.get"></a><a class="headerlink" href="#aim.sdk.objects.audio.Audio.get" title="Permalink to this definition"></a></dt>
+<dd><p>Reads data from the inner container and writes it to a buffer</p>
+<p>Returns: io.BytesIO</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.audio.Audio.json">
+<span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/audio.html#Audio.json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.audio.Audio.json"></a><a class="headerlink" href="#aim.sdk.objects.audio.Audio.json" title="Permalink to this definition"></a></dt>
+<dd><p>Dump audio metadata to a dict</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.audio.Audio.to_numpy">
+<span class="sig-name descname"><span class="pre">to_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/audio.html#Audio.to_numpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.audio.Audio.to_numpy"></a><a class="headerlink" href="#aim.sdk.objects.audio.Audio.to_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>This method converts WAV to Numpy array.
+Other audio formats are not supported at this moment.</p>
+<p>Returns: numpy array</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.objects.text">
+<span id="aim-sdk-objects-text"></span><h2>aim.sdk.objects.text<a class="headerlink" href="#module-aim.sdk.objects.text" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.objects.text.Text">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.objects.text.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/text.html#Text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.objects.text.Text"></a><a class="headerlink" href="#aim.sdk.objects.text.Text" title="Permalink to this definition"></a></dt>
+<dd><p>Text object used to store text objects in Aim repository.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong> (<em>text</em>) – obj:): str object used to construct <cite>aim.Text</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-objects-figure">
+<h2>aim.sdk.objects.figure<a class="headerlink" href="#aim-sdk-objects-figure" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.objects.figure"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.objects.figure.Figure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.objects.figure.</span></span><span class="sig-name descname"><span class="pre">Figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/figure.html#Figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.objects.figure.Figure"></a><a class="headerlink" href="#aim.sdk.objects.figure.Figure" title="Permalink to this definition"></a></dt>
+<dd><p>Figure object can be used for storing Plotly or Matplotlib figures into Aim repository.
+Core functionality is based on Plotly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong> (<em>obj</em>) – obj:): plotly or matplotlib figure object.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.objects.figure.Figure.json">
+<span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/objects/figure.html#Figure.json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.objects.figure.Figure.json"></a><a class="headerlink" href="#aim.sdk.objects.figure.Figure.json" title="Permalink to this definition"></a></dt>
+<dd><p>Dump figure metadata to a dict</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.sequence">
+<span id="aim-sdk-sequence-module"></span><h2>aim.sdk.sequence module<a class="headerlink" href="#module-aim.sdk.sequence" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequence.</span></span><span class="sig-name descname"><span class="pre">Sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence.html#Sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequence.Sequence"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing single series of tracked value.</p>
+<p>Objects series can be retrieved as Sequence regardless the object’s type,
+but subclasses of Sequence might provide additional functionality.
+Provides interface to access tracked values, steps, timestamps and epochs.
+Values, epochs and timestamps are accessed via <a class="reference internal" href="storage.html#aim.storage.arrayview.ArrayView" title="aim.storage.arrayview.ArrayView"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aim.storage.arrayview.ArrayView</span></code></a> interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence.allowed_dtypes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">allowed_dtypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence.html#Sequence.allowed_dtypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequence.Sequence.allowed_dtypes"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence.allowed_dtypes" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get allowed object types for particular sequence</p>
+<p>For example, numeric sequences a.k.a. Metric allow float and integer numbers.
+The base Sequence allows any value, and to indicate that, <cite>allowed_dtypes</cite> returns ‘*’.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence.html#Sequence.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequence.Sequence.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence.epochs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">epochs</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.sequence.Sequence.epochs"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence.epochs" title="Permalink to this definition"></a></dt>
+<dd><p>Tracked epochs array as <code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayView</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns epochs ArrayView.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence.timestamps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamps</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.sequence.Sequence.timestamps"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence.timestamps" title="Permalink to this definition"></a></dt>
+<dd><p>Tracked timestamps array as <code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayView</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns timestamps ArrayView.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="aim.sdk.sequence.Sequence.values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><a class="dashAnchor" name="//apple_ref/cpp/Property/aim.sdk.sequence.Sequence.values"></a><a class="headerlink" href="#aim.sdk.sequence.Sequence.values" title="Permalink to this definition"></a></dt>
+<dd><p>Tracked values array as <code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayView</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>Returns values ArrayView.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-sequences-metric-module">
+<h2>aim.sdk.sequences.metric module<a class="headerlink" href="#aim-sdk-sequences-metric-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="aim-sdk-sequences-image-sequence-module">
+<h2>aim.sdk.sequences.image_sequence module<a class="headerlink" href="#aim-sdk-sequences-image-sequence-module" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.sequences.image_sequence"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequences.image_sequence.Images">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequences.image_sequence.</span></span><span class="sig-name descname"><span class="pre">Images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/image_sequence.html#Images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequences.image_sequence.Images"></a><a class="headerlink" href="#aim.sdk.sequences.image_sequence.Images" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing series of Image objects or Image lists.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.image_sequence.Images.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/image_sequence.html#Images.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.image_sequence.Images.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequences.image_sequence.Images.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-sequences-distribution-sequence-module">
+<h2>aim.sdk.sequences.distribution_sequence module<a class="headerlink" href="#aim-sdk-sequences-distribution-sequence-module" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.sequences.distribution_sequence"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequences.distribution_sequence.Distributions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequences.distribution_sequence.</span></span><span class="sig-name descname"><span class="pre">Distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/distribution_sequence.html#Distributions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequences.distribution_sequence.Distributions"></a><a class="headerlink" href="#aim.sdk.sequences.distribution_sequence.Distributions" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing series of Distribution objects.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.distribution_sequence.Distributions.first_step">
+<span class="sig-name descname"><span class="pre">first_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/distribution_sequence.html#Distributions.first_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.distribution_sequence.Distributions.first_step"></a><a class="headerlink" href="#aim.sdk.sequences.distribution_sequence.Distributions.first_step" title="Permalink to this definition"></a></dt>
+<dd><p>Get sequence tracked first step.</p>
+<p>Required to implement ranged and sliced data fetching.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.distribution_sequence.Distributions.last_step">
+<span class="sig-name descname"><span class="pre">last_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/distribution_sequence.html#Distributions.last_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.distribution_sequence.Distributions.last_step"></a><a class="headerlink" href="#aim.sdk.sequences.distribution_sequence.Distributions.last_step" title="Permalink to this definition"></a></dt>
+<dd><p>Get sequence tracked last step.</p>
+<p>Required to implement ranged and sliced data fetching.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.distribution_sequence.Distributions.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/distribution_sequence.html#Distributions.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.distribution_sequence.Distributions.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequences.distribution_sequence.Distributions.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-sequences-audio-sequence-module">
+<h2>aim.sdk.sequences.audio_sequence module<a class="headerlink" href="#aim-sdk-sequences-audio-sequence-module" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.sequences.audio_sequence"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequences.audio_sequence.Audios">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequences.audio_sequence.</span></span><span class="sig-name descname"><span class="pre">Audios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/audio_sequence.html#Audios"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequences.audio_sequence.Audios"></a><a class="headerlink" href="#aim.sdk.sequences.audio_sequence.Audios" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing series of Audio objects or Audio lists.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.audio_sequence.Audios.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/audio_sequence.html#Audios.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.audio_sequence.Audios.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequences.audio_sequence.Audios.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-sequences-text-sequence-module">
+<h2>aim.sdk.sequences.text_sequence module<a class="headerlink" href="#aim-sdk-sequences-text-sequence-module" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.sequences.text_sequence"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequences.text_sequence.Texts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequences.text_sequence.</span></span><span class="sig-name descname"><span class="pre">Texts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/text_sequence.html#Texts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequences.text_sequence.Texts"></a><a class="headerlink" href="#aim.sdk.sequences.text_sequence.Texts" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing series of Text objects.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.text_sequence.Texts.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/text_sequence.html#Texts.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.text_sequence.Texts.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequences.text_sequence.Texts.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="aim-sdk-sequences-figure-sequence-module">
+<h2>aim.sdk.sequences.figure_sequence module<a class="headerlink" href="#aim-sdk-sequences-figure-sequence-module" title="Permalink to this heading"></a></h2>
+<span class="target" id="module-aim.sdk.sequences.figure_sequence"></span><dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequences.figure_sequence.Figures">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequences.figure_sequence.</span></span><span class="sig-name descname"><span class="pre">Figures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/figure_sequence.html#Figures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequences.figure_sequence.Figures"></a><a class="headerlink" href="#aim.sdk.sequences.figure_sequence.Figures" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing series of Plotly figure objects or Plotly lists.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.figure_sequence.Figures.first_step">
+<span class="sig-name descname"><span class="pre">first_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/figure_sequence.html#Figures.first_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.figure_sequence.Figures.first_step"></a><a class="headerlink" href="#aim.sdk.sequences.figure_sequence.Figures.first_step" title="Permalink to this definition"></a></dt>
+<dd><p>Get sequence tracked first step.</p>
+<p>Required to implement ranged and sliced data fetching.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.figure_sequence.Figures.last_step">
+<span class="sig-name descname"><span class="pre">last_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/figure_sequence.html#Figures.last_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.figure_sequence.Figures.last_step"></a><a class="headerlink" href="#aim.sdk.sequences.figure_sequence.Figures.last_step" title="Permalink to this definition"></a></dt>
+<dd><p>Get sequence tracked last step.</p>
+<p>Required to implement ranged and sliced data fetching.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequences.figure_sequence.Figures.sequence_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequence_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequences/figure_sequence.html#Figures.sequence_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequences.figure_sequence.Figures.sequence_name"></a><a class="headerlink" href="#aim.sdk.sequences.figure_sequence.Figures.sequence_name" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod to get retrieve sequence’s registered name</p>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-aim.sdk.sequence_collection">
+<span id="aim-sdk-sequence-collection-module"></span><h2>aim.sdk.sequence_collection module<a class="headerlink" href="#module-aim.sdk.sequence_collection" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.SequenceCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequence_collection.</span></span><span class="sig-name descname"><span class="pre">SequenceCollection</span></span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#SequenceCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequence_collection.SequenceCollection"></a><a class="headerlink" href="#aim.sdk.sequence_collection.SequenceCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract interface for collection of tracked series/sequences.</p>
+<p>Typically represents sequences of a same run or sequences matching given query expression.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.SequenceCollection.iter">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#SequenceCollection.iter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequence_collection.SequenceCollection.iter"></a><a class="headerlink" href="#aim.sdk.sequence_collection.SequenceCollection.iter" title="Permalink to this definition"></a></dt>
+<dd><p>Get Sequence iterator for collection’s sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Next sequence object based on implementation.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.SequenceCollection.iter_runs">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iter_runs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#SequenceCollection.iter_runs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.sdk.sequence_collection.SequenceCollection.iter_runs"></a><a class="headerlink" href="#aim.sdk.sequence_collection.SequenceCollection.iter_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Get SequenceCollection iterator for collection’s runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Next run’s SequenceCollection based on implementation.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.SingleRunSequenceCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequence_collection.</span></span><span class="sig-name descname"><span class="pre">SingleRunSequenceCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_cls=&lt;class</span> <span class="pre">'aim.sdk.sequence.Sequence'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs_proxy_cache=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone_offset=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#SingleRunSequenceCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequence_collection.SingleRunSequenceCollection"></a><a class="headerlink" href="#aim.sdk.sequence_collection.SingleRunSequenceCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection" title="aim.sdk.sequence_collection.SequenceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SequenceCollection</span></code></a></p>
+<p>Implementation of SequenceCollection interface for a single Run.</p>
+<p>Method <cite>iter()</cite> returns Sequence iterator which yields Sequence matching query from run’s sequences.
+Method <cite>iter_runs()</cite> raises StopIteration, since the collection is bound to a single Run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Run</span></code>) – Run object for which sequences are queried.</p></li>
+<li><p><strong>seq_cls</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>) – The collection’s sequence class. Sequences not matching to seq_cls.allowed_dtypes
+will be skipped. <cite>Sequence</cite> by default, meaning all sequences will match.</p></li>
+<li><p><strong>query</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Query expression. If specified, method <cite>iter()</cite> will return iterator for
+sequences matching the query. If not, method <cite>iter()</cite> will return iterator for run’s all sequences.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.QuerySequenceCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequence_collection.</span></span><span class="sig-name descname"><span class="pre">QuerySequenceCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_cls=&lt;class</span> <span class="pre">'aim.sdk.sequence.Sequence'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode=QueryReportMode.PROGRESS_BAR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone_offset=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#QuerySequenceCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequence_collection.QuerySequenceCollection"></a><a class="headerlink" href="#aim.sdk.sequence_collection.QuerySequenceCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection" title="aim.sdk.sequence_collection.SequenceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SequenceCollection</span></code></a></p>
+<p>Implementation of SequenceCollection interface for repository’s sequences matching given query.</p>
+<p>Method <cite>iter()</cite> returns Sequence iterator, which yields Sequence matching query from currently
+iterated run’s sequences. Once there are no sequences left in current run, repository’s next run is considered.
+Method <cite>iter_runs()</cite> returns SequenceCollection iterator for repository’s runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repo</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code>) – Aim repository object.</p></li>
+<li><p><strong>seq_cls</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>) – The collection’s sequence class. Sequences not matching to seq_cls.allowed_dtypes
+will be skipped. <cite>Sequence</cite> by default, meaning all sequences will match.</p></li>
+<li><p><strong>query</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Query expression. If specified, method <cite>iter()</cite> will skip sequences not matching
+the query. If not, method <cite>iter()</cite> will return iterator for all sequences in repository
+(that’s a lot of sequences!).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.sdk.sequence_collection.QueryRunSequenceCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.sdk.sequence_collection.</span></span><span class="sig-name descname"><span class="pre">QueryRunSequenceCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_cls=&lt;class</span> <span class="pre">'aim.sdk.sequence.Sequence'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paginated=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_mode=QueryReportMode.PROGRESS_BAR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone_offset=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aim/sdk/sequence_collection.html#QueryRunSequenceCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.sdk.sequence_collection.QueryRunSequenceCollection"></a><a class="headerlink" href="#aim.sdk.sequence_collection.QueryRunSequenceCollection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#aim.sdk.sequence_collection.SequenceCollection" title="aim.sdk.sequence_collection.SequenceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SequenceCollection</span></code></a></p>
+<p>Implementation of SequenceCollection interface for repository’s runs matching given query.</p>
+<p>Method <cite>iter()</cite> returns Sequence iterator which yields Sequence for current run’s all sequences.
+Method <cite>iter_runs()</cite> returns SequenceCollection iterator from repository’s runs matching given query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repo</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Repo</span></code>) – Aim repository object.</p></li>
+<li><p><strong>seq_cls</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>) – The collection’s sequence class. Sequences not matching to seq_cls.allowed_dtypes
+will be skipped. <cite>Sequence</cite> by default, meaning all sequences will match.</p></li>
+<li><p><strong>query</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Query expression. If specified, method <cite>iter_runs()</cite> will skip runs not matching
+the query. If not, method <cite>iter_run()</cite> will return SequenceCollection iterator for all runs in repository.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+<footer><div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+<a accesskey="p" class="btn btn-neutral float-left" href="cli.html" rel="prev" title="Aim CLI"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+<a accesskey="n" class="btn btn-neutral float-right" href="storage.html" rel="next" title="Aim Storage">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<p>© Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+</div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+</div>
+</div>
+</section>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+</body>
+</html>

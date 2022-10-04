@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoring and Notifications &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Host Aim on Kubernetes (K8S)" href="k8s_deployment.html" />
+    <link rel="prev" title="Track experiments with aim remote server" href="remote_tracking.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Monitoring and Notifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-progress-reporting-sdk">Run progress reporting SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aim-watcher-service">Aim watcher service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Configuring notifiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-notifier-for-slack">Configuring notifier for slack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-notifier-for-workplace">Configuring notifier for workplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-disabling-notifier-configuration">Enabling/disabling notifier configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Monitoring and Notifications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/using/run_status_notifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="monitoring-and-notifications">
+<h1>Monitoring and Notifications<a class="headerlink" href="#monitoring-and-notifications" title="Permalink to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>Starting from version <code class="docutils literal notranslate"><span class="pre">3.13</span></code> Aim provides a mechanism of detecting and reporting
+failed or stalled training runs.</p>
+<p><strong>Quick start</strong></p>
+<p>These are the required steps in order to turn on the training run status notifications.</p>
+<ol class="arabic">
+<li><p>Configure notifiers. The notifier configuration is described in detail in <a class="reference external" href="#configuring-notifiers">Configuring Notifiers</a> section.</p></li>
+<li><p>Start notifier service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo &lt;AIM_REPO_PATH&gt; start
+</pre></div>
+</div>
+</li>
+<li><p>Integrate progress calls in your training loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+<span class="n">aim_run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+<span class="k">for</span> <span class="c1"># training loop</span>
+    <span class="c1"># forward pass</span>
+    <span class="o">...</span>
+    <span class="c1"># call report_progress with ETA of the next call</span>
+    <span class="n">aim_run</span><span class="o">.</span><span class="n">report_progress</span><span class="p">(</span><span class="n">expect_next_in</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="o">...</span>
+
+<span class="c1"># report finish</span>
+<span class="n">aim_run</span><span class="o">.</span><span class="n">report_successful_finish</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
+<p>At first, it may seem a relatively easy task, however checking that everything is OK with the training run is proven
+to be a non-trivial task. There are many ways the training runs can fail:</p>
+<ul class="simple">
+<li><p>hardware failure</p></li>
+<li><p>power outage</p></li>
+<li><p>programmatic error</p></li>
+</ul>
+<p>In some cases the training process may not even have a chance to notify about the failure. The process
+could also be stuck due to</p>
+<ul class="simple">
+<li><p>network issues</p></li>
+<li><p>filesystem I/O issues</p></li>
+<li><p>etc</p></li>
+</ul>
+<p>With this in mind, the following definition of failed process is used:</p>
+<blockquote>
+<div><p><em>The Run is considered as failed if it hasn’t reported any progress in a predefined time-interval.</em></p>
+</div></blockquote>
+<p>Aim notifications service is comprised of the following components:</p>
+<ul class="simple">
+<li><p>Aim SDK methods to report run progress/finish.</p></li>
+<li><p>Aim watcher service. A service responsible for detecting and notifying about run failures.</p></li>
+<li><p>Notifier configuration CLI. Command line utility for configuring where and how you want to
+receive notifications about training run status.</p></li>
+</ul>
+<p>Below are the components described in more detail.</p>
+</section>
+<section id="run-progress-reporting-sdk">
+<h2>Run progress reporting SDK<a class="headerlink" href="#run-progress-reporting-sdk" title="Permalink to this heading"></a></h2>
+<p>Aim SDK provides interface for reporting <code class="docutils literal notranslate"><span class="pre">Run</span></code> progress. The <code class="docutils literal notranslate"><span class="pre">Run</span></code> class has now two new methods:
+<code class="docutils literal notranslate"><span class="pre">report_progress</span></code> and <code class="docutils literal notranslate"><span class="pre">report_successful_finish</span></code> to report progress and successful finish respectively.
+Here’s a small code snippet showing how <code class="docutils literal notranslate"><span class="pre">Run.report_progress()</span></code> method can be integrated in the training loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aim</span> <span class="kn">import</span> <span class="n">Run</span>
+
+<span class="c1"># prep dataset and model</span>
+<span class="o">...</span>
+<span class="n">aim_run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Forward pass</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+        <span class="c1"># Report progress assuming each iteration shoud take less than 3 sec.</span>
+        <span class="n">aim_run</span><span class="o">.</span><span class="n">report_progress</span><span class="p">(</span><span class="n">expect_next_in</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="c1"># Backward and optimize</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">30</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Track data with aim</span>
+            <span class="n">aim_run</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">)</span>
+
+<span class="o">...</span>
+<span class="c1"># Training is done, report success</span>
+<span class="n">aim_run</span><span class="o">.</span><span class="n">report_successful_finish</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">report_progress()</span></code> takes an ETA (in seconds) of the next anticipated progress report call. However, the watcher
+will not send notifications and allow additional grace period to compensate for possible FS latency.</p>
+<p>Detailed description of interfaces is available in aim <a class="reference external" href="../refs/sdk.html#aim.sdk.run.Run.report_progress">SDK reference</a></p>
+</section>
+<section id="aim-watcher-service">
+<h2>Aim watcher service<a class="headerlink" href="#aim-watcher-service" title="Permalink to this heading"></a></h2>
+<p>Aim watcher service constantly polls the <code class="docutils literal notranslate"><span class="pre">Repo</span></code> and keeps track of the training runs in progress.
+Once the new run is detected, the watcher will check if the next progress has been reported within promised
+time-interval. If not, the watcher will send the notification as specified by <code class="docutils literal notranslate"><span class="pre">Repo</span></code>‘s notifiers configuration.
+Assuming the notifiers are already configured, in order to start watcher service just run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo &lt;AIM_REPO_PATH&gt; start
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Configuring notifiers<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>In order to configure how the notifications should be received Aim provides a CLI to
+add, remove, and switch on/off notifier configurations.</p>
+<p>In order to configure how notifications about training runs should be received Aim provides
+a <a class="reference external" href="../refs/cli.html#aim-status-watcher-cli">CLI tool</a> to interactively choose and setup the notifiers.
+Currently, following types of notifiers are supported:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#configuring-notifier-for-slack">Slack</a>: to receive notifications as a message on a slack channel.</p></li>
+<li><p><a class="reference external" href="#configuring-notifier-for-workplace">Workplace</a>: to receive notifications as a post in a workplace group.</p></li>
+<li><p>Logger: to echo notification text to watcher standard output.</p></li>
+</ul>
+<p>The base command is:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher notifiers add
+</pre></div>
+</div>
+<p>Once notifier type is selected, the watcher will ask to fill-in the required inputs for that
+particular notifier.</p>
+<p><code class="docutils literal notranslate"><span class="pre">aim-watcher</span></code> allows configuring multiple notifiers in case you’d like to receive them in
+multiple channels at the same time. Once notifier configuration added, <code class="docutils literal notranslate"><span class="pre">aim-watcher</span></code> should be re-run, so
+new configuration can take effect.</p>
+<p>Next sections will describe the setup flow for each of them.</p>
+<section id="configuring-notifier-for-slack">
+<h3>Configuring notifier for slack<a class="headerlink" href="#configuring-notifier-for-slack" title="Permalink to this heading"></a></h3>
+<p><em>In order to execute the steps described below you must have admin permissions for Slack workspace.</em></p>
+<p>Here are the steps to configure Aim notifier for Slack.</p>
+<ol class="arabic simple">
+<li><p>Go to Slack API web <a class="reference external" href="https://api.slack.com">page</a> and push “Create an app” button.
+<span class="raw-html-m2r"><img alt="Slack create app" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/using/notifiers/slack_create_app.png"></span></p></li>
+<li><p>Select “From scratch” and follow the steps.</p></li>
+<li><p>Make sure Incoming Webhooks are active. This is the Slack API Aim will use to send
+notifications.
+<span class="raw-html-m2r"><img alt="Slack enable webhook" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/using/notifiers/slack_activate_webhook.png"></span></p></li>
+<li><p>Create a new Webhook URL and copy to clipboard.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">aim-watcher</span> <span class="pre">notifiers</span> <span class="pre">add</span> <span class="pre">slack</span></code> and once prompted for Webhook url, paste the one copied
+in step 4.</p></li>
+<li><p><em>Optional</em> Change the training run failure message template.</p></li>
+<li><p>Confirm setup.</p></li>
+</ol>
+</section>
+<section id="configuring-notifier-for-workplace">
+<h3>Configuring notifier for workplace<a class="headerlink" href="#configuring-notifier-for-workplace" title="Permalink to this heading"></a></h3>
+<p><em>In order to execute steps described below, please make sure you have access to Workplace Admin panel</em></p>
+<p>Here are the steps to configure Aim notifier for Workplace.</p>
+<p>#. Go to “Your workplace” Admin Panel
+#.</p>
+<blockquote>
+<div><p>Select “Integrations” tab and press “Create custom integration”
+<span class="raw-html-m2r"><img alt="Workplace create integration" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/using/notifiers/workplace_create_integration.png"></span></p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Follow the setup steps.</p></li>
+<li><p>In the “Permissions” tab make sure “Manage group content” checkbox checked.
+<span class="raw-html-m2r"><img alt="Workplace integration permissions" style="border-radius: 8px; border: 1px solid #E8F1FC" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/using/notifiers/workplace_integration_permissions.png"></span></p></li>
+<li><p>Select the group(s) where you want to receive notifications.</p></li>
+<li><p>In the “Details” tab press “Create access token” and copy the generated access token.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">aim-watcher</span> <span class="pre">notifiers</span> <span class="pre">add</span> <span class="pre">workplace</span></code> and provide group ID and copied access token.</p></li>
+<li><p><em>Optional</em> Change the training run failure message template.</p></li>
+<li><p>Confirm setup.</p></li>
+</ol>
+</section>
+<section id="enabling-disabling-notifier-configuration">
+<h3>Enabling/disabling notifier configuration<a class="headerlink" href="#enabling-disabling-notifier-configuration" title="Permalink to this heading"></a></h3>
+<p>Aim watcher CLI allows to temporarily disable or completely remove notifiers. Each notifier
+configuration has unique auto-generated ID which can be used to manipulate the notifier.
+In order to list available notifiers for the aim Repo:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo . notifiers list
+
+&gt; NOTIFIER ID                              TYPE       STATUS
+&gt; 88bbacb3-159d-4ee2-8f33-180addd162f1     slack      enabled
+&gt; 75fe529d-c060-4816-9cbb-246770cb8592     slack      disabled
+&gt; 248821e4-2bf3-4aa9-857e-194bf3ab2f8a     logger     enabled
+</pre></div>
+</div>
+<p>You can disable notifier by given ID:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo . notifiers disable 88bbacb3-159d-4ee2-8f33-180addd162f1
+</pre></div>
+</div>
+<p>and enable it back:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo . notifiers <span class="nb">enable</span> 88bbacb3-159d-4ee2-8f33-180addd162f1
+</pre></div>
+</div>
+<p>In order to remove notifier configuration completely:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim-watcher --repo . notifiers remove 88bbacb3-159d-4ee2-8f33-180addd162f1
+</pre></div>
+</div>
+<p>Complete reference for aim-watcher CLI is available <a class="reference external" href="../refs/cli.html#aim-status-watcher-cli">here</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="remote_tracking.html" class="btn btn-neutral float-left" title="Track experiments with aim remote server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="k8s_deployment.html" class="btn btn-neutral float-right" title="Host Aim on Kubernetes (K8S)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

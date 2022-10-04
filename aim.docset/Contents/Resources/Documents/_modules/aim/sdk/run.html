@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aim.sdk.run &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>aim.sdk.run</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for aim.sdk.run</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">from</span> <span class="nn">aim.sdk.base_run</span> <span class="kn">import</span> <span class="n">BaseRun</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.sequence</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.tracker</span> <span class="kn">import</span> <span class="n">RunTracker</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.reporter</span> <span class="kn">import</span> <span class="n">RunStatusReporter</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.sequence_collection</span> <span class="kn">import</span> <span class="n">SingleRunSequenceCollection</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">backup_run</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">aim.ext.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_environment_variables</span><span class="p">,</span>
+    <span class="n">get_installed_packages</span><span class="p">,</span>
+    <span class="n">get_git_info</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.types</span> <span class="kn">import</span> <span class="n">AimObject</span>
+<span class="kn">from</span> <span class="nn">aim.sdk.configs</span> <span class="kn">import</span> <span class="n">AIM_RUN_INDEXING_TIMEOUT</span>
+
+<span class="kn">from</span> <span class="nn">aim.storage.treeview</span> <span class="kn">import</span> <span class="n">TreeView</span>
+<span class="kn">from</span> <span class="nn">aim.storage.context</span> <span class="kn">import</span> <span class="n">Context</span>
+<span class="kn">from</span> <span class="nn">aim.storage</span> <span class="kn">import</span> <span class="n">treeutils</span>
+
+<span class="kn">from</span> <span class="nn">aim.ext.resource</span> <span class="kn">import</span> <span class="n">ResourceTracker</span><span class="p">,</span> <span class="n">DEFAULT_SYSTEM_TRACKING_INT</span>
+<span class="kn">from</span> <span class="nn">aim.ext.cleanup</span> <span class="kn">import</span> <span class="n">AutoClean</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.metric</span> <span class="kn">import</span> <span class="n">Metric</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.image_sequence</span> <span class="kn">import</span> <span class="n">Images</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.audio_sequence</span> <span class="kn">import</span> <span class="n">Audios</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.distribution_sequence</span> <span class="kn">import</span> <span class="n">Distributions</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.figure_sequence</span> <span class="kn">import</span> <span class="n">Figures</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequences.text_sequence</span> <span class="kn">import</span> <span class="n">Texts</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.sequence_collection</span> <span class="kn">import</span> <span class="n">SequenceCollection</span>
+    <span class="kn">from</span> <span class="nn">aim.ext.resource.log</span> <span class="kn">import</span> <span class="n">Logs</span>
+    <span class="kn">from</span> <span class="nn">aim.sdk.repo</span> <span class="kn">import</span> <span class="n">Repo</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">RunAutoClean</span><span class="p">(</span><span class="n">AutoClean</span><span class="p">[</span><span class="s1">&#39;Run&#39;</span><span class="p">]):</span>
+    <span class="n">PRIORITY</span> <span class="o">=</span> <span class="mi">90</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="s1">&#39;Run&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prepare the `Run` for automatic cleanup.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            instance: The `Run` instance to be cleaned up.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">read_only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hash</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">hash</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">meta_run_tree</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repo</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">repo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_system_resource_tracker</span>
+        <span class="c1"># this reference is needed for system resource tracker finalization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_tracker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_checkins</span>
+
+    <span class="k">def</span> <span class="nf">finalize_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalize the run by indexing all the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">AIM_RUN_INDEXING_TIMEOUT</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">_get_index_tree</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(())</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Indexing Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot index Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">. Index is locked.&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">finalize_system_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stop the system resource tracker before closing the run.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Stopping resource tracker&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">finalize_rpc_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">get_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="p">)</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">remove_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the `Run` instance resources and trigger indexing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1"> is read-only, skipping cleanup&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finalize_system_tracker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finalize_run</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finalize_rpc_queue</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="c1"># TODO: [AT] generate automatically based on ModelMappedRun</span>
+<span class="k">class</span> <span class="nc">StructuredRunMixin</span><span class="p">:</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run name, set by user.</span>
+
+<span class="sd">            :getter: Returns run&#39;s name.</span>
+<span class="sd">            :setter: Sets run&#39;s name.</span>
+<span class="sd">            :type: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run description, set by user.</span>
+
+<span class="sd">            :getter: Returns run&#39;s description.</span>
+<span class="sd">            :setter: Sets run&#39;s description.</span>
+<span class="sd">            :type: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">description</span>
+
+    <span class="nd">@description</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">archived</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check is run archived or not.</span>
+
+<span class="sd">            :getter: Returns run&#39;s archived state.</span>
+<span class="sd">            :setter: Archive/un-archive run.</span>
+<span class="sd">            :type: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">archived</span>
+
+    <span class="nd">@archived</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">archived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">archived</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">creation_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run object creation time [UTC] as timestamp.</span>
+
+<span class="sd">            :getter: Returns run creation time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">creation_time</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">created_at</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">creation_time</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">created_at</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">finalized_at</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run finalization time [UTC] as timestamp.</span>
+
+<span class="sd">            :getter: Returns run finalization time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="c1"># run saved with old version. fallback to sqlite data</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">end_time</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run duration in seconds (end_time - creation_time)</span>
+
+<span class="sd">            :getter: Returns run duration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">creation_time</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">aim.web.api.utils</span> <span class="kn">import</span> <span class="n">datetime_now</span>
+            <span class="k">return</span> <span class="n">datetime_now</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">creation_time</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check if run is active or not.</span>
+
+<span class="sd">            :getter: Returns run&#39;s active state.</span>
+<span class="sd">            :type: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run experiment.</span>
+
+<span class="sd">            :getter: Returns run&#39;s experiment name.</span>
+<span class="sd">            :setter: Sets run&#39;s experiment.</span>
+<span class="sd">            :type: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">experiment</span>
+
+    <span class="nd">@experiment</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List of run tags.</span>
+
+<span class="sd">            :getter: Returns run&#39;s tag list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">tags</span>
+
+    <span class="k">def</span> <span class="nf">add_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add tag to run</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (str): Tag to add.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">remove_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove run tag.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tag_name (str): :obj:`name` of tag to be removed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">remove_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Run"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run">[docs]</a><span class="k">class</span> <span class="nc">Run</span><span class="p">(</span><span class="n">BaseRun</span><span class="p">,</span> <span class="n">StructuredRunMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run object used for tracking metrics.</span>
+
+<span class="sd">    Provides method :obj:`track` to track value and object series for multiple names and contexts.</span>
+<span class="sd">    Provides dictionary-like interface for Run object meta-parameters.</span>
+<span class="sd">    Provides API for iterating through tracked sequences.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">         run_hash (:obj:`str`, optional): Run&#39;s hash. If skipped, generated automatically.</span>
+<span class="sd">         repo (:obj:`Union[Repo,str], optional): Aim repository path or Repo object to which Run object is bound.</span>
+<span class="sd">            If skipped, default Repo is used.</span>
+<span class="sd">         read_only (:obj:`bool`, optional): Run creation mode.</span>
+<span class="sd">            Default is False, meaning Run object can be used to track metrics.</span>
+<span class="sd">         experiment (:obj:`str`, optional): Sets Run&#39;s `experiment` property. &#39;default&#39; if not specified.</span>
+<span class="sd">            Can be used later to query runs/sequences.</span>
+<span class="sd">         system_tracking_interval (:obj:`int`, optional): Sets the tracking interval in seconds for system usage</span>
+<span class="sd">            metrics (CPU, Memory, etc.). Set to `None` to disable system metrics tracking.</span>
+<span class="sd">         log_system_params (:obj:`bool`, optional): Enable/Disable logging of system params such as installed packages,</span>
+<span class="sd">            git info, environment variables, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_metric_version_warning_shown</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_hash</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">repo</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Repo&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">experiment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">system_tracking_interval</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="n">DEFAULT_SYSTEM_TRACKING_INT</span><span class="p">,</span>
+                 <span class="n">log_system_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">capture_terminal_logs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RunAutoClean</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">run_hash</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="n">repo</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span><span class="p">:</span> <span class="n">TreeView</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;attrs&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="p">:</span> <span class="n">TreeView</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;attrs&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">read_only</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Opening Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1"> in write mode&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_metrics_version</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot track Run with remote repo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1">. Please upgrade repo first &#39;</span>
+                                   <span class="sa">f</span><span class="s1">&#39;with the following command:&#39;</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;aim storage --repo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1"> upgrade 3.11+ </span><span class="se">\&#39;</span><span class="s1">*</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Detected sub-optimal format metrics for Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">. Upgrading...&#39;</span><span class="p">)</span>
+                    <span class="n">backup_path</span> <span class="o">=</span> <span class="n">backup_run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">update_metrics</span><span class="p">()</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Successfully converted Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Run backup can be found at </span><span class="si">{</span><span class="n">backup_path</span><span class="si">}</span><span class="s1">. &#39;</span>
+                                       <span class="sa">f</span><span class="s1">&#39;In case of any issues the following command can be used to restore data: &#39;</span>
+                                       <span class="sa">f</span><span class="s1">&#39;`aim storage --repo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">root_path</span><span class="si">}</span><span class="s1"> restore </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">`&#39;</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Failed to convert metrics. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Run backup can be found at </span><span class="si">{</span><span class="n">backup_path</span><span class="si">}</span><span class="s1">. &#39;</span>
+                                       <span class="sa">f</span><span class="s1">&#39;To restore data please run the following command: &#39;</span>
+                                       <span class="sa">f</span><span class="s1">&#39;`aim storage --repo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">root_path</span><span class="si">}</span><span class="s1"> restore </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">`&#39;</span><span class="p">)</span>
+                        <span class="k">raise</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_props</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">read_only</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">is_remote_repo</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="o">=</span> <span class="n">RunStatusReporter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">log_system_params</span><span class="p">:</span>
+                <span class="n">system_params</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;packages&#39;</span><span class="p">:</span> <span class="n">get_installed_packages</span><span class="p">(),</span>
+                    <span class="s1">&#39;env_variables&#39;</span><span class="p">:</span> <span class="n">get_environment_variables</span><span class="p">(),</span>
+                    <span class="s1">&#39;git_info&#39;</span><span class="p">:</span> <span class="n">get_git_info</span><span class="p">(),</span>
+                    <span class="s1">&#39;executable&#39;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span>
+                    <span class="s1">&#39;arguments&#39;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+                <span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="s2">&quot;__system_params&quot;</span><span class="p">,</span> <span class="n">system_params</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="o">.</span><span class="n">first_key</span><span class="p">()</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">StopIteration</span><span class="p">):</span>
+                <span class="c1"># no run params are set. use empty dict</span>
+                <span class="bp">self</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">props</span>
+        <span class="k">if</span> <span class="n">experiment</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">experiment</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span> <span class="o">=</span> <span class="n">RunTracker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span><span class="p">:</span> <span class="n">ResourceTracker</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_resource_tracker</span><span class="p">(</span><span class="n">system_tracking_interval</span><span class="p">,</span> <span class="n">capture_terminal_logs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="o">=</span> <span class="n">RunAutoClean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">idx_to_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Context</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span><span class="o">.</span><span class="n">idx_to_ctx</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Run.__setitem__"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.__setitem__">[docs]</a>    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set Run top-level meta-parameter.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             key (:obj:`str`): Top-level meta-parameter name. Use ellipsis to reset</span>
+<span class="sd">                run&#39;s all meta-parameters.</span>
+<span class="sd">             val: Meta-parameter value.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; run = Run(&#39;3df703c&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; run[...] = params</span>
+<span class="sd">            &gt;&gt;&gt; run[&#39;hparams&#39;] = {&#39;batch_size&#39;: 42}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span></div>
+
+<div class="viewcode-block" id="Run.__getitem__"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.__getitem__">[docs]</a>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get run meta-parameter by key.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            key: path to Run meta-parameter.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Collected sub-tree of Run meta-parameters.</span>
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; run = Run(&#39;3df703c&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; run[&#39;hparams&#39;]  # -&gt; {&#39;batch_size&#39;: 42}</span>
+<span class="sd">            &gt;&gt;&gt; run[&#39;hparams&#39;, &#39;batch_size&#39;]  # -&gt; 42</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collect</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">strict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">strict</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">resolve_objects</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collect</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="n">strict</span><span class="p">,</span> <span class="n">resolve_objects</span><span class="o">=</span><span class="n">resolve_objects</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span>
+
+    <span class="k">def</span> <span class="nf">_collect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">resolve_objects</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="n">strict</span><span class="p">,</span> <span class="n">resolve_objects</span><span class="o">=</span><span class="n">resolve_objects</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_prepare_resource_tracker</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">tracking_interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">capture_terminal_logs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">ResourceTracker</span><span class="o">.</span><span class="n">check_interval</span><span class="p">(</span><span class="n">tracking_interval</span><span class="p">)</span> <span class="ow">or</span> <span class="n">capture_terminal_logs</span><span class="p">:</span>
+            <span class="n">current_logs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_terminal_logs</span><span class="p">()</span>
+            <span class="n">log_offset</span> <span class="o">=</span> <span class="n">current_logs</span><span class="o">.</span><span class="n">last_step</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">current_logs</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span> <span class="o">=</span> <span class="n">ResourceTracker</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span><span class="p">,</span>
+                                                            <span class="n">tracking_interval</span><span class="p">,</span>
+                                                            <span class="n">capture_terminal_logs</span><span class="p">,</span>
+                                                            <span class="n">log_offset</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_system_resource_tracker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Run.__delitem__"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.__delitem__">[docs]</a>    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove key from run meta-params.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            key: meta-parameter path</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Run.track"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.track">[docs]</a>    <span class="k">def</span> <span class="nf">track</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">context</span><span class="p">:</span> <span class="n">AimObject</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Main method for tracking numeric value series and object series.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             value: The tracked value.</span>
+<span class="sd">             name (str): Tracked sequence name.</span>
+<span class="sd">             step (:obj:`int`, optional): Sequence tracking iteration. Auto-incremented if not specified.</span>
+<span class="sd">             epoch (:obj:`int`, optional): The training epoch.</span>
+<span class="sd">             context (:obj:`dict`, optional): Sequence tracking context.</span>
+
+<span class="sd">        Appends the tracked value to sequence specified by `name` and `context`.</span>
+<span class="sd">        Appended values should be of the same type, in other words, sequence is a homogeneous collection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">props</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_props</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">request_props</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_props</span>
+
+<div class="viewcode-block" id="Run.iter_metrics_info"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.iter_metrics_info">[docs]</a>    <span class="k">def</span> <span class="nf">iter_metrics_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Context</span><span class="p">,</span> <span class="s1">&#39;Run&#39;</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Iterator for all run metrics info.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            tuples of (name, context, run) where run is the Run object itself and</span>
+<span class="sd">            name, context defines Metric type sequence (with values of `float` and `int`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_sequence_info_by_type</span><span class="p">((</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Run.iter_sequence_info_by_type"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.iter_sequence_info_by_type">[docs]</a>    <span class="k">def</span> <span class="nf">iter_sequence_info_by_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Context</span><span class="p">,</span> <span class="s1">&#39;Run&#39;</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Iterator for run sequence infos for the given object data types</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             dtypes: The objects data types list.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            tuples of (name, context, run) where run is the Run object itself and name, context defines sequence for</span>
+<span class="sd">            one of `dtypes` types.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtypes</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">dtypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">dtypes</span><span class="p">,)</span>
+        <span class="k">for</span> <span class="n">ctx_idx</span><span class="p">,</span> <span class="n">run_ctx_dict</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;traces&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx_idx</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_ctx</span><span class="p">(</span><span class="n">ctx_idx</span><span class="p">)</span>
+            <span class="c1"># run_ctx_view = run_meta_traces.view(ctx_idx)</span>
+            <span class="k">for</span> <span class="n">seq_name</span> <span class="ow">in</span> <span class="n">run_ctx_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seq_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+                <span class="c1"># skip sequences not matching dtypes.</span>
+                <span class="c1"># sequences with no dtype are considered to be float sequences.</span>
+                <span class="c1"># &#39;*&#39; stands for all data types</span>
+                <span class="k">if</span> <span class="s1">&#39;*&#39;</span> <span class="ow">in</span> <span class="n">dtypes</span> <span class="ow">or</span> <span class="n">run_ctx_dict</span><span class="p">[</span><span class="n">seq_name</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">seq_name</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Run.metrics"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.metrics">[docs]</a>    <span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;SequenceCollection&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get iterable object for all run tracked metrics.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`MetricCollection`: Iterable for run metrics.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; run = Run(&#39;3df703c&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; for metric in run.metrics():</span>
+<span class="sd">            &gt;&gt;&gt;     metric.values.sparse_numpy()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SingleRunSequenceCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;Run&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">hash</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">repo</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">repo</span>
+
+<div class="viewcode-block" id="Run.get_metric"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_metric">[docs]</a>    <span class="k">def</span> <span class="nf">get_metric</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Metric&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve metric sequence by it&#39;s name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked metric name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Metric` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">Run</span><span class="o">.</span><span class="n">_metric_version_warning_shown</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_metrics_version</span><span class="p">():</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Detected sub-optimal format metrics for Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s1">. Consider upgrading repo &#39;</span>
+                               <span class="sa">f</span><span class="s1">&#39;to improve queries performance:&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;aim storage --repo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1"> upgrade 3.11+ </span><span class="se">\&#39;</span><span class="s1">*</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">Run</span><span class="o">.</span><span class="n">_metric_version_warning_shown</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.get_image_sequence"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_image_sequence">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Images&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve images sequence by it&#39;s name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked image sequence name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Images` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.get_figure_sequence"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_figure_sequence">[docs]</a>    <span class="k">def</span> <span class="nf">get_figure_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Figures&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve figure sequence by its name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked figure sequence name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Figures` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;figures&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.get_audio_sequence"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_audio_sequence">[docs]</a>    <span class="k">def</span> <span class="nf">get_audio_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Audios&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve audios sequence by its name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked audios sequence name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Audios` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;audios&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.get_distribution_sequence"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_distribution_sequence">[docs]</a>    <span class="k">def</span> <span class="nf">get_distribution_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Distributions&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve distributions sequence by it&#39;s name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked distribution sequence name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Distributions` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;distributions&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.get_terminal_logs"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_terminal_logs">[docs]</a>    <span class="k">def</span> <span class="nf">get_terminal_logs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Logs&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve duplicated terminal logs for a run</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                    :obj:`Logs` object if exists, `None` otherwise.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="n">Context</span><span class="p">({}))</span></div>
+
+<div class="viewcode-block" id="Run.get_text_sequence"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.get_text_sequence">[docs]</a>    <span class="k">def</span> <span class="nf">get_text_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Texts&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve texts sequence by it&#39;s name and context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             name (str): Tracked text sequence name.</span>
+<span class="sd">             context (:obj:`Context`): Tracking context.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`Texts` object if exists, `None` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence</span><span class="p">(</span><span class="s1">&#39;texts&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_sequence_dtype</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">sequence_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">((</span><span class="s1">&#39;traces&#39;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">(</span><span class="n">context</span><span class="p">),</span> <span class="n">sequence_name</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="c1"># fallback to `float`, cause in older versions there was no `dtype`</span>
+            <span class="k">return</span> <span class="s1">&#39;float&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_get_sequence</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">seq_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">sequence_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">Context</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]:</span>
+        <span class="n">seq_cls</span> <span class="o">=</span> <span class="n">Sequence</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seq_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">seq_cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">seq_type</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> is not a valid Sequence&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">seq_cls</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">)</span>
+        <span class="n">tracked_dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sequence_dtype</span><span class="p">(</span><span class="n">sequence_name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tracked_dtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seq_cls</span><span class="o">.</span><span class="n">allowed_dtypes</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">sequence</span> <span class="o">=</span> <span class="n">seq_cls</span><span class="p">(</span><span class="n">sequence_name</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sequence</span> <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Run.collect_sequence_info"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.collect_sequence_info">[docs]</a>    <span class="k">def</span> <span class="nf">collect_sequence_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence_types</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">skip_last_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve Run&#39;s all sequences general overview.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             sequence_types: Type names of sequences for which to collect name/context pairs.</span>
+<span class="sd">             skip_last_value (:obj:`bool`, optional): Boolean flag to include tracked sequence last value in</span>
+<span class="sd">             sequence info. False by default.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">             :obj:`list`: list of sequence&#39;s `context`, `name` and optionally last tracked value triplets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">traces</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span><span class="o">.</span><span class="n">subtree</span><span class="p">(</span><span class="s1">&#39;traces&#39;</span><span class="p">)</span>
+        <span class="n">traces_overview</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># build reverse map of sequence supported dtypes</span>
+        <span class="n">dtype_to_sequence_type_map</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sequence_types</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">sequence_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">sequence_types</span><span class="p">,)</span>
+        <span class="k">for</span> <span class="n">seq_type</span> <span class="ow">in</span> <span class="n">sequence_types</span><span class="p">:</span>
+            <span class="n">traces_overview</span><span class="p">[</span><span class="n">seq_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">seq_cls</span> <span class="o">=</span> <span class="n">Sequence</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seq_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">seq_cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">seq_type</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> is not a valid Sequence&#39;</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">seq_cls</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">)</span>
+            <span class="n">dtypes</span> <span class="o">=</span> <span class="n">seq_cls</span><span class="o">.</span><span class="n">allowed_dtypes</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="p">:</span>
+                <span class="n">dtype_to_sequence_type_map</span><span class="p">[</span><span class="n">dtype</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_type</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">traces</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">ctx_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_ctx</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">dtype</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>  <span class="c1"># old sequences without dtype set are considered float sequences</span>
+                <span class="k">if</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">dtype_to_sequence_type_map</span><span class="p">:</span>
+                    <span class="n">trace_data</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="n">ctx_dict</span><span class="p">,</span>
+                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_last_value</span><span class="p">:</span>
+                        <span class="n">trace_data</span><span class="p">[</span><span class="s1">&#39;last_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                    <span class="k">for</span> <span class="n">seq_type</span> <span class="ow">in</span> <span class="n">dtype_to_sequence_type_map</span><span class="p">[</span><span class="n">dtype</span><span class="p">]:</span>
+                        <span class="n">traces_overview</span><span class="p">[</span><span class="n">seq_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">traces_overview</span></div>
+
+    <span class="k">def</span> <span class="nf">_cleanup_trees</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_series_run_trees</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_attrs_tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_run_tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_attrs_tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_series_run_trees</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracker</span><span class="o">.</span><span class="n">sequence_infos</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># de-reference trees and other resources</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_props</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_props</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup_trees</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span><span class="o">.</span><span class="n">finalize_run</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Run.dataframe"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">include_props</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">include_params</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DataFrame&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get run properties and params as pandas DataFrame</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">             include_props: (:obj:`int`, optional): If true, include run structured props</span>
+<span class="sd">             include_params: (:obj:`int`, optional): If true, include run parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;hash&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">include_props</span><span class="p">:</span>
+            <span class="c1"># TODO [GA]: Auto collect props based on StructuredRunMixin:</span>
+            <span class="c1">#  - Exclude created_at, updated_at, finalized_at auto-populated fields</span>
+            <span class="c1">#  - Collect list of representations in case of ModelMappedCollection&#39;s</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">description</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;archived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">archived</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;creation_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">creation_time</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">experiment</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">tags</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">include_params</span><span class="p">:</span>
+            <span class="c1"># TODO [GA]:</span>
+            <span class="c1">#  - Move run params collection to utility function</span>
+            <span class="c1">#  - Remove code duplication from Metric.dataframe</span>
+            <span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">treeutils</span><span class="o">.</span><span class="n">unfold_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+                                                   <span class="n">unfold_array</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                   <span class="n">depth</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">]&#39;</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
+                    <span class="n">val</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+        <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="Run.report_progress"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.report_progress">[docs]</a>    <span class="k">def</span> <span class="nf">report_progress</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">expect_next_in</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">block</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Report progress for the run. Report the expected time for the next progress report.</span>
+
+<span class="sd">        If no progress reports are received by the expiry date (plus the grace period), the</span>
+<span class="sd">        run is considered as failed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            expect_next_in: (:obj:`int`, optional): The number of seconds to wait before the next progress report.</span>
+<span class="sd">            block: (:obj:`bool`, optional): If true, block the thread until the report is written to filesystem.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Progress reports are not enabled for this run&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span><span class="o">.</span><span class="n">_check_in</span><span class="p">(</span><span class="n">expect_next_in</span><span class="o">=</span><span class="n">expect_next_in</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="n">block</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Run.report_successful_finish"><a class="viewcode-back" href="../../../refs/sdk.html#aim.sdk.run.Run.report_successful_finish">[docs]</a>    <span class="k">def</span> <span class="nf">report_successful_finish</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">block</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Report successful finish of the run. If the run is not marked as successfully finished,</span>
+<span class="sd">        it can potentially be considered as failed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            block: (:obj:`bool`, optional): If true, block the thread until the report is written to filesystem.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Progress reports are not enabled for this run&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkins</span><span class="o">.</span><span class="n">_report_successful_finish</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="n">block</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

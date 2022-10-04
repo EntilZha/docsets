@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Table &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bookmarks" href="bookmarks.html" />
+    <link rel="prev" title="Explorers" href="explorers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explorers.html">Explorers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Table</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-the-selected-runs">Delete the selected runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archive-unarchive-the-selected-runs">Archive/Unarchive the selected runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hide-show-the-selected-runs">Hide/Show the selected runs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Table</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ui/pages/table.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="table">
+<h1>Table<a class="headerlink" href="#table" title="Permalink to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>The Aim Table helps to explore and compare training runs - their results, logged hyper-parameters, system info, etc. You can also use the table to hide, delete, archive and compare selected training runs in a few clicks.</p>
+</section>
+<section id="delete-the-selected-runs">
+<h2>Delete the selected runs<a class="headerlink" href="#delete-the-selected-runs" title="Permalink to this heading"></a></h2>
+<p>To delete a set of runs, select rows and click on the <code class="docutils literal notranslate"><span class="pre">Delete</span></code> button, which is located at the top of the table.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC; height: 200px" alt="Delete the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/delete_a_batch_of_items.png"></span></p>
+<p>In-progress runs can’t be deleted. Please wait until the run is finished or terminate it to be able to delete the run.</p>
+<p>After clicking on the <code class="docutils literal notranslate"><span class="pre">Delete</span></code> button a popup appears where <code class="docutils literal notranslate"><span class="pre">finished</span></code> and <code class="docutils literal notranslate"><span class="pre">in-progress</span></code> runs are divided into separate tables.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC;" alt="The popup for deleting the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/delete_a_batch_of_items_popup.png"></span></p>
+<p>To undo the selection, hover over the selected row and click on the X button (appears on hover).</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC;" alt="The hovered run in the popup for deleting the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/delete_a_batch_of_items_popup_remove_run.png"></span></p>
+</section>
+<section id="archive-unarchive-the-selected-runs">
+<h2>Archive/Unarchive the selected runs<a class="headerlink" href="#archive-unarchive-the-selected-runs" title="Permalink to this heading"></a></h2>
+<p>To archive/unarchive a set of runs, select rows and click on the <code class="docutils literal notranslate"><span class="pre">Archive/Unarchive</span></code> button, which is located at the top of the table.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC; height: 200px; width: 100%" alt="Archive/Unarchive the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/archive_a_batch_of_items.png"></span></p>
+<p>After clicking on the <code class="docutils literal notranslate"><span class="pre">Archive/Unarchive</span></code> button a popup appears, where <code class="docutils literal notranslate"><span class="pre">archived</span></code> and <code class="docutils literal notranslate"><span class="pre">unarchived</span></code> runs are divided into separate tables.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="The popup for archiving/unarchiving the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/archive_a_batch_of_items_popup.png"></span></p>
+<p>To undo the selection, hover over the selected row and click on the X button (appears on hover).</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC" alt="The hovered run in opened archive/unarchive popup of a set of selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/archive_a_batch_of_items_popup_remove_run.png"></span></p>
+</section>
+<section id="hide-show-the-selected-runs">
+<h2>Hide/Show the selected runs<a class="headerlink" href="#hide-show-the-selected-runs" title="Permalink to this heading"></a></h2>
+<p>To hide/show a set of runs, select rows and click on the <code class="docutils literal notranslate"><span class="pre">Hide/Show</span> <span class="pre">Lines</span></code> button, which is located at the top of the table.</p>
+<p><span class="raw-html-m2r"><img style="border-radius: 8px; border: 1px solid #E8F1FC; height: 200px" alt="Hide/Show the selected runs" src="https://docs-blobs.s3.us-east-2.amazonaws.com/images/ui/pages/table/hide_a_batch_of_items.png"></span></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="explorers.html" class="btn btn-neutral float-left" title="Explorers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bookmarks.html" class="btn btn-neutral float-right" title="Bookmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

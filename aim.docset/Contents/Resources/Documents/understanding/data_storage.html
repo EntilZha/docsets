@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data storage - where Aim data is collected &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Storage indexing - how Aim data is indexed" href="storage_indexing.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data storage - where Aim data is collected</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#storage-structure">Storage structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-index-container">What is the index container?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-data-written-to-read-from-the-storage">How data written to/read from the storage?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Data storage - where Aim data is collected</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/understanding/data_storage.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-storage-where-aim-data-is-collected">
+<h1>Data storage - where Aim data is collected<a class="headerlink" href="#data-storage-where-aim-data-is-collected" title="Permalink to this heading"></a></h1>
+<p>This section provides a deep-dive into Aim storage structure. It is important
+to know the internal storage organization in order to understand how it affects
+queries performance.</p>
+<section id="storage-structure">
+<h2>Storage structure<a class="headerlink" href="#storage-structure" title="Permalink to this heading"></a></h2>
+<p>The core foundation for Aim storage is <a class="reference external" href="http://rocksdb.org/docs/getting-started.html">rocksdb</a>. It is a fast, embedded key-value
+store maintained by facebook. The aim repository is a collection of individual
+rocksdb databases with abstraction layers added to manage the collection as one database. The abstraction of
+a single KV store called <code class="docutils literal notranslate"><span class="pre">Container</span></code>. Below is the directory structure for a typical Aim project:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.aim
+    run_metadata.sqlite
+    meta/
+        index/
+        chunks/
+            aacf48e769534c32a9cc5a3c/
+            80483ab611a24bf5bd8fc288/
+            16f83a2c2f50477f8446f322/
+        progress/
+            aacf48e769534c32a9cc5a3c
+            80483ab611a24bf5bd8fc288
+        locks/
+            aacf48e769534c32a9cc5a3c
+            80483ab611a24bf5bd8fc288
+    seqs/
+        chunks/
+            aacf48e769534c32a9cc5a3c/
+            80483ab611a24bf5bd8fc288/
+            16f83a2c2f50477f8446f322/
+        progress/
+            aacf48e769534c32a9cc5a3c
+            80483ab611a24bf5bd8fc288
+        locks/
+            aacf48e769534c32a9cc5a3c
+            80483ab611a24bf5bd8fc288
+</pre></div>
+</div>
+<p>There are two main parts of the storage:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">run_metadata.sqlite</span></code>: SQLite database for storing <code class="docutils literal notranslate"><span class="pre">Run</span></code> structured data, such as, creation time,
+name, <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> it is attached to, <code class="docutils literal notranslate"><span class="pre">Tag</span></code>s etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meta/</span></code> and <code class="docutils literal notranslate"><span class="pre">seqs/</span></code> directories: a collection of rocksdb storages. Used to write <code class="docutils literal notranslate"><span class="pre">Run</span></code>s tracked
+data, such as params, metrics and objects.</p></li>
+</ul>
+<p>In the tree above the hash-strings (i.e. <code class="docutils literal notranslate"><span class="pre">aacf48e769534c32a9cc5a3c</span></code>) represent a single <code class="docutils literal notranslate"><span class="pre">Run</span></code>.
+When the new <code class="docutils literal notranslate"><span class="pre">Run</span></code> is started, aim will create two Containers:</p>
+<ul class="simple">
+<li><p><strong>Meta</strong> container for logged params as well as metadata about collected sequences, contexts, etc.</p></li>
+<li><p><strong>Sequence</strong> container for the value series.</p></li>
+</ul>
+<p>The reason the actual sequence data separated from metadata is the necessity for fast queries, regardless
+sequence size.</p>
+<p>Additionally, per each container two files will be created to properly manage the container state</p>
+<ul class="simple">
+<li><p><strong>lock</strong> file, indicating that the container opened in write-mode.</p></li>
+<li><p><strong>progress</strong> file, indicating that container potentially has un-indexed data.</p></li>
+</ul>
+<p>This setup allows implementing concurrent training jobs setup without requiring additional synchronization
+routines, and without the risk of losing or corrupting the data. For example, two jobs might run on different hosts where aim repo mounted on a shared NFS location.</p>
+</section>
+<section id="what-is-the-index-container">
+<h2>What is the index container?<a class="headerlink" href="#what-is-the-index-container" title="Permalink to this heading"></a></h2>
+<p>Each run writes data into its own isolated containers. The aim queries require reading
+the Run metadata from <strong>meta</strong> container. However, with 1000s of runs opening each meta container database will slow-down
+the queries. Here the indexing of metadata becomes crucial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Run</span></code> object maintains lock for both <strong>meta</strong> and <strong>sequence</strong> containers during the training script execution. Run will
+continue to write its data into its own containers. Once the execution finishes, <strong>meta</strong> container data indexed,
+the container locks released, and the progress file removed. The <strong>sequence</strong> container data is not indexed, since the
+individual points of a sequence are not queryable, and the sequence info is available in <strong>meta</strong> container.</p>
+</section>
+<section id="how-data-written-to-read-from-the-storage">
+<h2>How data written to/read from the storage?<a class="headerlink" href="#how-data-written-to-read-from-the-storage" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Run</span></code> object provides interface for logging the Run parameters dict-like data and tracking series of scalars
+and objects. Aim has a custom encoding layer which translates this hierarchical data into the sets of key-value
+pairs to be written into rocksdb. The same encoding layer is responsible for re-constructing the tracked data/objects.
+During query execution, aim SDK will walk through all runs in <code class="docutils literal notranslate"><span class="pre">index</span></code> container + the <strong>meta</strong> containers for chunks which
+have progress file (remember that progress file indicates potentially un-indexed data for the Run). If the run/sequence
+match the query expression, the appropriate run/sequence will be yielded. Notice that till this point no data was accessed
+from the <strong>sequence</strong> container. The sequence data itself is read upon request.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="storage_indexing.html" class="btn btn-neutral float-right" title="Storage indexing - how Aim data is indexed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

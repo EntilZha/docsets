@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migrate from other tools &mdash; Aim 3.13.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Track media and objects" href="supported_types.html" />
+    <link rel="prev" title="Integrate Aim into an existing project" href="integrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Aim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrate from other tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#show-tensorboard-logs-in-aim">Show TensorBoard logs in Aim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-mlflow-logs-in-aim">Show MLflow logs in Aim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-weights-and-biases-logs-in-aim">Show Weights and Biases logs in Aim</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/sdk.html">Aim SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refs/storage.html">Aim Storage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Aim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Migrate from other tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/quick_start/convert_data.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="migrate-from-other-tools">
+<h1>Migrate from other tools<a class="headerlink" href="#migrate-from-other-tools" title="Permalink to this heading"></a></h1>
+<p>The Aim explorers add true superpowers to the AI engineer’s arsenal. However not all training runs may have been tracked
+by Aim. So it is important to be able to port existing training run logs. There might be 1000s of training runs tracked
+with other tools. Aim has built-in converters to easily migrate logs from other tools. These migrations cover the most
+common usage scenarios. In case of custom and complex scenarios you can use Aim SDK to implement your own conversion
+script.</p>
+<p>As of Aim <code class="docutils literal notranslate"><span class="pre">v3.6.0</span></code> the following converters are supported:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#show-tensorboard-logs-in-aim">TensorBoard logs converter</a></p></li>
+<li><p><a class="reference external" href="#show-mlflow-logs-in-aim">MLFlow logs converter</a></p></li>
+<li><p><a class="reference external" href="#show-weights-and-biases-logs-in-aim">Weights &amp; Biases logs converter</a></p></li>
+</ul>
+<p>We are working to constantly improve existing converters and implement new ones.</p>
+<section id="show-tensorboard-logs-in-aim">
+<h2>Show TensorBoard logs in Aim<a class="headerlink" href="#show-tensorboard-logs-in-aim" title="Permalink to this heading"></a></h2>
+<p>Aim gives you a possibility to convert <a class="reference external" href="https://www.tensorflow.org/tensorboard">TensorBoard</a>
+logs into native format and show them directly inside the Aim UI.</p>
+<p>Before showing the logs in Aim, the files have to pass the conversion process.</p>
+<p>Please note that only the following plugins are currently supported</p>
+<ul class="simple">
+<li><p>scalar</p></li>
+<li><p>image</p></li>
+</ul>
+<p>To convert TensorBoard logs, <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">convert</span></code> command must be run on your log directory.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>aim convert tensorboard --logdir ~/my_logdir
+</pre></div>
+</div>
+<p>To make conversion process smooth please ensure that logs directory structure follows conventions below. Consider the
+following directory hierarchy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/my_logdir/
+    ├&gt; run_1/
+    │    ├&gt; &lt;evnet_file_1&gt;
+    │    └&gt; &lt;evnet_file_2&gt;
+    ├&gt; group_1/
+    │    ├&gt; &lt;evnet_file_3&gt; (THIS LOG WILL BE IGNORED)
+    │    ├&gt; run_2/
+    │    │    ├&gt; train/
+    │    │    │    ├&gt; &lt;evnet_file_4&gt;
+    │    │    │    └&gt; &lt;evnet_file_5&gt;
+    │    │    ├&gt; validate/
+    │    │    │    ├&gt; &lt;evnet_file_6&gt;
+    │    │    │    └&gt; &lt;evnet_file_7&gt;
+    │    │    ├&gt; &lt;evnet_file_8&gt; (IGNORED IF &quot;--flat&quot; IS ACTIVE)
+    │    │    └&gt; &lt;evnet_file_9&gt; (IGNORED IF &quot;--flat&quot; IS ACTIVE)
+    │    └&gt; run_3/
+    │        ├&gt; &lt;evnet_file_10&gt;
+    │        └&gt; &lt;evnet_file_11&gt;
+    ├&gt; &lt;evnet_file_12&gt; (THIS LOG WILL BE IGNORED)
+    └&gt; &lt;evnet_file_13&gt; (THIS LOG WILL BE IGNORED)
+</pre></div>
+</div>
+<p>Note that directory naming is not mandated and its up to you how to name them.</p>
+<p>The conversion logic categorizes your hierarchy into one of <code class="docutils literal notranslate"><span class="pre">group</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">context</span></code>
+categories where.</p>
+<ul class="simple">
+<li><p>group: Is a directory which has one or more <code class="docutils literal notranslate"><span class="pre">run</span></code> directories inside it,</p></li>
+<li><p>run: Is a directory which has either log files or context directory inside it,</p></li>
+<li><p>context: Is a directory inside of <code class="docutils literal notranslate"><span class="pre">run</span></code> directory which has at least one log file inside it.</p></li>
+</ul>
+<p>Conversion process will scan and determine <code class="docutils literal notranslate"><span class="pre">run</span></code> directories for your hierarchy and will create a distinct run for each
+of them.</p>
+<p>From the hierarchy example above you can see that the following log files will be ignored since the converter treats
+them as unorganized log files.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/group_1/evnet_file_3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/evnet_file_12</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/evnet_file_13</span></code></p></li>
+</ul>
+<p>All other logs will either have <code class="docutils literal notranslate"><span class="pre">Context</span></code> or <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Context</span></code>. Context of the log is the name of the parent directory if
+the parent directory hasn’t been categorized into neither as <code class="docutils literal notranslate"><span class="pre">run</span></code> nor <code class="docutils literal notranslate"><span class="pre">group</span></code> category.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Log files right underneath <code class="docutils literal notranslate"><span class="pre">run_1</span></code>, <code class="docutils literal notranslate"><span class="pre">run_2</span></code> and <code class="docutils literal notranslate"><span class="pre">run_3</span></code> will have no context</p></li>
+<li><p>Log files in <code class="docutils literal notranslate"><span class="pre">run_2/train</span></code> and <code class="docutils literal notranslate"><span class="pre">run_2/validate</span></code> will have <code class="docutils literal notranslate"><span class="pre">train</span></code> and <code class="docutils literal notranslate"><span class="pre">validate</span></code> as context accordingly.</p></li>
+</ul>
+<p>In case the converter finds unorganized log files in your hierarchy a warning message will be issued.</p>
+<p>To make the converter process these logs, consider re-structuring your directories so that it matches the sample
+structure. (i.e. create a new directory and moving your unorganized logs there)</p>
+<p>You can make converter treat every directory as a distinct run by supplying <code class="docutils literal notranslate"><span class="pre">--flat</span></code> option. In this case the following
+directories will be categorized as a <code class="docutils literal notranslate"><span class="pre">run</span></code> directory.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/run_1/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/group_1/run_2/train/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/group_1/run_2/validate/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/my_logdir/group_1/run_3/</span></code></p></li>
+</ul>
+<p>The log files in all other directories will be ignored.</p>
+</section>
+<section id="show-mlflow-logs-in-aim">
+<h2>Show MLflow logs in Aim<a class="headerlink" href="#show-mlflow-logs-in-aim" title="Permalink to this heading"></a></h2>
+<p>Aim gives you a possibility to convert <a class="reference external" href="https://mlflow.org/">MLflow</a> runs into native format and show them directly on
+Aim UI.</p>
+<p>Before showing your MLlfow runs on Aim, they need to pass conversion process where your metrics, tags, parameters, run
+description/notes and <em>some</em> artifacts will be transferred into Aim storage.</p>
+<p>Please note that as for now, only the artifacts having the following file extensions will be transferred into Aim
+storage!</p>
+<ul class="simple">
+<li><p>Images: <code class="docutils literal notranslate"><span class="pre">(</span>
+<span class="pre">'jpg',</span>
+<span class="pre">'bmp',</span>
+<span class="pre">'jpeg',</span>
+<span class="pre">'png',</span>
+<span class="pre">'gif',</span>
+<span class="pre">'svg'</span>
+<span class="pre">)</span></code></p></li>
+<li><p>Texts: <code class="docutils literal notranslate"><span class="pre">(</span>
+<span class="pre">'txt',</span>
+<span class="pre">'log',</span>
+<span class="pre">'py',</span>
+<span class="pre">'js',</span>
+<span class="pre">'yaml',</span>
+<span class="pre">'yml',</span>
+<span class="pre">'json',</span>
+<span class="pre">'csv',</span>
+<span class="pre">'tsv',</span>
+<span class="pre">'md',</span>
+<span class="pre">'rst',</span>
+<span class="pre">'jsonnet'</span>
+<span class="pre">)</span></code></p></li>
+<li><p>Sound/Audios: <code class="docutils literal notranslate"><span class="pre">(</span>
+<span class="pre">'flac',</span>
+<span class="pre">'mp3',</span>
+<span class="pre">'wav'</span>
+<span class="pre">)</span></code></p></li>
+</ul>
+<p>To convert MLflow runs, <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">convert</span> <span class="pre">mlflow</span></code> command must be run on your log directory:</p>
+<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>$ aim init
+$ aim convert mlflow --tracking_uri &#39;file:///Users/aim_user/mlruns&#39;
+</pre></div>
+</div>
+<p>You can also set the <code class="docutils literal notranslate"><span class="pre">MLFLOW_TRACKING_URI</span></code> environment variable to have MLflow find a URI from there. In both cases, the
+URI can either be an HTTP/HTTPS URI for a remote server, a database connection string, or a local path to log data to a
+directory.</p>
+<p>The conversion process will iterate over all your Experiments and create a distinct run for each run inside the
+experiment. If you want to process only a single experiment, you can provide the experiment id or name to the conversion
+command:</p>
+<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>$ aim convert mlflow --tracking_uri &#39;file:///Users/aim_user/mlruns&#39; --experiment 0
+</pre></div>
+</div>
+<p>While converting the artifacts, the converter will try to determine file content type only based on its extension. A
+warning message will be issued if artifact cannot be categorized, these artifacts will not be transferred to aim!
+Please check the command output logs if you fail to see your artifact in Aim’s web.</p>
+</section>
+<section id="show-weights-and-biases-logs-in-aim">
+<h2>Show Weights and Biases logs in Aim<a class="headerlink" href="#show-weights-and-biases-logs-in-aim" title="Permalink to this heading"></a></h2>
+<p>Aim gives you a possibility to convert <a class="reference external" href="https://wandb.ai/site">Weights &amp; Biases</a> runs into native format and explore them via Aim UI.</p>
+<p>To be able to explore Weights &amp; Biases runs with Aim, please run the WandB to Aim converter. All the metrics, tags, config, experiment description/notes and <em>some</em> artifacts will be converted and stored in <code class="docutils literal notranslate"><span class="pre">.aim</span></code> repo.</p>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">aim</span> <span class="pre">convert</span> <span class="pre">wandb</span></code> command to start converting Weights &amp; Biases experiments:</p>
+<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>$ aim init
+$ aim convert wandb --entity &#39;my_team&#39; --project &#39;test_project&#39;
+</pre></div>
+</div>
+<p>The convertor will iterate over all the experiments and create a distinct Aim run for each experiment. If you want to process only a single experiment, please specify the experiment id or name when running the command:</p>
+<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>$ aim convert wandb --entity my_team --project test_project --run-id &#39;&lt;HASH_OF_RUN&gt;&#39;
+</pre></div>
+</div>
+<p>While converting the artifacts, the converter will try to determine file content type based on its extension. A
+warning message will be issued if artifact will not be categorized, these artifacts will not be transferred to aim.
+Please note that current implementation tracks only the primitive datatypes.</p>
+<p>If there are any issues with the conversion process, please <a class="reference external" href="https://github.com/aimhubio/aim/issues/new/choose">submit an issue</a>.</p>
+<p>Once conversion process is complete - you can enjoy the power of Aim 🚀</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="integrations.html" class="btn btn-neutral float-left" title="Integrate Aim into an existing project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="supported_types.html" class="btn btn-neutral float-right" title="Track media and objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

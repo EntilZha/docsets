@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aim Storage — Aim 3.13.4 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/logo.svg" rel="shortcut icon"/>
+<!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/clipboard.min.js"></script>
+<script src="../_static/copybutton.js"></script>
+<script src="../_static/js/theme.js"></script>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="../community/telemetry.html" rel="next" title="Anonymized Telemetry"/>
+<link href="sdk.html" rel="prev" title="Aim SDK"/>
+</head>
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../index.html"> Aim
+          </a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" type="text"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+</div>
+</div><div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/setup.html">Get started with Aim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/integrations.html">Integrate Aim into an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/convert_data.html">Migrate from other tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/supported_types.html">Track media and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/next_steps.html">Next steps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Aim UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/home_page.html">Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/run_management.html">Runs Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/explorers.html">Explorers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/table.html">Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/bookmarks.html">Bookmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/pages/tags.html">Tags page</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using/manage_runs.html">Manage runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/configure_runs.html">Configure runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/query_runs.html">Query runs and objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/search.html">Query language basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/remote_tracking.html">Track experiments with aim remote server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/run_status_notifications.html">Monitoring and Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/k8s_deployment.html">Host Aim on Kubernetes (K8S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/jupyter_notebook_ui.html">Run Aim UI on Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/sagemaker_notebook_ui.html">Run Aim UI on SageMaker Notebook instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/integration_guides.html">Integration guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding Aim</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/data_storage.html">Data storage - where Aim data is collected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/storage_indexing.html">Storage indexing - how Aim data is indexed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/running_aim_with_profiling.html">Running Aim with profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding/metric_step_hashing.html">Storing Metric sequence data for fast access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/images_explorer_gan.html">Track and compare GANs with Aim</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Aim CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#aim-status-watcher-cli">Aim status watcher CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">Aim SDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aim Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-aim.storage.arrayview">aim.storage.arrayview module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aim.storage.arrayview.ArrayView"><code class="docutils literal notranslate"><span class="pre">ArrayView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.first"><code class="docutils literal notranslate"><span class="pre">ArrayView.first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.first_idx"><code class="docutils literal notranslate"><span class="pre">ArrayView.first_idx()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.first_value"><code class="docutils literal notranslate"><span class="pre">ArrayView.first_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.indices"><code class="docutils literal notranslate"><span class="pre">ArrayView.indices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.indices_list"><code class="docutils literal notranslate"><span class="pre">ArrayView.indices_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.indices_numpy"><code class="docutils literal notranslate"><span class="pre">ArrayView.indices_numpy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.items"><code class="docutils literal notranslate"><span class="pre">ArrayView.items()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.keys"><code class="docutils literal notranslate"><span class="pre">ArrayView.keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.last"><code class="docutils literal notranslate"><span class="pre">ArrayView.last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.last_idx"><code class="docutils literal notranslate"><span class="pre">ArrayView.last_idx()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.last_value"><code class="docutils literal notranslate"><span class="pre">ArrayView.last_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.sparse_list"><code class="docutils literal notranslate"><span class="pre">ArrayView.sparse_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.sparse_numpy"><code class="docutils literal notranslate"><span class="pre">ArrayView.sparse_numpy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.tolist"><code class="docutils literal notranslate"><span class="pre">ArrayView.tolist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.values"><code class="docutils literal notranslate"><span class="pre">ArrayView.values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.values_list"><code class="docutils literal notranslate"><span class="pre">ArrayView.values_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aim.storage.arrayview.ArrayView.values_numpy"><code class="docutils literal notranslate"><span class="pre">ArrayView.values_numpy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/telemetry.html">Anonymized Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/CHANGELOG.html">Changelog</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift"><nav aria-label="Mobile navigation menu" class="wy-nav-top">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../index.html">Aim</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="Page navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a class="icon icon-home" href="../index.html"></a> »</li>
+<li>Aim Storage</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/refs/storage.rst.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div itemprop="articleBody">
+<section id="aim-storage">
+<a class="dashAnchor" name="//apple_ref/cpp/Module/aim.storage.arrayview"></a><h1>Aim Storage<a class="headerlink" href="#aim-storage" title="Permalink to this heading"></a></h1>
+<section id="module-aim.storage.arrayview">
+<span id="aim-storage-arrayview-module"></span><h2>aim.storage.arrayview module<a class="headerlink" href="#module-aim.storage.arrayview" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aim.storage.arrayview.</span></span><span class="sig-name descname"><span class="pre">ArrayView</span></span><a class="dashAnchor" name="//apple_ref/cpp/Class/aim.storage.arrayview.ArrayView"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView" title="Permalink to this definition"></a></dt>
+<dd><p>Array of homogeneous elements with sparse indices.
+Interface for working with array as a non-sparse array is available for cases
+when index values are not important.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.first">
+<span class="sig-name descname"><span class="pre">first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.first"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.first" title="Permalink to this definition"></a></dt>
+<dd><p>First index and value of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.first_idx">
+<span class="sig-name descname"><span class="pre">first_idx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.first_idx"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.first_idx" title="Permalink to this definition"></a></dt>
+<dd><p>First index of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.first_value">
+<span class="sig-name descname"><span class="pre">first_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.first_value"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.first_value" title="Permalink to this definition"></a></dt>
+<dd><p>First value of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.indices"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.indices" title="Permalink to this definition"></a></dt>
+<dd><p>Return sparse indices iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Array’s next sparse index.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.indices_list">
+<span class="sig-name descname"><span class="pre">indices_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.indices_list"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.indices_list" title="Permalink to this definition"></a></dt>
+<dd><p>Get sparse indices as a <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.indices_numpy">
+<span class="sig-name descname"><span class="pre">indices_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.indices_numpy"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.indices_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>Get sparse indices as numpy array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.items"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.items" title="Permalink to this definition"></a></dt>
+<dd><p>Return items iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Tuple of array’s next sparse index and value.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.keys"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.keys" title="Permalink to this definition"></a></dt>
+<dd><p>Return sparse indices iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Array’s next sparse index.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.last">
+<span class="sig-name descname"><span class="pre">last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.last"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.last" title="Permalink to this definition"></a></dt>
+<dd><p>Last index and value of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.last_idx">
+<span class="sig-name descname"><span class="pre">last_idx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.last_idx"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.last_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Last index of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.last_value">
+<span class="sig-name descname"><span class="pre">last_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.last_value"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.last_value" title="Permalink to this definition"></a></dt>
+<dd><p>Last value of the array.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.sparse_list">
+<span class="sig-name descname"><span class="pre">sparse_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.sparse_list"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.sparse_list" title="Permalink to this definition"></a></dt>
+<dd><p>Get sparse indices and values as :obj:<a href="#id1"><span class="problematic" id="id2">`</span></a>list`s.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.sparse_numpy">
+<span class="sig-name descname"><span class="pre">sparse_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.sparse_numpy"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.sparse_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>Get sparse indices and values as numpy arrays.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.tolist">
+<span class="sig-name descname"><span class="pre">tolist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.tolist"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.tolist" title="Permalink to this definition"></a></dt>
+<dd><p>Convert to values list</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.values"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.values" title="Permalink to this definition"></a></dt>
+<dd><p>Return values iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p>Array’s next value.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.values_list">
+<span class="sig-name descname"><span class="pre">values_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.values_list"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.values_list" title="Permalink to this definition"></a></dt>
+<dd><p>Get values as a <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aim.storage.arrayview.ArrayView.values_numpy">
+<span class="sig-name descname"><span class="pre">values_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="dashAnchor" name="//apple_ref/cpp/Method/aim.storage.arrayview.ArrayView.values_numpy"></a><a class="headerlink" href="#aim.storage.arrayview.ArrayView.values_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>Get values as numpy array.</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+<footer><div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+<a accesskey="p" class="btn btn-neutral float-left" href="sdk.html" rel="prev" title="Aim SDK"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+<a accesskey="n" class="btn btn-neutral float-right" href="../community/telemetry.html" rel="next" title="Anonymized Telemetry">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<p>© Copyright 2019-2022, Gev Sogomonian, Gor Arakelyan et al...</p>
+</div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+</div>
+</div>
+</section>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+</body>
+</html>
