@@ -1,3 +1,9 @@
 [submodule "aim"]
 	path = aim
 	url = https://github.com/aimhubio/aim.git
+[submodule "flax"]
+	path = flax
+	url = https://github.com/google/flax.git
+[submodule "jax"]
+	path = jax
+	url = https://github.com/google/jax.git
